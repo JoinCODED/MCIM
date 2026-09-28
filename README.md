@@ -1,6 +1,6 @@
 # Mastering Copilot in Microsoft 365 — workshop site (CODED)
 
-A 3-day, open-enrollment workshop site: landing page, three day pages, three slide decks, three hands-on labs,
+A 3-day workshop site: landing page, three day pages, three slide decks, three hands-on labs,
 a Prompt Bank, the capstone, a cheat sheet, resources and fictional sample files (Tamra Foods Co.).
 
 ## Deploy

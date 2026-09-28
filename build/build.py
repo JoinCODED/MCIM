@@ -357,7 +357,7 @@ def build_landing():
     body = f'''<header class="hero">
   <div class="glow g1"></div><div class="glow g2"></div><div class="glow g3"></div><div class="glow g4"></div>
   <div class="inner">
-    <div class="pill"><span class="dot"></span> <span data-cfg="cohort">Open enrollment · Kuwait</span></div>
+    <div class="pill"><span class="dot"></span> <span data-cfg="cohort">CODED · Kuwait</span></div>
     <div class="lockup"><img class="coded-logo" alt="CODED" src="{LOGO}"></div>
     <h1 class="headline"><span class="l1">Mastering Copilot</span><span class="accent">in Microsoft 365</span></h1>
     <p class="sub">A hands-on, three-day workshop for professionals who want Copilot to do real work — drafting, analysing, presenting and replying across Word, Excel, PowerPoint and Outlook. Safely.</p>

@@ -10,7 +10,7 @@
    (and the QR code shows "coming soon").
    ========================================================================== */
 window.SITE = {
-  cohort: "Open enrollment · Kuwait",
+  cohort: "CODED · Kuwait",
   venue: "CODED, Kuwait",
   datesRange: "29 Sep – 1 Oct 2026",
 
