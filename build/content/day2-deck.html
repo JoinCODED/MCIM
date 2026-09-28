@@ -1,0 +1,512 @@
+<!-- ===================== DAY 2 · COPILOT ACROSS THE APPS ===================== -->
+
+<!-- ========== COVER ========== -->
+<div class="slide active" id="s-cover">
+  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
+  <div class="slide-pad" style="text-align:center;display:flex;flex-direction:column;align-items:center">
+    <span class="eyebrow b" style="padding-left:0">Day 2 · <span data-cfg="dates.d2">Wednesday 30 September 2026</span> · 09:00 – 14:00</span>
+    <h1 class="cover-h b">Put it to work<br><span class="hl">in the apps you already use.</span></h1>
+    <p class="cover-sub b">Four apps. Four blocks. One recipe. Every block ends with a scenario for your role.</p>
+    <div class="apps-orbit b">
+      <div class="app-tile"><img class="applogo" src="{{ICON:word}}" alt="Word"><span class="an2">Word</span></div>
+      <div class="app-tile"><img class="applogo" src="{{ICON:powerpoint}}" alt="PowerPoint"><span class="an2">PowerPoint</span></div>
+      <div class="app-tile"><img class="applogo" src="{{ICON:excel}}" alt="Excel"><span class="an2">Excel</span></div>
+      <div class="app-tile"><img class="applogo" src="{{ICON:outlook}}" alt="Outlook"><span class="an2">Outlook</span></div>
+    </div>
+    <div class="keyhint b">Press → to begin</div>
+  </div>
+</div>
+
+<!-- ========== RECAP DAY 1 ========== -->
+<div class="slide" id="s-recap">
+  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Recap · Yesterday</span>
+    <h2 class="term-h b">Day 1 in four lines.</h2>
+    <ul class="out-list">
+      <li class="b"><span class="oc">1</span><span><b>How it works</b> — fluent isn't correct.</span></li>
+      <li class="b"><span class="oc">2</span><span><b>Copilot</b> — apps + Graph + LLM. It sees only what you see.</span></li>
+      <li class="b"><span class="oc">3</span><span><b>CTFT</b> — plus a Source.</span></li>
+      <li class="b"><span class="oc">4</span><span><b>Prompt Bank</b> — every block today adds one.</span></li>
+    </ul>
+  </div>
+</div>
+
+<!-- ========== HOOK · INTEGRATION LAYER ========== -->
+<div class="slide" id="s-hook">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">The Problem</span>
+    <h2 class="demo-h b">The report is due at 10. The numbers are in Excel, the context is in a thread, the last version is "somewhere in Teams". <span class="hl">You are the glue.</span></h2>
+    <div class="slide-ill b">
+      <svg viewBox="0 0 760 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Excel, an email thread and Teams all feeding into you, and you produce the report">
+        <g>
+          <rect class="ill-node" x="10" y="20" width="150" height="46" rx="10"/><text class="ill-lbl" x="34" y="48">EXCEL</text>
+          <rect class="ill-node" x="10" y="77" width="150" height="46" rx="10"/><text class="ill-lbl" x="34" y="105">THREAD</text>
+          <rect class="ill-node" x="10" y="134" width="150" height="46" rx="10"/><text class="ill-lbl" x="34" y="162">TEAMS</text>
+        </g>
+        <path class="ill-line" d="M160 43H300"/><path class="ill-line" d="M160 100H300"/><path class="ill-line" d="M160 157H300"/>
+        <rect class="ill-hub" x="300" y="70" width="140" height="60" rx="14"/>
+        <text class="ill-hub-lbl" x="370" y="106" text-anchor="middle">YOU</text>
+        <path class="ill-line" style="stroke-dasharray:none;stroke:var(--crimson);stroke-width:2" d="M440 100H560"/>
+        <path d="M556 93l10 7-10 7" fill="none" stroke="var(--crimson)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect class="ill-node" x="570" y="72" width="170" height="56" rx="12" style="stroke:var(--rose)"/>
+        <text class="ill-lbl" x="600" y="105" style="fill:var(--rose-lt)">THE REPORT</text>
+      </svg>
+    </div>
+    <p class="body-l b">Today, Copilot does more of the gluing.</p>
+  </div>
+</div>
+
+<!-- ========== ROAD ========== -->
+<div class="slide" id="s-road">
+  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">The Road Today</span>
+    <h2 class="term-h b">Four apps. <span class="hl">Tap one to jump.</span></h2>
+    <div class="road">
+      <div class="road-row go b" data-goto="s-w-story"><span class="rn">01</span><div><div class="rt">Word</div><div class="rd">09:00</div></div></div>
+      <div class="road-row go b" data-goto="s-p-story"><span class="rn">02</span><div><div class="rt">PowerPoint</div><div class="rd">10:05</div></div></div>
+      <div class="road-row go b" data-goto="s-x-story"><span class="rn">03</span><div><div class="rt">Excel</div><div class="rd">11:10</div></div></div>
+      <div class="road-row go b" data-goto="s-o-poll"><span class="rn">04</span><div><div class="rt">Outlook + Teams</div><div class="rd">13:00</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== YOUR TRACK ========== -->
+<div class="slide" id="s-track">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Your Track</span>
+    <h2 class="term-h b">Same moves. <span class="hl">Your scenario.</span></h2>
+    <div class="roles4">
+      <div class="role-c b"><div class="rk">Executive</div><div class="rt">Decide faster</div><div class="rd">Summary · board deck · KPIs · catch-up</div></div>
+      <div class="role-c b"><div class="rk">Sales</div><div class="rt">Win the account</div><div class="rd">Proposal · pitch deck · pipeline · follow-up</div></div>
+      <div class="role-c b"><div class="rk">Marketing</div><div class="rt">Launch and learn</div><div class="rd">Article · launch deck · campaigns · agency</div></div>
+      <div class="role-c b"><div class="rk">Technical</div><div class="rt">Fix and explain</div><div class="rd">How-to · project deck · tickets · incident</div></div>
+    </div>
+    <p class="body-l b">Every scenario uses <b>Tamra Foods</b> — a fictional Kuwaiti company.</p>
+  </div>
+</div>
+
+<!-- ===================== BLOCK 1 · WORD ===================== -->
+
+<div class="slide" id="s-w-story">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Block 1 · Word</span>
+    <h2 class="demo-h b">8:40. Your manager wants one page by 10 — from a pile of notes. You open Word. <span class="hl">The cursor blinks.</span></h2>
+    <p class="body-l b">The blank page is the slowest part.</p>
+  </div>
+</div>
+
+<div class="slide" id="s-w-analogy">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Think Of It Like…</span>
+    <h2 class="term-h b">A sous-chef. <span class="hl">It chops — you plate.</span></h2>
+    <div class="viz-pair">
+      <div class="vp-box b"><span class="vp-ic"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h13"/></svg></span><span class="vp-t">rough notes, bullets, an old document</span></div>
+      <span class="vp-arrow b">→</span>
+      <div class="vp-box accent b"><span class="vp-ic"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h4"/></svg></span><span class="vp-t"><b>a first draft in your house style — in a minute</b></span></div>
+    </div>
+    <p class="body-l b">The draft is Copilot's. The judgement is yours.</p>
+  </div>
+</div>
+
+<div class="slide" id="s-w-moves">
+  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Word — Four Moves</span>
+    <h2 class="term-h b">Watch the page — <span class="hl">tap a move.</span></h2>
+    <div class="docmock b">
+      <div class="dm-btns">
+        <button class="dm-btn on" data-st="draft">1 · Draft from a prompt</button>
+        <button class="dm-btn" data-st="rewrite">2 · Rewrite — tone &amp; length</button>
+        <button class="dm-btn" data-st="sum">3 · Summarise to key points</button>
+        <button class="dm-btn" data-st="ground">4 · Ground it in a file</button>
+      </div>
+      <div class="dm-page" id="dmPage" data-st="draft">
+        <div class="h"></div>
+        <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+        <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar short"></div>
+        <div class="bul"><i></i><s></s></div><div class="bul"><i></i><s></s></div><div class="bul"><i></i><s></s></div>
+        <div class="bul"><i></i><s></s></div><div class="bul"><i></i><s></s></div>
+        <div class="gfile">⎘ tamra-house-style-letter.docx</div>
+      </div>
+    </div>
+    <p class="body-l b">Move 4: type <span class="kbdc">/</span> and point at a file.</p>
+  </div>
+</div>
+
+<div class="slide" id="s-w-demo">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Live Demo · Word</span>
+    <h2 class="demo-h b">One notice → a summary → the house voice.</h2>
+    <div class="demo-card b">
+      <div class="dc-k">Run in Word · source: tamra-supplier-notice.docx · tap to copy</div>
+      <div class="prompt">Summarise the attached notice for our sales team in five bullet points: what changes, when, and what they must tell customers.</div>
+      <div class="prompt" style="margin-top:10px">Turn the five points into a short email to customers. Make it 20% shorter and a bit warmer.</div>
+      <div class="prompt" style="margin-top:10px">Rewrite it to match the tone of /tamra-house-style-letter.</div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" id="s-w-check">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Quick Check</span>
+    <h2 class="demo-h b">Copilot's summary says the new order cut-off is <span class="hl">5:00 pm</span>. Ship it?</h2>
+    <div class="qc-card b"><div class="qc-k">Ask the room</div><p>No — 5:00 pm is the <b>old</b> time. The new cut-off is <b>2:00 pm</b>. Summaries swap old and new.</p></div>
+  </div>
+</div>
+
+<div class="slide" id="s-w-lab">
+  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Hands-On · E2.1 · 25 min</span>
+    <h2 class="demo-h b">Notes in — <span class="hl">a document you'd send</span> out.</h2>
+    <div class="roles4">
+      <div class="role-c b"><div class="rk">Executive</div><div class="rt">Operations notes → one-page executive summary</div></div>
+      <div class="role-c b"><div class="rk">Sales</div><div class="rt">Call notes → proposal letter to a co-op</div></div>
+      <div class="role-c b"><div class="rk">Marketing</div><div class="rt">Product facts → launch article + LinkedIn post</div></div>
+      <div class="role-c b"><div class="rk">Technical</div><div class="rt">Rough notes → step-by-step how-to guide</div></div>
+    </div>
+    <p class="done-line b"><b>Done:</b> draft → rewrite → ground → check every fact.</p>
+    <a class="labcta b" href="coded-copilot-day-2-lab.html#E2.1" target="_blank" rel="noopener">Open E2.1 →</a>
+  </div>
+</div>
+
+<div class="slide" id="s-q-word">
+  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
+  <div class="slide-pad qslide-pad">
+    <span class="eyebrow b" style="padding-left:0">Pause</span>
+    <div class="qmark b">?</div>
+    <p class="qsub b">Questions on Word?</p>
+    <div class="parknote b">☕ Then break — back at 10:05 · tap ☕ for the timer</div>
+  </div>
+</div>
+
+
+<!-- ===================== BLOCK 2 · POWERPOINT ===================== -->
+
+<div class="slide" id="s-p-story">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Block 2 · PowerPoint</span>
+    <h2 class="demo-h b">The deck is due at 4. A 12-page report on one screen, a blank slide on the other. <span class="hl">Copy, paste, shrink the font. Repeat.</span></h2>
+    <p class="body-l b">Nobody is thinking about the story.</p>
+  </div>
+</div>
+
+<div class="slide" id="s-p-analogy">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Think Of It Like…</span>
+    <h2 class="term-h b">A designer who already read the report — <span class="hl">and starts you at draft three.</span></h2>
+    <div class="viz-pair">
+      <div class="vp-box b"><span class="vp-ic"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg></span><span class="vp-t">a document, a topic, or a messy deck</span></div>
+      <span class="vp-arrow b">→</span>
+      <div class="vp-box accent b"><span class="vp-ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span><span class="vp-t"><b>a structured draft you edit — not one you start from zero</b></span></div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" id="s-p-term">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">PowerPoint — Three Moves</span>
+    <h2 class="term-h b">Create → Generate → Restructure<span class="hl">.</span></h2>
+    <div class="viz-flow">
+      <div class="vf-step b"><span class="vf-ic"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M12 18v-6M9 15h6"/></svg></span><span class="vf-t">Create</span><span class="vf-d">a deck from a Word or PDF file</span></div>
+      <span class="vf-arrow b">→</span>
+      <div class="vf-step b"><span class="vf-ic"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M12 8v8M8 12h8"/></svg></span><span class="vf-t">Generate</span><span class="vf-d">new slides from a prompt</span></div>
+      <span class="vf-arrow b">→</span>
+      <div class="vf-step b"><span class="vf-ic"><svg viewBox="0 0 24 24"><path d="M4 7h10M4 12h16M4 17h7"/><path d="M17 4l3 3-3 3"/></svg></span><span class="vf-t">Restructure</span><span class="vf-d">reorder, merge, cut</span></div>
+    </div>
+    <p class="body-l b">Stop making slides. Start editing them.</p>
+  </div>
+</div>
+
+<div class="slide" id="s-p-demo">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Live Demo · PowerPoint</span>
+    <h2 class="demo-h b">Report in, deck out.</h2>
+    <div class="demo-card b">
+      <div class="dc-k">Create from file · source: tamra-h1-2026-business-review.docx · tap to copy</div>
+      <div class="prompt">Create a 6-slide board summary from /tamra-h1-2026-business-review: headline results, results by business unit, what is driving the numbers, outlook, risks, and the decisions we need. Keep every figure traceable to the source. Add speaker notes.</div>
+      <div class="prompt" style="margin-top:10px">Add one slide: "What this means for our café teams" — three bullets in plain language and a one-line takeaway.</div>
+    </div>
+    <p class="body-l b">File in your OneDrive. Word works for all; PDF needs Premium.</p>
+  </div>
+</div>
+
+<div class="slide" id="s-p-check">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Quick Check</span>
+    <h2 class="demo-h b">The deck looks polished — and shows a figure <span class="hl">that isn't in the report</span>. Ship it?</h2>
+    <div class="qc-card b"><div class="qc-k">Ask the room</div><p>Open the source. <b>Polish is not proof.</b></p></div>
+  </div>
+</div>
+
+<div class="slide" id="s-p-lab">
+  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Hands-On · E2.2 + E2.3 · 30 min</span>
+    <h2 class="demo-h b">A document becomes <span class="hl">your deck</span>.</h2>
+    <div class="roles4">
+      <div class="role-c b"><div class="rk">Executive</div><div class="rt">H1 business review → board deck</div></div>
+      <div class="role-c b"><div class="rk">Sales</div><div class="rt">Account brief → pitch deck for Darwaza Hotels</div></div>
+      <div class="role-c b"><div class="rk">Marketing</div><div class="rt">Campaign brief → cold-brew launch deck</div></div>
+      <div class="role-c b"><div class="rk">Technical</div><div class="rt">Project plan → POS upgrade steering deck</div></div>
+    </div>
+    <p class="done-line b"><b>Done:</b> a deck, one new slide, two slides checked. Fast? <b>E2.3</b>.</p>
+    <a class="labcta b" href="coded-copilot-day-2-lab.html#E2.2" target="_blank" rel="noopener">Open E2.2 →</a>
+  </div>
+</div>
+
+<div class="slide" id="s-q-ppt">
+  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
+  <div class="slide-pad qslide-pad">
+    <span class="eyebrow b" style="padding-left:0">Pause</span>
+    <div class="qmark b">?</div>
+    <p class="qsub b">Questions on PowerPoint?</p>
+    <div class="parknote b">☕ Then break — back at 11:10 · tap ☕ for the timer</div>
+  </div>
+</div>
+
+
+<!-- ===================== BLOCK 3 · EXCEL ===================== -->
+
+<div class="slide" id="s-x-story">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Block 3 · Excel</span>
+    <h2 class="demo-h b">It's the 28th. Somewhere in your company, someone is about to spend four hours doing <span class="hl">exactly what they did last month.</span></h2>
+    <p class="body-l b">The real analysis is the last five minutes.</p>
+  </div>
+</div>
+
+<div class="slide" id="s-x-analogy">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Think Of It Like…</span>
+    <h2 class="term-h b">An analyst pulling up a chair — <span class="hl">who shows the working.</span></h2>
+    <div class="viz-pair">
+      <div class="vp-box b"><span class="vp-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.2a2.6 2.6 0 015 .8c0 1.7-2.5 2-2.5 3.5"/><path d="M12 17.2h.01"/></svg></span><span class="vp-t">"What's driving the dip?"</span></div>
+      <span class="vp-arrow b">→</span>
+      <div class="vp-box accent b"><span class="vp-ic"><svg viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M5 16l4-5 3 3 5-7"/></svg></span><span class="vp-t"><b>a trend, a formula you can read, a chart</b></span></div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" id="s-x-term">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Excel — Three Moves</span>
+    <h2 class="term-h b">Analyse → Add → Visualise<span class="hl">.</span></h2>
+    <div class="viz-flow">
+      <div class="vf-step b"><span class="vf-ic"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span><span class="vf-t">Analyse</span><span class="vf-d">finds the trends</span></div>
+      <span class="vf-arrow b">→</span>
+      <div class="vf-step b"><span class="vf-ic"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M12 8v8M8 12h8"/></svg></span><span class="vf-t">Add</span><span class="vf-d">writes formula columns</span></div>
+      <span class="vf-arrow b">→</span>
+      <div class="vf-step b"><span class="vf-ic"><svg viewBox="0 0 24 24"><path d="M4 20h16"/><rect x="5.5" y="12" width="3" height="6"/><rect x="10.5" y="8" width="3" height="10"/><rect x="15.5" y="5" width="3" height="13"/></svg></span><span class="vf-t">Visualise</span><span class="vf-d">builds the charts</span></div>
+    </div>
+    <p class="body-l b">Formulas visible. If you can't see the working, you can't check it.</p>
+  </div>
+</div>
+
+<div class="slide" id="s-x-prep">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Before You Ask</span>
+    <h2 class="term-h b">Clean data in — <span class="hl">better answers out.</span></h2>
+    <div class="bgcompare b">
+      <div class="bgcard bad"><div class="bgk">✗ Messy</div><div class="bgp">Merged cells · two header rows · blank rows · totals mixed into the data</div><div class="bgn">Copilot misreads the table.</div></div>
+      <div class="bgcard good"><div class="bgk">✓ Clean</div><div class="bgp">One header row · one table per sheet · no blanks · Format as Table (Ctrl+T)</div><div class="bgn">Copilot reads it cleanly.</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" id="s-x-demo">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Live Demo · Excel</span>
+    <h2 class="demo-h b">Ask the worksheet.</h2>
+    <div class="demo-card b">
+      <div class="dc-k">Run in Excel · tamra-monthly-kpis.xlsx · tap to copy</div>
+      <div class="prompt">Analyse this table. What are the top 3 trends by month and by business unit? Show the numbers behind each one.</div>
+      <div class="prompt" style="margin-top:10px">Add a column for operating margin: (Revenue − Cost of sales − Operating costs) ÷ Revenue. Which unit and month is lowest?</div>
+      <div class="prompt" style="margin-top:10px">Chart revenue by business unit by month, and tell me in one sentence what the chart shows.</div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" id="s-x-check">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Quick Check</span>
+    <h2 class="demo-h b">Copilot's margin column says the delivery app made a <span class="hl">profit</span> in August. Your gut says a loss. Who's right?</h2>
+    <div class="qc-card b"><div class="qc-k">Ask the room</div><p>Open the formula. Did it subtract <b>operating costs</b> too? <b>Read the working.</b></p></div>
+  </div>
+</div>
+
+<div class="slide" id="s-x-lab">
+  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Hands-On · E2.4 · 30 min</span>
+    <h2 class="demo-h b">Find the story <span class="hl">in your numbers.</span></h2>
+    <div class="roles4">
+      <div class="role-c b"><div class="rk">Executive</div><div class="rt">Monthly KPIs by business unit</div></div>
+      <div class="role-c b"><div class="rk">Sales</div><div class="rt">The B2B sales pipeline</div></div>
+      <div class="role-c b"><div class="rk">Marketing</div><div class="rt">Campaign results by channel</div></div>
+      <div class="role-c b"><div class="rk">Technical</div><div class="rt">Three months of IT tickets</div></div>
+    </div>
+    <p class="done-line b"><b>Done:</b> three findings with numbers, one formula column, one chart.</p>
+    <a class="labcta b" href="coded-copilot-day-2-lab.html#E2.4" target="_blank" rel="noopener">Open E2.4 →</a>
+  </div>
+</div>
+
+<div class="slide" id="s-q-excel">
+  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
+  <div class="slide-pad qslide-pad">
+    <span class="eyebrow b" style="padding-left:0">Pause</span>
+    <div class="qmark b">?</div>
+    <p class="qsub b">Questions on Excel?</p>
+    <div class="parknote b">☕ Then lunch — back at 1:00 PM · tap ☕ for the timer</div>
+  </div>
+</div>
+
+
+<!-- ===================== BLOCK 4 · OUTLOOK ===================== -->
+
+<div class="slide" id="s-o-poll">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Block 4 · Outlook</span>
+    <h2 class="demo-h b">Hands up: how many <span class="hl">unread emails</span> do you have right now?</h2>
+    <div class="poll b">
+      <button>0<small>calm</small></button>
+      <button>50<small>busy</small></button>
+      <button>200<small>heavy</small></button>
+      <button>1k+<small>help</small></button>
+    </div>
+  </div>
+</div>
+
+<div class="slide" id="s-o-moves">
+  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Outlook — Tame The Thread</span>
+    <h2 class="term-h b">Six messages of chaos → <span class="hl">one summary.</span></h2>
+    <div class="inboxw b" id="inboxW">
+      <div class="sumcard"><div class="sk">Summary by Copilot</div><p><b>Issue:</b> 3 boxes arrived damaged. <b>Promised:</b> replacement Thursday. <b>Still open:</b> the credit note — that's your reply.</p></div>
+      <div class="mailrow"><span class="md" style="background:var(--danger)"></span><span class="mf">Client</span><span class="ms">Three boxes arrived crushed — the second time this month…</span></div>
+      <div class="mailrow"><span class="md" style="background:var(--amber)"></span><span class="mf">Warehouse</span><span class="ms">Re: damaged boxes — we can replace them on Thursday…</span></div>
+      <div class="mailrow"><span class="md" style="background:var(--rose)"></span><span class="mf">Sales</span><span class="ms">FW: can someone own this today? Their decision is in November…</span></div>
+      <div class="mailrow"><span class="md" style="background:var(--amber)"></span><span class="mf">Finance</span><span class="ms">Is a credit note approved for this? I need a manager's OK…</span></div>
+      <div class="mailrow"><span class="md" style="background:var(--danger)"></span><span class="mf">Client</span><span class="ms">We need an answer this week before our review.</span></div>
+      <div class="mailrow"><span class="md" style="background:var(--rose)"></span><span class="mf">Manager</span><span class="ms">@you — please reply to the client this morning.</span></div>
+    </div>
+    <div class="mt-actions b" style="margin-top:20px">
+      <button class="btn primary" id="inboxBtn">Summarise the thread</button>
+      <button class="btn" id="inboxReset">Reset</button>
+    </div>
+  </div>
+</div>
+
+<div class="slide" id="s-o-tone">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">One Reply, Three Voices</span>
+    <h2 class="term-h b">Turn the tone dial<span class="hl">.</span></h2>
+    <div class="dial b" id="toneDial">
+      <button class="on" data-t="concise">More concise</button>
+      <button data-t="warm">Warmer</button>
+      <button data-t="firm">Firmer but polite</button>
+    </div>
+    <div class="tonecard b" id="toneText">Replacement boxes arrive Thursday. We're reviewing a credit note and will confirm by tomorrow. Sorry for the trouble — Tamra Sales.</div>
+    <p class="body-l b">Same facts, three voices. <b>Coaching by Copilot</b> checks it.</p>
+  </div>
+</div>
+
+<div class="slide" id="s-o-more">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Outlook — Four Moves</span>
+    <h2 class="term-h b">Summarise · Draft · Coach · <span class="hl">Catch up</span></h2>
+    <div class="cancards b">
+      <div class="cancard"><div class="ci">🧾</div><h3>Summarise</h3><p>Top of the thread.</p></div>
+      <div class="cancard"><div class="ci">✍️</div><h3>Draft</h3><p>Say what to include, and the tone.</p></div>
+      <div class="cancard"><div class="ci">🎯</div><h3>Coach</h3><p>Tone and clarity, before you send.</p></div>
+      <div class="cancard"><div class="ci">🗂️</div><h3>Catch up</h3><p>“What needs my reply first?”</p></div>
+    </div>
+    <p class="body-l b">Works for every work account. Some buttons need a licence.</p>
+  </div>
+</div>
+
+<div class="slide" id="s-o-teams">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Teams — Recap The Meeting</span>
+    <h2 class="demo-h b">The meeting ended. <span class="hl">Who does what, by when?</span></h2>
+    <div class="uc-cols">
+      <div class="uc-col ok b"><h4>✔ Copilot can</h4><ul>
+        <li>Recap decisions, actions and owners from the transcript</li><li>Answer “What did I miss?” during the meeting</li><li>Draft the follow-up email</li></ul></div>
+      <div class="uc-col no b"><h4>✕ It can't</h4><ul>
+        <li>Recap a meeting you had no access to</li><li>Change what people said</li><li>Send the recap to clients by itself</li></ul></div>
+    </div>
+    <div class="uc-foot b"><b>Needs:</b> transcription or recording switched on. No recap button on your account? Upload the transcript to Copilot Chat — same prompts.</div>
+  </div>
+</div>
+
+<div class="slide" id="s-o-lab">
+  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Hands-On · E2.5 (20 min) + E2.6 Teams (10 min)</span>
+    <h2 class="demo-h b">Tame your thread — <span class="hl">then reply.</span></h2>
+    <div class="roles4">
+      <div class="role-c b"><div class="rk">Executive</div><div class="rt">Back from leave: the board-pack thread</div></div>
+      <div class="role-c b"><div class="rk">Sales</div><div class="rt">Darwaza Hotels: damaged trial order</div></div>
+      <div class="role-c b"><div class="rk">Marketing</div><div class="rt">Launch shoot: the agency thread</div></div>
+      <div class="role-c b"><div class="rk">Technical</div><div class="rt">P1 incident: stakeholders want an update</div></div>
+    </div>
+    <p class="done-line b"><b>Done:</b> promised vs still open, a reply you'd send — then <b>E2.6</b>: recap a meeting transcript into who does what, by when.</p>
+    <a class="labcta b" href="coded-copilot-day-2-lab.html#E2.5" target="_blank" rel="noopener">Open E2.5 →</a>
+  </div>
+</div>
+
+<!-- ===================== CLOSE ===================== -->
+
+<div class="slide" id="s-reflect">
+  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Close · Role-Based Reflection</span>
+    <h2 class="term-h b">Which app saves <span class="hl">you</span> the most time — given your role?</h2>
+    <div class="vote-grid b">
+      <button class="vote-opt"><img class="applogo" src="{{ICON:word}}" alt="">Word<span class="vc">0</span></button>
+      <button class="vote-opt"><img class="applogo" src="{{ICON:powerpoint}}" alt="">PowerPoint<span class="vc">0</span></button>
+      <button class="vote-opt"><img class="applogo" src="{{ICON:excel}}" alt="">Excel<span class="vc">0</span></button>
+      <button class="vote-opt"><img class="applogo" src="{{ICON:outlook}}" alt="">Outlook<span class="vc">0</span></button>
+    </div>
+    <p class="vote-hint b">Tap to count hands · right-click to undo</p>
+    <p class="body-l b">One sentence: role, app, task. Then <b>E2.7</b>.</p>
+  </div>
+</div>
+
+<div class="slide" id="s-close">
+  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
+  <div class="slide-pad" style="text-align:center;display:flex;flex-direction:column;align-items:center">
+    <span class="eyebrow b" style="padding-left:0">Day 2 · Close</span>
+    <h2 class="cover-h b" style="font-size:clamp(32px,5.5vw,62px)">Today Copilot worked inside your apps<span class="hl">.</span></h2>
+    <p class="cover-sub b">Tomorrow: safe use, then your own workflow. Bring your biggest Day 1 task.</p>
+    <div class="apps-orbit b">
+      <div class="app-tile"><span class="al" style="color:var(--rose-lt)">🛡️</span><span class="an2">safe use</span></div>
+      <div class="app-tile"><span class="al" style="color:var(--amber)">✨</span><span class="an2">prompt gallery</span></div>
+      <div class="app-tile"><span class="al" style="color:var(--green-lt)">🔗</span><span class="an2">your workflow</span></div>
+    </div>
+  </div>
+</div>

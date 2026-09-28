@@ -1,0 +1,801 @@
+<!-- ===================== DAY 1 · FOUNDATIONS ===================== -->
+
+<!-- ========== COVER ========== -->
+<div class="slide active" id="s-cover">
+  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
+  <div class="slide-pad" style="text-align:center;display:flex;flex-direction:column;align-items:center">
+    <span class="eyebrow b" style="padding-left:0">Day 1 · <span data-cfg="dates.d1">Tuesday 29 September 2026</span> · 09:00 – 14:00</span>
+    <h1 class="cover-h b">Meet the engine<br><span class="hl">and make it yours.</span></h1>
+    <p class="cover-sub b">By 2pm, Copilot will have drafted, summarised and answered for you — and you'll know where <b>not</b> to trust it.</p>
+    <div class="apps-orbit b">
+      <div class="app-tile"><img class="applogo" src="{{ICON:word}}" alt="Word"><span class="an2">Word</span></div>
+      <div class="app-tile"><img class="applogo" src="{{ICON:excel}}" alt="Excel"><span class="an2">Excel</span></div>
+      <div class="app-tile"><img class="applogo" src="{{ICON:powerpoint}}" alt="PowerPoint"><span class="an2">PowerPoint</span></div>
+      <div class="app-tile"><img class="applogo" src="{{ICON:outlook}}" alt="Outlook"><span class="an2">Outlook</span></div>
+    </div>
+    <div class="keyhint b">Press → to begin</div>
+  </div>
+</div>
+
+<!-- ========== MAP TEST (09:00) ========== -->
+<div class="slide" id="s-maptest">
+  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Before We Begin · 09:00</span>
+    <h2 class="term-h b">The MAP test<span class="hl">.</span></h2>
+    <p class="body-l b">30 minutes. Rate yourself honestly. Not sure? Leave it blank — don't guess.</p>
+    <div class="maptest-row b">
+      <div class="mini-timer" data-min="30" style="margin-top:0;flex:1;min-width:280px">
+        <div class="mt-time">30:00</div>
+        <div class="mt-bar"><div class="mt-fill"></div></div>
+        <div class="mt-actions">
+          <button class="btn primary mt-start">Start 30:00</button>
+          <button class="btn mt-plus">+2 min</button>
+          <button class="btn mt-reset">Reset</button>
+          <a class="btn" data-link="mapPre"><span data-pending="Link coming soon">Open the MAP test ↗</span></a>
+        </div>
+      </div>
+      <div class="qr-wrap"><div class="qr qr-lg" data-qr="mapPre"></div><div class="qr-scan">Scan to open</div></div>
+    </div>
+    <div class="qc-card b"><div class="qc-k">Say it once</div><p>A map, not an exam. You take it again on Thursday.</p></div>
+  </div>
+</div>
+
+<!-- ========== WELCOME · THE THREE DAYS ========== -->
+<div class="slide" id="s-welcome">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Welcome</span>
+    <h2 class="term-h b">Three days. One goal: <span class="hl">Copilot does real work for you.</span></h2>
+    <div class="road">
+      <div class="road-row b"><span class="rn">DAY 1</span><div><div class="rt">Foundations</div><div class="rd">How AI works · what Copilot is · how to ask</div></div></div>
+      <div class="road-row b"><span class="rn">DAY 2</span><div><div class="rt">Copilot across the apps</div><div class="rd">Word · PowerPoint · Excel · Outlook</div></div></div>
+      <div class="road-row b"><span class="rn">DAY 3</span><div><div class="rt">Safe use + your own workflow</div><div class="rd">Responsible AI · Prompt Gallery · capstone</div></div></div>
+    </div>
+    <p class="body-l b">70% of the time, you're the one typing.</p>
+  </div>
+</div>
+
+<!-- ========== WARM-UP · PAIN POLL ========== -->
+<div class="slide" id="s-poll">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Warm-Up · The Pain Poll</span>
+    <h2 class="demo-h b">Fingers up, 1 to 5: how much of your week goes into <span class="hl">writing, searching or formatting</span>?</h2>
+    <div class="poll b">
+      <button>1<small>a little</small></button>
+      <button>2<small></small></button>
+      <button>3<small>chunks</small></button>
+      <button>4<small></small></button>
+      <button>5<small>most of it</small></button>
+    </div>
+  </div>
+</div>
+
+<!-- ========== WARM-UP · INTROS + WALL ========== -->
+<div class="slide" id="s-intros">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Warm-Up · Intros With A Twist</span>
+    <h2 class="term-h b">Name · company · role · and one task you'd happily <span class="hl">never do by hand again</span>.</h2>
+    <div class="wall-add b">
+      <input id="wallInput" placeholder="Type a task the room calls out… (Enter to pin)">
+      <button id="wallBtn">Pin it</button>
+    </div>
+    <div class="wall" id="wall"></div>
+  </div>
+</div>
+
+<!-- ========== SETUP CHECK ========== -->
+<div class="slide" id="s-setup">
+  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Setup Check · 3 Minutes</span>
+    <h2 class="term-h b">Can you reach Copilot<span class="hl">?</span></h2>
+    <ol class="steps-n">
+      <li class="b"><span>Open <code>copilot.cloud.microsoft</code><small>or <code>m365copilot.com</code></small></span></li>
+      <li class="b"><span>Sign in: <b>work account</b> or the CODED account on your card.<small>Never a personal account.</small></span></li>
+      <li class="b"><span>Find the label next to Copilot.<small>Basic or Premium?</small></span></li>
+    </ol>
+    <p class="body-l b">Stuck? Raise your hand.</p>
+  </div>
+</div>
+
+<!-- ========== GROUND RULES ========== -->
+<div class="slide" id="s-rules">
+  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Ground Rules — Framed As Permissions</span>
+    <h2 class="term-h b">Three freedoms.</h2>
+    <div class="fcards">
+      <div class="fcard b"><div class="fi">🧪</div><h3>Experiment out loud</h3><p>Strange prompts teach the room the most.</p></div>
+      <div class="fcard b"><div class="fi">🛡️</div><h3>Nothing real goes in</h3><p>Sample files only. No client names or confidential numbers.</p></div>
+      <div class="fcard b"><div class="fi">🅿️</div><h3>Park the big questions</h3><p>Deep questions go on the questions board.</p></div>
+    </div>
+    <div class="menti b">
+      <div class="mtxt"><div><div class="mk">Questions board</div><a class="murl" data-link="questions"><span data-linktext="questions">Link coming soon</span></a></div>
+      <div class="mnote">Open it on your phone.</div></div>
+      <div class="qr-wrap"><div class="qr" data-qr="questions"></div><div class="qr-scan">Scan to join</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== ROAD ========== -->
+<div class="slide" id="s-road">
+  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">The Road Today</span>
+    <h2 class="term-h b">Three blocks. <span class="hl">Tap one to jump.</span></h2>
+    <div class="road">
+      <div class="road-row go b" data-goto="s-b1-hook"><span class="rn">01</span><div><div class="rt">What is AI? What is an LLM? Why do we need it?</div><div class="rd">09:45</div></div></div>
+      <div class="road-row go b" data-goto="s-b2-bridge"><span class="rn">02</span><div><div class="rt">Meet Copilot</div><div class="rd">10:50 · What it is, how it compares, what it does</div></div></div>
+      <div class="road-row go b" data-goto="s-b3-standup"><span class="rn">03</span><div><div class="rt">Prompting with CTFT + Copilot Chat</div><div class="rd">13:00</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== BLOCK 1 · WHAT IS AI? ===================== -->
+
+<!-- ========== HOOK · HUMAN AUTOCOMPLETE ========== -->
+<div class="slide" id="s-b1-hook">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Block 1 · The Human Autocomplete</span>
+    <h2 class="demo-h b"><span class="hl">Shout the next word.</span></h2>
+    <div class="acw b">
+      <div class="stem"><span id="acStem"></span><span class="caret"></span></div>
+      <div class="sugg" id="acSugg"></div>
+      <button class="btn" id="acNext" style="margin-top:20px">Next sentence →</button>
+    </div>
+    <p class="body-l b">That reflex — guessing the most likely next word — is the whole engine.</p>
+  </div>
+</div>
+
+<!-- ========== WHAT IS AI ========== -->
+<div class="slide" id="s-b1-whatai">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Start Here</span>
+    <h2 class="term-h b">So what <span class="hl">is</span> AI — and what can it do?</h2>
+    <p class="body-l b">Software that learns patterns from examples — not rules written by hand.</p>
+    <div class="cancards b">
+      <div class="cancard"><div class="ci">✍️</div><h3>Generate</h3><p>First drafts of anything.</p></div>
+      <div class="cancard"><div class="ci">📚</div><h3>Condense</h3><p>40 pages → five lines.</p></div>
+      <div class="cancard"><div class="ci">🔎</div><h3>Find &amp; connect</h3><p>The right part of a long file.</p></div>
+      <div class="cancard"><div class="ci">🔄</div><h3>Transform</h3><p>New tone, language or shape.</p></div>
+    </div>
+    <div class="notlist b">
+      <span>Not a calculator</span>
+      <span>Not a search engine</span>
+      <span>Not a decision-maker</span>
+    </div>
+  </div>
+</div>
+
+<!-- ========== WHAT IS AN LLM ========== -->
+<div class="slide" id="s-b1-llm">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">The Kind Behind Copilot</span>
+    <h2 class="term-h b">And what's an <span class="hl">LLM</span>?</h2>
+    <p class="body-l b"><b>Large Language Model</b> — a pattern machine trained on huge amounts of text.</p>
+    <div class="cancards b" style="grid-template-columns:repeat(3,1fr);max-width:820px">
+      <div class="cancard"><div class="ci">📖</div><h3>Read almost everything</h3><p>It kept the patterns, not the pages.</p></div>
+      <div class="cancard"><div class="ci">🎯</div><h3>Predicts the next piece</h3><p>One piece at a time.</p></div>
+      <div class="cancard"><div class="ci">🧊</div><h3>Frozen at training</h3><p>It doesn't learn from your chat.</p></div>
+    </div>
+    <p class="body-l b" style="margin-top:24px">AI is the field. An LLM is the kind inside Copilot.</p>
+  </div>
+</div>
+
+<!-- ========== TRAINED ========== -->
+<div class="slide" id="s-b1-trained">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">1 of 3 — How It Learns</span>
+    <h2 class="term-h b">It remembers the patterns — <span class="hl">not the pages.</span></h2>
+    <div class="ppdiag b">
+      <div class="pages">
+        <div class="pg"></div><div class="pg" style="animation-delay:.1s"></div><div class="pg" style="animation-delay:.2s"></div><div class="pg" style="animation-delay:.3s"></div>
+        <div class="pg" style="animation-delay:.15s"></div><div class="pg" style="animation-delay:.25s"></div><div class="pg" style="animation-delay:.35s"></div><div class="pg" style="animation-delay:.45s"></div>
+      </div>
+      <div class="pp-arrow">→</div>
+      <div class="netbox">
+        <svg viewBox="0 0 230 170" aria-hidden="true">
+          <line x1="40" y1="40" x2="115" y2="85"/><line x1="190" y1="40" x2="115" y2="85"/>
+          <line x1="40" y1="130" x2="115" y2="85"/><line x1="190" y1="130" x2="115" y2="85"/>
+          <line x1="40" y1="40" x2="190" y2="40"/><line x1="40" y1="130" x2="190" y2="130"/>
+          <circle cx="40" cy="40" r="9"/><circle class="n2" cx="190" cy="40" r="9"/>
+          <circle class="n3" cx="115" cy="85" r="12"/><circle class="n2" cx="40" cy="130" r="9"/><circle cx="190" cy="130" r="9"/>
+        </svg>
+      </div>
+    </div>
+    <p class="body-l b">Fluent about the world. Knows nothing about <b>your</b> client.</p>
+  </div>
+</div>
+
+<!-- ========== PREDICTS · TOKENS ========== -->
+<div class="slide" id="s-b1-predicts">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">2 of 3 — How It Answers</span>
+    <h2 class="term-h b">One piece at a time<span class="hl">.</span></h2>
+    <div class="predw b">
+      <div class="pred-line" id="predLine"><span style="color:var(--ink-faint)">▸ watch it build an answer…</span></div>
+      <div class="pred-cands" id="predCands"></div>
+      <button class="btn primary" id="predBtn">Predict the next piece</button>
+    </div>
+    <p class="body-l b">Each piece is a <b>token</b> — about ¾ of a word. Your prompt <b>steers</b> every pick.</p>
+  </div>
+</div>
+
+<!-- ========== HALLUCINATION ========== -->
+<div class="slide" id="s-b1-halluc">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">3 of 3 — Why It Makes Things Up</span>
+    <h2 class="term-h b">Fluent <span class="glitchy" style="display:inline-block">≠</span> correct<span class="hl">.</span></h2>
+    <div class="confbox b">
+      <div class="confcard"><div class="ck">How sure it sounds</div><div class="cvv" style="color:var(--green-lt)">100%</div><div class="gauge g-track" style="margin-top:16px"><div class="g-fill" data-fill="100" style="background:var(--green)"></div></div></div>
+      <div class="confcard"><div class="ck">How correct it is</div><div class="cvv glitchy" style="color:var(--danger)">??%</div><div class="gauge g-track" style="margin-top:16px"><div class="g-fill" data-fill="63" style="background:linear-gradient(90deg,var(--danger),var(--amber))"></div></div></div>
+    </div>
+    <p class="body-l b">A gap gets filled with a confident guess — a <b>hallucination</b>.</p>
+  </div>
+</div>
+
+<!-- ========== WHY DO WE NEED IT ========== -->
+<div class="slide" id="s-b1-why">
+  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Why Do We Need It?</span>
+    <h2 class="term-h b">What's in it for <span class="hl">you?</span></h2>
+    <div class="cancards b">
+      <div class="cancard"><div class="ci">⏱️</div><h3>Save time</h3><p>First drafts in minutes.</p></div>
+      <div class="cancard"><div class="ci">💎</div><h3>Raise quality</h3><p>Clear structure, steady tone.</p></div>
+      <div class="cancard"><div class="ci">🧠</div><h3>Think better</h3><p>Ask for the counter-argument.</p></div>
+      <div class="cancard"><div class="ci">⚙️</div><h3>Work on what matters</h3><p>Less retyping. More judgement.</p></div>
+    </div>
+    <p class="body-l b" style="margin-top:24px">It removes the drag around your expertise.</p>
+  </div>
+</div>
+
+<!-- ========== BLOCK 1 · HANDS-ON ========== -->
+<div class="slide" id="s-b1-lab">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Hands-On · 18 min</span>
+    <h2 class="demo-h b">Feel the engine — then <span class="hl">audit your week.</span></h2>
+    <div class="tasks">
+      <div class="task b"><span class="tk-id">E1.1</span><span class="tk-t">Feel the engine<small>Three quick experiments</small></span><span class="tk-m">10 min</span></div>
+      <div class="task b"><span class="tk-id">E1.2</span><span class="tk-t">Your time audit<small>Three tasks that drain your week</small></span><span class="tk-m">8 min</span></div>
+    </div>
+    <p class="done-line b"><b>Done:</b> one confident guess caught. Three tasks saved.</p>
+    <a class="labcta b" href="coded-copilot-day-1-lab.html#E1.1" target="_blank" rel="noopener">Open the Day 1 lab →</a>
+  </div>
+</div>
+
+<!-- ========== PAUSE ========== -->
+<div class="slide" id="s-q1">
+  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
+  <div class="slide-pad qslide-pad">
+    <span class="eyebrow b" style="padding-left:0">Pause</span>
+    <div class="qmark b">?</div>
+    <p class="qsub b">Questions on how the engine works?</p>
+    <div class="parknote b">☕ Then break — back at 10:50 · tap ☕ for the timer</div>
+  </div>
+</div>
+
+
+<!-- ===================== BLOCK 2 · MEET COPILOT ===================== -->
+
+<!-- ========== BRIDGE ========== -->
+<div class="slide" id="s-b2-bridge">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Block 2 · Bridge</span>
+    <h2 class="demo-h b">That's the engine: patterns, tokens, the odd confident guess. Now Microsoft wires it into your apps — and points it at <span class="hl">your own work</span>.</h2>
+    <p class="body-l b">That's Copilot.</p>
+  </div>
+</div>
+
+<!-- ========== WHAT IS COPILOT (HUB) ========== -->
+<div class="slide" id="s-b2-what">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">What Is Copilot?</span>
+    <h2 class="term-h b">The same engine — <span class="hl">wired into your work.</span></h2>
+    <div class="hub b">
+      <div class="hub-col">
+        <div class="gchip"><span class="gd"></span>Your files</div>
+        <div class="gchip"><span class="gd"></span>Your email</div>
+        <div class="gchip"><span class="gd"></span>Your chats</div>
+        <div class="gchip"><span class="gd"></span>Your meetings</div>
+      </div>
+      <div class="hub-link"></div>
+      <div class="hub-core"><b>Copilot</b><span>LLM + Graph</span></div>
+      <div class="hub-link rev"></div>
+      <div class="hub-col">
+        <div class="gchip"><img class="applogo" src="{{ICON:word}}" alt="">&nbsp;Word</div>
+        <div class="gchip"><img class="applogo" src="{{ICON:excel}}" alt="">&nbsp;Excel</div>
+        <div class="gchip"><img class="applogo" src="{{ICON:powerpoint}}" alt="">&nbsp;PowerPoint</div>
+        <div class="gchip"><img class="applogo" src="{{ICON:outlook}}" alt="">&nbsp;Outlook</div>
+      </div>
+    </div>
+    <p class="body-l b">Only what <b>you</b> can already open.</p>
+  </div>
+</div>
+
+<!-- ========== THE COPILOT SYSTEM · 3 PARTS ========== -->
+<div class="slide" id="s-b2-system">
+  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">What's Inside Copilot?</span>
+    <h2 class="term-h b">Three parts, <span class="hl">one team.</span></h2>
+    <div class="sys3">
+      <div class="sys s1 b"><div class="sn">Part 1</div><h3>Microsoft 365 apps</h3><p>Where you ask and get answers.</p><div class="sx"><span>Word</span><span>Excel</span><span>PowerPoint</span><span>Outlook</span><span>Teams</span></div></div>
+      <div class="sys s2 b"><div class="sn">Part 2</div><h3>Microsoft Graph</h3><p>Your work data — and who can see it.</p><div class="sx"><span>Emails</span><span>Files</span><span>Meetings</span><span>Chats</span><span>Calendar</span></div></div>
+      <div class="sys s3 b"><div class="sn">Part 3</div><h3>Large language model</h3><p>The engine that reads and writes.</p><div class="sx"><span>Understands</span><span>Writes</span></div></div>
+    </div>
+    <div class="conductor b"><span>🎼</span><span><b>Copilot conducts all three</b> when you press Enter.</span></div>
+  </div>
+</div>
+
+<!-- ========== WHAT HAPPENS WHEN YOU PRESS ENTER ========== -->
+<div class="slide" id="s-b2-flow">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">How It Works</span>
+    <h2 class="term-h b">What happens when you <span class="hl">press Enter?</span></h2>
+    <div class="stepper b">
+      <div class="st-row">
+        <div class="st-step" data-note="You type a prompt in Word, Outlook, Teams or Copilot Chat."><div class="sn">Step 1</div><div class="si">⌨️</div><div class="stt">You ask</div></div>
+        <div class="st-step" data-note="Copilot adds relevant work content from Microsoft Graph — only what you have permission to see."><div class="sn">Step 2</div><div class="si">🧭</div><div class="stt">It gathers context</div></div>
+        <div class="st-step" data-note="The improved prompt goes to the large language model, which writes a response."><div class="sn">Step 3</div><div class="si">🧠</div><div class="stt">The LLM writes</div></div>
+        <div class="st-step" data-note="Copilot checks the response: responsible-AI filters, security, privacy and compliance."><div class="sn">Step 4</div><div class="si">🛡️</div><div class="stt">It checks</div></div>
+        <div class="st-step" data-note="The answer lands in your app — with references you can open and check."><div class="sn">Step 5</div><div class="si">📥</div><div class="stt">You get the answer</div></div>
+      </div>
+      <div class="st-foot"><button class="btn primary st-next">Press Enter ▸</button><div class="st-note" data-idle="Tap “Press Enter” to follow one prompt through Copilot."></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== INTERN ANALOGY ========== -->
+<div class="slide" id="s-b2-intern">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Think Of It Like…</span>
+    <h2 class="term-h b">A brilliant new intern — <span class="hl">with a badge.</span></h2>
+    <div class="link-line b"><span>read almost everything, very fast</span><span class="ll-arrow">→</span><span><b>opens only the doors your badge opens</b></span></div>
+    <p class="body-l b">It needs a brief and your sign-off. <b>You own the output.</b></p>
+  </div>
+</div>
+
+<!-- ========== COMPARE ========== -->
+<div class="slide" id="s-b2-compare">
+  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Copilot vs Other AI Chatbots</span>
+    <h2 class="term-h b">Same kind of engine. <span class="hl">Different home.</span></h2>
+    <div class="cmp-wrap b">
+      <table class="cmp">
+        <thead><tr><th></th><th class="us">Microsoft Copilot</th><th>ChatGPT</th><th>Gemini</th><th>Claude</th></tr></thead>
+        <tbody>
+                    <tr><th>Lives inside</th><td class="us">Your Office apps</td><td>Its own app</td><td>Gmail, Docs</td><td>Its own app</td></tr>
+          <tr><th>Sees your work data</th><td class="us">Microsoft 365 (Premium)</td><td>If connected</td><td>Google Workspace</td><td>If connected</td></tr>
+          <tr><th>Business plans train on it?</th><td class="us">No</td><td>No</td><td>No</td><td>No</td></tr>
+          <tr><th>Engine</th><td class="us">GPT + Claude</td><td>GPT</td><td>Gemini</td><td>Claude</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="body-l b">The difference: <b>where it lives</b> and <b>what it can see</b>.</p>
+  </div>
+</div>
+
+<!-- ========== BOUNDARY ========== -->
+<div class="slide" id="s-b2-vs">
+  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Work Account vs Personal Chatbot</span>
+    <h2 class="term-h b">Same kind of engine — <span class="hl">very different walls.</span></h2>
+    <div class="wallsdiag b">
+      <span class="wlbl wl1">Inside · your organisation's Microsoft 365</span>
+      <span class="wlbl wl2">Outside · personal chatbots</span>
+      <div class="thewall"></div>
+      <div class="datadot"></div>
+      <div class="inhouse"><span>your files</span><span>your email</span><span>your data</span></div>
+      <div class="outbot">🤖</div>
+    </div>
+    <ul class="out-list" style="margin-top:26px">
+      <li class="b"><span class="oc">1</span><span><b>Grounded</b> in your work content.</span></li>
+      <li class="b"><span class="oc">2</span><span><b>Respects permissions.</b></span></li>
+      <li class="b"><span class="oc">3</span><span><b>Protected</b> — your data doesn't train the models.</span></li>
+    </ul>
+  </div>
+</div>
+
+<!-- ========== FEATURE MAP ========== -->
+<div class="slide" id="s-b2-features">
+  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Features Of Copilot</span>
+    <h2 class="term-h b">What can it do? <span class="hl">Tap a card.</span></h2>
+    <div class="fliprow b">
+      <div class="flip"><div class="fin"><div class="fface"><span class="fl" style="color:var(--rose-lt)">💬</span><span class="fn">Copilot Chat</span></div><div class="fface back"><span class="fm">Ask, draft, summarise — with web or work data</span><span class="ft">Today</span></div></div></div>
+      <div class="flip"><div class="fin"><div class="fface"><img class="applogo" src="{{ICON:word}}" alt=""><span class="fn">Word</span></div><div class="fface back"><span class="fm">Draft, rewrite, summarise</span><span class="ft">Day 2</span></div></div></div>
+      <div class="flip"><div class="fin"><div class="fface"><img class="applogo" src="{{ICON:powerpoint}}" alt=""><span class="fn">PowerPoint</span></div><div class="fface back"><span class="fm">Turn a document into a deck</span><span class="ft">Day 2</span></div></div></div>
+      <div class="flip"><div class="fin"><div class="fface"><img class="applogo" src="{{ICON:excel}}" alt=""><span class="fn">Excel</span></div><div class="fface back"><span class="fm">Find trends, add formulas, chart</span><span class="ft">Day 2</span></div></div></div>
+      <div class="flip"><div class="fin"><div class="fface"><img class="applogo" src="{{ICON:outlook}}" alt=""><span class="fn">Outlook</span></div><div class="fface back"><span class="fm">Summarise threads, draft replies</span><span class="ft">Day 2</span></div></div></div>
+      <div class="flip"><div class="fin"><div class="fface"><span class="fl" style="color:var(--ac-cyan)">🎙️</span><span class="fn">Teams</span></div><div class="fface back"><span class="fm">Meeting recaps and action items</span><span class="ft">Day 2</span></div></div></div>
+      <div class="flip"><div class="fin"><div class="fface"><span class="fl" style="color:var(--amber)">📒</span><span class="fn">Pages &amp; Notebooks</span></div><div class="fface back"><span class="fm">Keep, edit and share answers; group files for a project</span><span class="ft">Today · stretch</span></div></div></div>
+      <div class="flip"><div class="fin"><div class="fface"><span class="fl" style="color:var(--green-lt)">🤖</span><span class="fn">Agents</span></div><div class="fface back"><span class="fm">Researcher, Analyst — or build your own</span><span class="ft">Premium</span></div></div></div>
+    </div>
+    <p class="body-l b">Two ways in: <b>Copilot Chat</b> and <b>in-app Copilot</b>.</p>
+  </div>
+</div>
+
+<!-- ========== WHICH COPILOT DO YOU HAVE ========== -->
+<div class="slide" id="s-b2-tiers">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Check Your Label</span>
+    <h2 class="term-h b">Which Copilot <span class="hl">do you have?</span></h2>
+    <div class="tiers3">
+      <div class="tier-c b"><div class="tl">Included</div><h3>Copilot Chat (Basic)</h3><ul><li>Web chat</li><li>Upload files</li><li>Copilot in Outlook</li><li class="no">Not in Word, Excel, PowerPoint</li></ul></div>
+      <div class="tier-c b"><div class="tl">Included</div><h3>Microsoft 365 Copilot (Basic)</h3><ul><li>All of the left</li><li>In Word, Excel, PowerPoint</li><li class="no">Slower at busy times</li></ul></div>
+      <div class="tier-c prem b"><div class="tl">Paid licence</div><h3>Microsoft 365 Copilot (Premium)</h3><ul><li>Your emails, files, meetings</li><li>A <b>Work IQ</b> button</li><li>Researcher and Analyst</li></ul></div>
+    </div>
+    <p class="body-l b">New name this month: <b>Microsoft Copilot</b>. Same product.</p>
+  </div>
+</div>
+
+<!-- ========== RESEARCH · LONG SOURCE → SHORT BRIEF ========== -->
+<div class="slide" id="s-b2-research">
+  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Research &amp; Summarise</span>
+    <h2 class="term-h b">Long source → <span class="hl">short brief.</span></h2>
+    <div class="count-row b">
+      <div class="cnt"><div class="cv"><span data-n="10">0</span> → 1</div><div class="cl">pages → one page</div></div>
+      <div class="cnt"><div class="cv"><span data-n="5">0</span></div><div class="cl">numbers that matter</div></div>
+      <div class="cnt"><div class="cv"><span data-n="1">0</span></div><div class="cl">checked — by you</div></div>
+    </div>
+    <div class="road" style="margin-top:28px">
+      <div class="road-row b"><span class="rn">01</span><div><div class="rt">Condense</div><div class="rd">A report or file → a one-page brief</div></div></div>
+      <div class="road-row b"><span class="rn">02</span><div><div class="rt">Cite</div><div class="rd">“Say which section each point comes from”</div></div></div>
+      <div class="road-row b"><span class="rn">03</span><div><div class="rt">Research</div><div class="rd">The web — or the Researcher agent (Premium)</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== THE VERIFY HABIT ========== -->
+<div class="slide" id="s-b2-verify">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">The Verify Habit</span>
+    <h2 class="term-h b">It summarises beautifully — <span class="hl">and still misplaces a number.</span></h2>
+    <div class="verifybox b">
+      <div class="vglass">🔍</div>
+      <div class="vsent">“The Tamra app now has <mark>52,000 active users</mark>.”</div>
+    </div>
+    <div class="qc-card b"><div class="qc-k">Check the source</div><p>52,000 is <b>downloads</b>. Active users: <b>38,000</b>. Ask: <i>“Quote the exact sentence.”</i> Then read it yourself.</p></div>
+  </div>
+</div>
+
+<!-- ========== BLOCK 2 · HANDS-ON ========== -->
+<div class="slide" id="s-b2-lab">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Hands-On · 27 min</span>
+    <h2 class="demo-h b">Your first wins — <span class="hl">and three places answers come from.</span></h2>
+    <div class="tasks">
+      <div class="task b"><span class="tk-id">E1.3</span><span class="tk-t">First contact<small>Pick a starter. Run it.</small></span><span class="tk-m">5 min</span></div>
+      <div class="task b"><span class="tk-id">E1.4</span><span class="tk-t">Web, a file, your work<small>Three sources. Which can you check?</small></span><span class="tk-m">10 min</span></div>
+      <div class="task b"><span class="tk-id">E1.5</span><span class="tk-t">The one-page brief<small>Condense a report. Check one number.</small></span><span class="tk-m">12 min</span></div>
+      <div class="task opt b"><span class="tk-id">E1.6</span><span class="tk-t">Feature hunt<small>Stretch</small></span><span class="tk-m">early finishers</span></div>
+    </div>
+    <p class="done-line b"><b>Done:</b> one result you'd use. One brief, one number checked.</p>
+    <a class="labcta b" href="coded-copilot-day-1-lab.html#E1.3" target="_blank" rel="noopener">Open the Day 1 lab →</a>
+  </div>
+</div>
+
+<!-- ========== PAUSE ========== -->
+<div class="slide" id="s-q2">
+  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
+  <div class="slide-pad qslide-pad">
+    <span class="eyebrow b" style="padding-left:0">Pause</span>
+    <div class="qmark b">?</div>
+    <p class="qsub b">Questions on Copilot?</p>
+    <div class="parknote b">☕ Then break and lunch — back at 1:00 PM · tap ☕ for the timer</div>
+  </div>
+</div>
+
+
+<!-- ===================== BLOCK 3 · PROMPTING + COPILOT CHAT ===================== -->
+
+<!-- ========== RE-ENERGISE ========== -->
+<div class="slide" id="s-b3-standup">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Block 3 · Quick Stand-Up</span>
+    <h2 class="demo-h b">One sentence: the best thing Copilot did for you <span class="hl">this morning</span>.</h2>
+    <p class="body-l b">Two or three voices — then straight in.</p>
+  </div>
+</div>
+
+<!-- ========== DESCRIBE THE DRAWING ========== -->
+<div class="slide" id="s-b3-drawing">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Describe The Drawing</span>
+    <h2 class="demo-h b">One volunteer describes a shape. Everyone draws it blind — <span class="hl">no questions allowed.</span></h2>
+    <div class="shapebox b" id="shapeBox">
+      <div class="qm">?</div>
+      <svg viewBox="0 0 220 200" aria-hidden="true">
+        <rect class="sline" pathLength="1" x="45" y="95" width="110" height="85" rx="4"/>
+        <polygon class="sline" pathLength="1" points="45,95 100,45 155,95"/>
+        <circle class="sline" pathLength="1" cx="155" cy="70" r="34"/>
+        <line class="sline" pathLength="1" x1="45" y1="180" x2="155" y2="95"/>
+        <rect class="sline" pathLength="1" x="62" y="132" width="34" height="34" rx="3"/>
+      </svg>
+      <button class="btn primary" data-reveal="shapeBox">Reveal the shape</button>
+    </div>
+    <p class="body-l b">Vague instructions, vague results. Copilot is the same — except you <b>can</b> keep talking to it.</p>
+  </div>
+</div>
+
+<!-- ========== CTFT ========== -->
+<div class="slide" id="s-b3-ctft">
+  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">The Recipe</span>
+    <h2 class="term-h b">CTFT — four ingredients<span class="hl">.</span></h2>
+    <div class="ingcards">
+      <div class="icard i1 b"><div class="il">C</div><h3>Context</h3><p>The situation, who's involved.</p></div>
+      <div class="icard i2 b"><div class="il">T</div><h3>Task</h3><p>What to do.</p></div>
+      <div class="icard i3 b"><div class="il">F</div><h3>Format</h3><p>Length and shape.</p></div>
+      <div class="icard i4 b"><div class="il">T</div><h3>Tone</h3><p>The voice.</p></div>
+    </div>
+    <p class="body-l b">A weak answer = a <b>missing ingredient</b>.</p>
+  </div>
+</div>
+
+<!-- ========== C ========== -->
+<div class="slide" id="s-b3-c">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">CTFT · 1 of 4 — Context</span>
+    <h2 class="term-h b"><span class="ctbadge ct-c">C</span>Context — <span class="hl">the setup.</span></h2>
+    <p class="body-l b ctlead">It knows the world — not <b>your</b> situation.</p>
+    <div class="bgcompare b">
+      <div class="bgcard bad"><div class="bgk">✗ Weak</div><div class="bgp">Write about our policy.</div><div class="bgn">Whose? Which? For whom?</div></div>
+      <div class="bgcard good"><div class="bgk">✓ Strong</div><div class="bgp">I'm an HR officer at a Kuwaiti retail company. Staff may work from home two days a week from 1 November. It applies to all office staff.</div><div class="bgn">Situation, audience, limits.</div></div>
+    </div>
+    <div class="ctchips b"><span class="cck">Context answers</span><span class="chip">Who am I?</span><span class="chip">What's the situation?</span><span class="chip">Who is it for?</span><span class="chip">Any limits?</span></div>
+  </div>
+</div>
+
+<!-- ========== T (task) ========== -->
+<div class="slide" id="s-b3-t">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">CTFT · 2 of 4 — Task</span>
+    <h2 class="term-h b"><span class="ctbadge ct-t1">T</span>Task — <span class="hl">the what.</span></h2>
+    <p class="body-l b ctlead">Name the action.</p>
+    <div class="bgcompare b">
+      <div class="bgcard bad"><div class="bgk">✗ Weak</div><div class="bgp">Help me with this.</div><div class="bgn">Draft? Fix? Explain?</div></div>
+      <div class="bgcard good"><div class="bgk">✓ Strong</div><div class="bgp">Write a one-page memo announcing this policy.</div><div class="bgn">One clear job.</div></div>
+    </div>
+    <div class="ctchips b"><span class="cck">Start with a strong verb</span><span class="chip verb">Write</span><span class="chip verb">Draft</span><span class="chip verb">Summarise</span><span class="chip verb">Analyse</span><span class="chip verb">Compare</span><span class="chip verb">Rewrite</span><span class="chip verb">List</span><span class="chip verb">Explain</span></div>
+    <p class="ctnote b"><b>One main task per prompt.</b></p>
+  </div>
+</div>
+
+<!-- ========== F ========== -->
+<div class="slide" id="s-b3-f">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">CTFT · 3 of 4 — Format</span>
+    <h2 class="term-h b"><span class="ctbadge ct-f">F</span>Format — <span class="hl">the shape.</span></h2>
+    <p class="body-l b ctlead">Say nothing, and Copilot picks.</p>
+    <div class="bgcompare b">
+      <div class="bgcard bad"><div class="bgk">✗ Weak</div><div class="bgp">Write a document.</div><div class="bgn">What kind? How long?</div></div>
+      <div class="bgcard good"><div class="bgk">✓ Strong</div><div class="bgp">A memo: one short intro paragraph, then five bullet points. One page.</div><div class="bgn">Now it knows the layout.</div></div>
+    </div>
+    <div class="ctchips b"><span class="cck">Be specific about</span><span class="chip">Length</span><span class="chip">Structure</span><span class="chip">Document type</span><span class="chip">Table or bullets?</span></div>
+  </div>
+</div>
+
+<!-- ========== T (tone) ========== -->
+<div class="slide" id="s-b3-tone">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">CTFT · 4 of 4 — Tone</span>
+    <h2 class="term-h b"><span class="ctbadge ct-t2">T</span>Tone — <span class="hl">the voice.</span></h2>
+    <p class="body-l b ctlead">Same facts, different feel.</p>
+    <div class="bgcompare b">
+      <div class="bgcard bad"><div class="bgk">✗ Weak</div><div class="bgp">Write an email.</div><div class="bgn">To whom?</div></div>
+      <div class="bgcard good"><div class="bgk">✓ Strong</div><div class="bgp">Warm and encouraging — professional but friendly. It goes to all staff.</div><div class="bgn">Pitched right.</div></div>
+    </div>
+    <div class="ctchips b"><span class="cck">Mix and match</span><span class="chip">Formal</span><span class="chip">Warm</span><span class="chip">Concise</span><span class="chip">Firm</span><span class="chip">Friendly</span><span class="chip">Technical</span><span class="chip">Plain English</span></div>
+  </div>
+</div>
+
+<!-- ========== MICROSOFT'S FOUR PARTS ========== -->
+<div class="slide" id="s-b3-gcse">
+  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Microsoft's Version</span>
+    <h2 class="term-h b">What · why · which · how<span class="hl">.</span></h2>
+    <div class="ingcards">
+      <div class="icard i2 b"><div class="il word">GOAL</div><h3>What?</h3><p>≈ Task</p></div>
+      <div class="icard i1 b"><div class="il word">CONTEXT</div><h3>Why? Who?</h3><p>≈ Context</p></div>
+      <div class="icard i3 b"><div class="il word">SOURCE</div><h3>Which files?</h3><p>Type <span class="kbdc">/</span></p></div>
+      <div class="icard i4 b"><div class="il word">EXPECTATIONS</div><h3>How?</h3><p>≈ Format + Tone</p></div>
+    </div>
+    <p class="body-l b">Same recipe, new labels. The extra: <b>Source</b>.</p>
+  </div>
+</div>
+
+<!-- ========== ZERO TO HERO · INTRO ========== -->
+<div class="slide" id="s-b3-zth">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Hero Exercise · E1.7 From Zero To Hero · 15 min</span>
+    <h2 class="demo-h b">One weak prompt. Four rounds. Watch it get <span class="hl">visibly better</span>.</h2>
+    <p class="body-l b">A catering order arrived late. One ingredient per round. Rounds 2–4 on your own.</p>
+    <div class="gauge b"><div class="g-track"><div class="g-fill" data-fill="8"></div></div><div class="g-label"><span>Round 0 · mush</span><span>Round 4 · sendable</span></div></div>
+  </div>
+</div>
+
+<div class="slide" id="s-b3-r0">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Round 0 · The Weak Prompt</span>
+    <h2 class="demo-h b">Watch it be generic.</h2>
+    <div class="demo-card b"><div class="dc-k">Run this — together</div><div class="prompt">Write an email to a customer.</div></div>
+    <div class="gauge b"><div class="g-track"><div class="g-fill" data-fill="8"></div></div><div class="g-label"><span>Output quality</span><span>8%</span></div></div>
+  </div>
+</div>
+
+<div class="slide" id="s-b3-r1">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Round 1</span>
+    <span class="ing-chip ing-c b">+ Context</span>
+    <h2 class="demo-h b" style="margin-top:14px">Give it the situation.</h2>
+    <div class="demo-card b"><div class="dc-k">Add this</div><div class="prompt">A customer who has ordered office catering from us every week for three years received today's order 45 minutes late. It was our scheduling mistake, and we have fixed the driver schedule.</div></div>
+    <div class="gauge b"><div class="g-track"><div class="g-fill" data-fill="32"></div></div><div class="g-label"><span>Output quality</span><span>32% — no task, so it guesses</span></div></div>
+  </div>
+</div>
+
+<div class="slide" id="s-b3-r2">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Round 2</span>
+    <span class="ing-chip ing-t b">+ Task</span>
+    <h2 class="demo-h b" style="margin-top:14px">Say what to do.</h2>
+    <div class="demo-card b"><div class="dc-k">Add this</div><div class="prompt">Write them an email that apologises for the delay and reassures them it won't happen again.</div></div>
+    <div class="gauge b"><div class="g-track"><div class="g-fill" data-fill="55"></div></div><div class="g-label"><span>Output quality</span><span>55%</span></div></div>
+  </div>
+</div>
+
+<div class="slide" id="s-b3-r3">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Round 3</span>
+    <span class="ing-chip ing-f b">+ Format</span>
+    <h2 class="demo-h b" style="margin-top:14px">Shape it.</h2>
+    <div class="demo-card b"><div class="dc-k">Add this</div><div class="prompt">Keep it under 120 words and give them a direct number to call.</div></div>
+    <div class="gauge b"><div class="g-track"><div class="g-fill" data-fill="76"></div></div><div class="g-label"><span>Output quality</span><span>76%</span></div></div>
+  </div>
+</div>
+
+<div class="slide" id="s-b3-r4">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Round 4</span>
+    <span class="ing-chip ing-o b">+ Tone &amp; limits</span>
+    <h2 class="demo-h b" style="margin-top:14px">Set the voice — and the limits.</h2>
+    <div class="demo-card b"><div class="dc-k">Add this</div><div class="prompt">Make it warm but professional. Don't promise a discount or refund. Sign off as the Customer Care Team.</div></div>
+    <div class="gauge b"><div class="g-track"><div class="g-fill" data-fill="95"></div></div><div class="g-label"><span>Output quality</span><span>95% — sendable</span></div></div>
+  </div>
+</div>
+
+<!-- ========== INSIGHT ========== -->
+<div class="slide" id="s-b3-insight">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">The Insight</span>
+    <h2 class="demo-h b">Nobody nailed it in one shot — <span class="hl">and that's the method.</span></h2>
+    <p class="body-l b">Steer it: <i>“shorter”</i> · <i>“warmer”</i> · <i>“in Arabic”</i>.</p>
+  </div>
+</div>
+
+<!-- ========== BUILD YOUR OWN ========== -->
+<div class="slide" id="s-b3-builder">
+  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Hands-On · E1.8 Build Your Own · 10 min</span>
+    <h2 class="term-h b">Build a prompt for <span class="hl">your own job.</span></h2>
+    <p class="body-l b">Open <b>E1.8</b>. Fill the builder. Run it in Copilot Chat.</p>
+    <p class="done-line b"><b>Done:</b> a prompt you'll reuse, saved. Best one = <b>Prompt of the Day</b>.</p>
+    <a class="labcta b" href="coded-copilot-day-1-lab.html#E1.8" target="_blank" rel="noopener">Open E1.8 →</a>
+  </div>
+</div>
+
+<!-- ========== WORKED EXAMPLE ========== -->
+<div class="slide" id="s-b3-worked">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Worked Example · Sales</span>
+    <h2 class="demo-h b">A finished one — ingredients highlighted.</h2>
+    <div class="demo-card b" style="max-width:820px">
+      <div class="dc-k">The assembled prompt · tap to copy</div>
+      <div class="prompt"><span class="sg-role">You are an account manager at a Kuwaiti food supplier.</span> <span class="sg-ctx">A hotel group that buys from us every month wants a 10% discount on a 12-month contract. Our margin can't take 10%.</span> <span class="sg-task">Draft a reply that protects our margin and offers two alternatives.</span> <span class="sg-fmt">Under 150 words, with the two alternatives as bullet points.</span> <span class="sg-tone">Warm and confident — never pushy.</span></div>
+    </div>
+    <div class="blegend b" style="margin-top:16px">
+      <span><i style="background:var(--amber)"></i>Role</span><span><i style="background:var(--rose-lt)"></i>Context</span>
+      <span><i style="background:#fff"></i>Task</span><span><i style="background:var(--ac-cyan)"></i>Format</span>
+      <span><i style="background:var(--green-lt)"></i>Tone</span>
+    </div>
+    <p class="body-l b">Role lives inside Context.</p>
+  </div>
+</div>
+
+<!-- ========== PAUSE ========== -->
+<div class="slide" id="s-q3">
+  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
+  <div class="slide-pad qslide-pad">
+    <span class="eyebrow b" style="padding-left:0">Pause</span>
+    <div class="qmark b">?</div>
+    <p class="qsub b">Questions on CTFT?</p>
+    <div class="parknote b">🅿️ Quick ones now — big ones to the questions board</div>
+  </div>
+</div>
+
+<!-- ===================== CLOSE ===================== -->
+
+<!-- ========== CALLBACK LAP ========== -->
+<div class="slide" id="s-recap">
+  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Day 1 · Recap — The Callback Lap</span>
+    <h2 class="term-h b">Look at the wall.</h2>
+    <ul class="ticks">
+      <li class="b"><span class="tk">✓</span><span>The wall: which tasks did we solve today?</span></li>
+      <li class="b"><span class="tk">✓</span><span>Prompt of the Day — steal it.</span></li>
+      <li class="b"><span class="tk">✓</span><span>One line each: <b>"The one thing I'll use tomorrow is…"</b></span></li>
+    </ul>
+  </div>
+</div>
+
+<!-- ========== PROMPT BANK ========== -->
+<div class="slide" id="s-bank">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Start Your Prompt Bank</span>
+    <h2 class="term-h b">Your best prompts, <span class="hl">kept.</span></h2>
+    <ol class="steps-n">
+      <li class="b"><span>Tap <b>＋ Save to Prompt Bank</b> on today's best prompt.<small>Your E1.8 prompt is a good start.</small></span></li>
+      <li class="b"><span>Open <b>My Prompt Bank</b>. Add one more.<small>It lives in this browser. Same laptop tomorrow — or Export.</small></span></li>
+      <li class="b"><span>Tomorrow each app adds one. Thursday's capstone uses them.</span></li>
+    </ol>
+    <a class="labcta b" href="prompt-bank.html" target="_blank" rel="noopener">Open My Prompt Bank →</a>
+  </div>
+</div>
+
+<!-- ========== CLOSE ========== -->
+<div class="slide" id="s-close">
+  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
+  <div class="slide-pad" style="text-align:center;display:flex;flex-direction:column;align-items:center">
+    <span class="eyebrow b" style="padding-left:0">Day 1 · Close</span>
+    <h2 class="cover-h b" style="font-size:clamp(32px,5.5vw,62px)">Today you made Copilot write for you<span class="hl">.</span></h2>
+    <p class="cover-sub b">Tomorrow: Word, PowerPoint, Excel, Outlook. Bring one real, repeating task from your job.</p>
+    <div class="apps-orbit b">
+      <div class="app-tile"><img class="applogo" src="{{ICON:word}}" alt=""><span class="an2">write</span></div>
+      <div class="app-tile"><img class="applogo" src="{{ICON:powerpoint}}" alt=""><span class="an2">present</span></div>
+      <div class="app-tile"><img class="applogo" src="{{ICON:excel}}" alt=""><span class="an2">analyse</span></div>
+      <div class="app-tile"><img class="applogo" src="{{ICON:outlook}}" alt=""><span class="an2">reply</span></div>
+    </div>
+  </div>
+</div>

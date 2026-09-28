@@ -1,0 +1,428 @@
+{
+  "kpis": {
+    "file": "tamra-monthly-kpis.xlsx",
+    "rows": 24,
+    "delivery_revenue_jan": 92000,
+    "delivery_revenue_aug": 148000,
+    "delivery_revenue_growth_jan_to_aug_pct": 60.9,
+    "delivery_operating_margin_pct_jan": 18.2,
+    "delivery_operating_margin_pct_aug": -3.1,
+    "delivery_operating_margin_pct_by_month": {
+      "Jan 2026": 18.2,
+      "Feb 2026": 17.8,
+      "Mar 2026": 17.6,
+      "Apr 2026": 17.1,
+      "May 2026": 12.8,
+      "Jun 2026": 8.1,
+      "Jul 2026": 2.7,
+      "Aug 2026": -3.1
+    },
+    "delivery_operating_costs_jan": 33700,
+    "delivery_operating_costs_aug": 86000,
+    "delivery_operating_costs_growth_jan_to_aug_pct": 155.2,
+    "delivery_first_negative_margin_month": "Aug 2026",
+    "wholesale_revenue_jun": 408500,
+    "wholesale_revenue_jul": 321900,
+    "wholesale_revenue_aug": 371900,
+    "wholesale_jun_to_jul_change_pct": -21.2,
+    "cafes_avg_satisfaction_jan_aug": 4.6,
+    "avg_satisfaction_by_unit_jan_aug": {
+      "Cafés": 4.6,
+      "Wholesale": 4.24,
+      "Delivery app": 4.04
+    },
+    "cafes_revenue_jan": 309300,
+    "cafes_revenue_aug": 356200,
+    "cafes_avg_monthly_growth_pct": 2.0,
+    "total_revenue_by_month": {
+      "Jan 2026": 799900,
+      "Feb 2026": 816800,
+      "Mar 2026": 832500,
+      "Apr 2026": 840800,
+      "May 2026": 858500,
+      "Jun 2026": 877700,
+      "Jul 2026": 808400,
+      "Aug 2026": 876100
+    },
+    "h1_by_unit": {
+      "Cafés": {
+        "revenue": 1954200,
+        "cost_of_sales": 780800,
+        "operating_costs": 737200,
+        "operating_profit": 436200,
+        "operating_margin_pct": 22.3,
+        "orders": 571894,
+        "avg_satisfaction": 4.58
+      },
+      "Wholesale": {
+        "revenue": 2418100,
+        "cost_of_sales": 1404800,
+        "operating_costs": 535500,
+        "operating_profit": 477800,
+        "operating_margin_pct": 19.8,
+        "orders": 7708,
+        "avg_satisfaction": 4.27
+      },
+      "Delivery app": {
+        "revenue": 653900,
+        "cost_of_sales": 294700,
+        "operating_costs": 261800,
+        "operating_profit": 97400,
+        "operating_margin_pct": 14.9,
+        "orders": 88669,
+        "avg_satisfaction": 4.1
+      }
+    },
+    "h1_total": {
+      "revenue": 5026200,
+      "cost_of_sales": 2480300,
+      "operating_costs": 1534500,
+      "operating_profit": 1011400,
+      "orders": 668271,
+      "operating_margin_pct": 20.1
+    }
+  },
+  "pipeline": {
+    "file": "tamra-sales-pipeline.xlsx",
+    "data_as_of": "24 Sep 2026",
+    "number_of_deals": 120,
+    "distinct_clients": 60,
+    "deals_by_stage": {
+      "Won": 32,
+      "Lost": 41,
+      "Negotiation": 17,
+      "Proposal": 15,
+      "Lead": 15
+    },
+    "long_negotiation_deals_over_60_days": [
+      {
+        "id": "D-1051",
+        "client": "Sidra Heights Hotel",
+        "segment": "Hotel",
+        "account_manager": "Yousef",
+        "value": 32400,
+        "days": 88
+      },
+      {
+        "id": "D-1057",
+        "client": "Gulf Horizon Holding",
+        "segment": "Corporate office",
+        "account_manager": "Fatima",
+        "value": 29100,
+        "days": 74
+      },
+      {
+        "id": "D-1063",
+        "client": "Blue Dhow Hotel",
+        "segment": "Hotel",
+        "account_manager": "Khalid",
+        "value": 24500,
+        "days": 67
+      }
+    ],
+    "long_negotiation_total_value": 86000,
+    "win_rate_by_segment": {
+      "Hotel": {
+        "won": 17,
+        "lost": 13,
+        "win_rate_pct": 56.7
+      },
+      "Co-op": {
+        "won": 10,
+        "lost": 13,
+        "win_rate_pct": 43.5
+      },
+      "Corporate office": {
+        "won": 5,
+        "lost": 15,
+        "win_rate_pct": 25.0
+      }
+    },
+    "overall_win_rate_pct": 43.8,
+    "lost_deals_by_account_manager": {
+      "Khalid": 13,
+      "Yousef": 8,
+      "Fatima": 7,
+      "Sara": 7,
+      "Noura": 6
+    },
+    "khalid_loss_reasons": {
+      "Price": 9,
+      "Chose competitor": 2,
+      "No budget": 1,
+      "Delivery terms": 1
+    },
+    "loss_reasons_all": {
+      "Price": 16,
+      "Chose competitor": 10,
+      "Delivery terms": 8,
+      "No budget": 7
+    },
+    "q3_2026_won_value_total": 320000,
+    "q3_2026_won_deal_count": 17,
+    "q3_definition": "Stage = Won and Expected close (actual close date) between 1 Jul and 30 Sep 2026",
+    "total_won_value": 546750,
+    "open_pipeline_value": 782250,
+    "darwaza_hotels_deal": {
+      "id": "D-1107",
+      "stage": "Proposal",
+      "value": 70000
+    }
+  },
+  "campaigns": {
+    "file": "tamra-campaign-results.xlsx",
+    "rows": 173,
+    "weeks": "13 weeks, starting Sundays 7 Jun 2026 to 30 Aug 2026",
+    "return_revenue_per_spend_by_channel": {
+      "Instagram": 2.86,
+      "TikTok": 3.52,
+      "Snapchat": 2.92,
+      "Google Ads": 1.75,
+      "Email": 4.93
+    },
+    "spend_by_channel": {
+      "Instagram": 10366,
+      "TikTok": 4389,
+      "Snapchat": 7379,
+      "Google Ads": 10474,
+      "Email": 2458
+    },
+    "revenue_by_channel": {
+      "Instagram": 29645,
+      "TikTok": 15457,
+      "Snapchat": 21522,
+      "Google Ads": 18314,
+      "Email": 12108
+    },
+    "orders_by_channel": {
+      "Instagram": 6345,
+      "TikTok": 4792,
+      "Snapchat": 4843,
+      "Google Ads": 3622,
+      "Email": 2010
+    },
+    "summer_iced_coffee_cost_per_order_by_channel": {
+      "Instagram": 1.281,
+      "TikTok": 0.839,
+      "Snapchat": 1.22,
+      "Google Ads": 1.59,
+      "Email": 1.248
+    },
+    "back_to_office_google_ads": {
+      "spend": 4700,
+      "revenue": 3803,
+      "orders": 670,
+      "return_revenue_per_spend": 0.81,
+      "note": "Highest spend of any campaign x channel pair (and the highest weekly spend rows)"
+    },
+    "spend_by_campaign": {
+      "Summer Iced Coffee": 13251,
+      "Weekend Brunch": 8876,
+      "Loyalty App Push": 5346,
+      "Back to Office": 7593
+    },
+    "return_by_campaign": {
+      "Summer Iced Coffee": 2.77,
+      "Weekend Brunch": 3.59,
+      "Loyalty App Push": 3.07,
+      "Back to Office": 1.59
+    },
+    "snapchat_orders_by_week": {
+      "07 Jun 2026": 222,
+      "14 Jun 2026": 216,
+      "21 Jun 2026": 231,
+      "28 Jun 2026": 224,
+      "05 Jul 2026": 329,
+      "12 Jul 2026": 279,
+      "19 Jul 2026": 302,
+      "26 Jul 2026": 317,
+      "02 Aug 2026": 1239,
+      "09 Aug 2026": 359,
+      "16 Aug 2026": 351,
+      "23 Aug 2026": 370,
+      "30 Aug 2026": 404
+    },
+    "snapchat_orders_week_2_aug": 1239,
+    "snapchat_orders_avg_other_weeks": 300.3,
+    "snapchat_spike_ratio": 4.13,
+    "snapchat_spike_reason_not_in_data": "Influencer collaboration (not recorded in the file)",
+    "total_spend": 35066,
+    "total_revenue": 97046,
+    "total_orders": 21612
+  },
+  "tickets": {
+    "file": "tamra-it-tickets.xlsx",
+    "ticket_count": 320,
+    "open_tickets": 21,
+    "pos_fahaheel_by_month": {
+      "Jul": 2,
+      "Aug": 13,
+      "Sep": 3
+    },
+    "pos_tickets_august_by_site": {
+      "Fahaheel": 13,
+      "Hawally": 8,
+      "Jabriya": 5,
+      "Sharq": 5,
+      "Salmiya": 3
+    },
+    "firmware_4_2_notes_count": 7,
+    "delivery_app_p1_by_weekday": {
+      "Sunday": 0,
+      "Monday": 2,
+      "Tuesday": 0,
+      "Wednesday": 2,
+      "Thursday": 8,
+      "Friday": 0,
+      "Saturday": 0
+    },
+    "delivery_app_p1_total": 12,
+    "avg_hours_to_resolve_by_category": {
+      "Wi-Fi / network": 18.8,
+      "Laptop / hardware": 11.8,
+      "Printer": 6.9,
+      "POS terminal": 6.0,
+      "Delivery app": 5.0,
+      "Email / accounts": 2.8
+    },
+    "reopen_rate_pct_by_category_all_tickets": {
+      "Printer": 31.1,
+      "POS terminal": 7.4,
+      "Laptop / hardware": 5.5,
+      "Email / accounts": 5.3,
+      "Wi-Fi / network": 4.3,
+      "Delivery app": 3.7
+    },
+    "reopen_rate_pct_by_category_resolved_only": {
+      "Printer": 35.0,
+      "POS terminal": 8.1,
+      "Laptop / hardware": 5.9,
+      "Email / accounts": 5.4,
+      "Wi-Fi / network": 4.3,
+      "Delivery app": 3.9
+    },
+    "tickets_by_category": {
+      "POS terminal": 81,
+      "Laptop / hardware": 55,
+      "Delivery app": 54,
+      "Wi-Fi / network": 47,
+      "Printer": 45,
+      "Email / accounts": 38
+    }
+  },
+  "fy2025_revenue_by_unit": {
+    "Wholesale": 4800000,
+    "Cafés": 3744000,
+    "Delivery app": 1056000,
+    "total": 9600000,
+    "share_pct": {
+      "Wholesale": 50,
+      "Cafés": 39,
+      "Delivery app": 11
+    }
+  },
+  "messy_deck": {
+    "file": "tamra-messy-deck.pptx",
+    "original_order": [
+      "1 Title",
+      "2 Summary",
+      "3 Customer complaints",
+      "4 Agenda",
+      "5 Findings: wait times",
+      "6 Findings: wait times (v2)",
+      "7 PLACEHOLDER — delete me",
+      "8 Recommendations",
+      "9 Next steps"
+    ],
+    "intended_order": [
+      "Title (slide 1)",
+      "Agenda (slide 4)",
+      "Customer complaints (slide 3, split or trim the text wall)",
+      "Findings: wait times (merge slides 5 and 6; keep v2's extra Fahaheel point)",
+      "Recommendations (slide 8, trim the text wall)",
+      "Next steps (slide 9)",
+      "Summary (slide 2, moved to the end)"
+    ],
+    "delete": [
+      "Slide 7 PLACEHOLDER — delete me",
+      "Slide 5 or 6 (duplicate; keep one merged slide)"
+    ],
+    "intended_slide_count": 7,
+    "faults": [
+      "Summary at the start instead of the end",
+      "Agenda is slide 4 instead of slide 2",
+      "Text walls on slides 3, 5, 6 and 8",
+      "Slides 5 and 6 are near-duplicates (v2 adds one point)",
+      "Slide 7 is a junk placeholder"
+    ]
+  },
+  "meeting_notes": {
+    "file": "tamra-leadership-meeting-notes.docx",
+    "meeting": "Sunday 27 Sep 2026, 9:05-10:50, leadership team",
+    "planted_contradiction": {
+      "topic": "POS upgrade budget",
+      "value_1": "KWD 120,000 (section 2: 'budget 120k (in board pack)')",
+      "value_2": "KWD 102,000 (section 6 AOB: 'POS 102k already in Q4 capex')",
+      "correct_value_per_other_files": 120000
+    },
+    "decisions": [
+      "Go ahead with the POS pilot at Salmiya, starting Sunday 25 Oct 2026 (full rollout Nov-Dec subject to board approval)",
+      "Pause all new delivery promo codes until the new fee model is agreed (existing promos run to end of October)",
+      "Noura leads the Darwaza Hotels proposal; the 3 price tiers (Classic / Premium / Signature) are approved"
+    ],
+    "open_questions": [
+      "Who leads the delivery-partner negotiation: Faisal or Yousef?",
+      "Final cold brew budget: KWD 18,000 or KWD 12,000?",
+      "Keep late weekend opening hours at the Jahra cafe?",
+      "Is the wholesale July dip a one-off (summer) or a trend?"
+    ],
+    "actions": [
+      {
+        "owner": "Faisal Al-Rashed (CFO)",
+        "action": "Delivery fee model options (a)+(b) with numbers for the board pack",
+        "due": "Thu 1 Oct 2026"
+      },
+      {
+        "owner": "Omar Al-Enezi (Head of IT)",
+        "action": "POS pilot plan and vendor contract for Salmiya",
+        "due": "'next wk' (vague; week of 4 Oct 2026)"
+      },
+      {
+        "owner": "Noura Al-Ajmi (Head of Sales)",
+        "action": "Darwaza Hotels proposal draft to Dana",
+        "due": "15 Oct 2026"
+      },
+      {
+        "owner": "Sara Al-Hajri (Head of Marketing)",
+        "action": "Cold brew budget, 2 options (18k / 12k) with impact on targets",
+        "due": "'before board' (vague; board date not set)"
+      },
+      {
+        "owner": "Yousef Al-Shammari (COO)",
+        "action": "Wholesale July dip analysis and calls to the top 5 hotel clients",
+        "due": "'end of month-ish' (vague; ~30 Sep 2026)"
+      }
+    ],
+    "disagreement": "CFO Faisal wants the cold brew budget cut to KWD 12,000 (drop influencers, cut TikTok); Head of Marketing Sara says KWD 18,000 is needed to reach 22-35-year-olds and hit 25,000 bottles. Dana deferred to the board."
+  },
+  "_about": {
+    "company": "Tamra Foods Co. (fictional)",
+    "disclaimer": "Fictional sample data for training — Tamra Foods Co. is not a real company.",
+    "generator": "build/assets-src/make_assets.py (random.seed(2026))",
+    "files": [
+      "tamra-company-profile.docx",
+      "tamra-monthly-kpis.xlsx",
+      "tamra-sales-pipeline.xlsx",
+      "tamra-campaign-results.xlsx",
+      "tamra-it-tickets.xlsx",
+      "tamra-h1-2026-business-review.docx",
+      "tamra-account-brief-darwaza-hotels.docx",
+      "tamra-campaign-brief-cold-brew.docx",
+      "tamra-pos-upgrade-project-plan.docx",
+      "tamra-messy-deck.pptx",
+      "tamra-house-style-letter.docx",
+      "tamra-supplier-notice.docx",
+      "tamra-leadership-meeting-notes.docx"
+    ]
+  }
+}

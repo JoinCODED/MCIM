@@ -1,0 +1,75 @@
+{
+  "_comment": "Per-workshop config for the CODED workshop-builder. Drives build.py. Dates and live links for participants are ALSO editable after deploy in site/site-config.js (that file wins in the browser).",
+
+  "title": "Mastering Copilot in Microsoft 365",
+  "code": "COPILOT",
+  "audience": "client",
+  "_audience_note": "Open-enrollment B2B workshop (not tied to one client). ~20 participants, mixed roles: executive, sales, marketing, technical.",
+  "run_by": "CODED",
+
+  "branding": { "mode": "coded", "partner_name": null },
+
+  "deliverables": {
+    "landing": true, "day_pages": true, "decks": true, "trainee_labs": true,
+    "instructor_labs": false, "presenter_notes": false, "answer_key": false,
+    "lab_walkthrough": false, "instructor_solutions": false, "cheat_sheet": true,
+    "practice_quiz": false, "exam": false, "facilitator_kit": false, "workshop_index": false,
+    "_scope_note": "User chose 'public website only' on 2026-09-28. Labs are task-based (tap-to-copy prompts, Stretch/Boss tiers), not CTF flags: Copilot output is not deterministic, so there is no flag to capture."
+  },
+
+  "extras": ["before-you-start", "prompt-bank", "capstone", "sample-files", "resources", "day-3-classify-redact", "day-3-judgment-calls"],
+
+  "roles": {
+    "executive": "Executive",
+    "sales": "Sales",
+    "marketing": "Marketing",
+    "technical": "Technical"
+  },
+
+  "sample_company": "Tamra Foods Co. — a fictional Kuwaiti food company (cafés, wholesale to hotels and co-ops, a delivery app). All sample data is invented.",
+
+  "days": [
+    {
+      "n": 1, "title": "Foundations", "headline": "Meet the Engine",
+      "date_long": "Tuesday 29 September 2026", "date_short": "Tue 29 Sep", "hours": "9:00 AM – 2:00 PM",
+      "blocks": [
+        {"time": "9:00–9:30",  "name": "Pre-workshop MAP test"},
+        {"time": "9:30–9:45",  "name": "Welcome, setup check, icebreaker"},
+        {"time": "9:45–10:35", "name": "Block 1 · What is AI? What is an LLM? Why do we need it?"},
+        {"time": "10:50–11:40","name": "Block 2 · What is Copilot, how it compares, features"},
+        {"time": "1:00–1:50",  "name": "Block 3 · Prompt engineering (CTFT) + Copilot Chat"},
+        {"time": "1:50–2:00",  "name": "Close · recap, start the Prompt Bank, preview Day 2"}
+      ]
+    },
+    {
+      "n": 2, "title": "Copilot Across the Apps", "headline": "Put It to Work",
+      "date_long": "Wednesday 30 September 2026", "date_short": "Wed 30 Sep", "hours": "9:00 AM – 2:00 PM",
+      "blocks": [
+        {"time": "9:00–9:50",  "name": "Block 1 · Copilot in Word"},
+        {"time": "10:05–10:55","name": "Block 2 · Copilot in PowerPoint"},
+        {"time": "11:10–12:00","name": "Block 3 · Copilot in Excel"},
+        {"time": "1:00–1:50",  "name": "Block 4 · Copilot in Outlook + Teams recap"},
+        {"time": "1:50–2:00",  "name": "Close · role-based reflection"}
+      ]
+    },
+    {
+      "n": 3, "title": "Responsible AI + Capstone", "headline": "Safe Use & Your Workflow",
+      "date_long": "Thursday 1 October 2026", "date_short": "Thu 1 Oct", "hours": "9:00 AM – 2:30 PM",
+      "blocks": [
+        {"time": "9:00–9:50",  "name": "Block 1 · Responsible AI — security, compliance & the RAI framework"},
+        {"time": "10:05–10:55","name": "Block 2 · Prompt Gallery + capstone briefing"},
+        {"time": "11:10–11:40","name": "Post-workshop MAP test"},
+        {"time": "1:00–1:50",  "name": "Block 3 · Capstone build"},
+        {"time": "2:00–2:30",  "name": "Certificates + satisfaction survey"}
+      ]
+    }
+  ],
+
+  "deploy": {
+    "host": "netlify_dragdrop",
+    "output_dir": "site",
+    "day_page_filename": "coded-copilot-day-<n>.html",
+    "deck_filename": "coded-copilot-day-<n>-deck.html",
+    "lab_filename": "coded-copilot-day-<n>-lab.html"
+  }
+}

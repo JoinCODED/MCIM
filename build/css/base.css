@@ -1,0 +1,16 @@
+/* ===== shared additions on top of theme.css (every page) ===== */
+html{scroll-behavior:smooth}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible{outline:2px solid var(--rose);outline-offset:3px;border-radius:4px}
+b,strong{color:var(--ink)}
+/* links whose address is not set yet in site-config.js */
+a.pending{opacity:.55;cursor:not-allowed;filter:saturate(.4)}
+a.pending:hover{transform:none!important}
+/* QR code holder (filled by common.js) */
+.qr-soon{display:flex;align-items:center;justify-content:center;text-align:center;width:100%;height:100%;
+  font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);line-height:1.5}
+/* toast */
+.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,20px);z-index:999;opacity:0;pointer-events:none;
+  background:var(--surf2);border:1px solid var(--green-bd);color:var(--green-lt);font-weight:700;font-size:13.5px;
+  padding:11px 18px;border-radius:999px;box-shadow:0 14px 40px rgba(0,0,0,.5);transition:opacity .2s,transform .2s}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
