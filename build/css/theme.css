@@ -1,78 +1,84 @@
 /* ============================================================================
-   CODED · SPECIMEN dark theme — CANONICAL TOKENS  (single source of truth)
-   Every page in a workshop site pulls colour, type and surfaces from here.
-   To re-theme for a partner/collab: change ONLY the brand-red ramp + --blue.
-   Do not invent new colours in components — use these variables.
-   Font import (put in <head> of every page):
-   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+   CODED theme — navy + CODED blue, IBM Plex (matches coded-reels-playbook.vercel.app)
+   Single source of truth for colour, type and surfaces on every page.
+   Token NAMES are kept from the earlier SPECIMEN build so every component follows
+   automatically; only the values changed:
+     --crimson = primary accent (CODED blue bright)   --rose / --rose-lt = soft blues
+     --maroon / --mid = deep CODED blues               --base / --surf / --card = navy
+   Font import (in <head> of every page):
+   IBM Plex Sans 400–700 + IBM Plex Mono 500–600 (+ IBM Plex Sans Arabic)
 ============================================================================ */
 :root{
-  /* ---- Base & surfaces (near-black, warm) ---- */
-  --base:#0A0507;        /* page background (canonical) */
-  --surf:#150A0D;        /* raised surface */
-  --surf2:#1C0E12;       /* secondary surface (card gradients end here) */
-  --card:#130A0C;        /* card background on pages */
-  --card-2:#190E11;      /* card alt */
-  --raise:#241019;       /* hover / lifted */
-  --panel:#120A0C;
-  --deep:#240A11;
+  /* ---- navy canvas & surfaces ---- */
+  --base:#00081c;        /* page background behind the navy glow */
+  --navy:#14243F;
+  --navy-deep:#00112F;
+  --surf:#12294f;        /* raised surface (panel) */
+  --surf2:#1b3055;       /* secondary surface (card gradients end here) */
+  --card:#112340;        /* card background on pages */
+  --card-2:#16294a;      /* card alt */
+  --raise:#1c3057;       /* hover / lifted */
+  --panel:#0b1a33;
+  --deep:#00112F;
 
-  /* ---- Brand red ramp (the SPECIMEN crimson family) ---- */
-  --maroon:#5D181A;      /* darkest, gradient base */
-  --mid:#8B1E2A;
-  --crimson:#C8324A;     /* PRIMARY brand red */
-  --rose:#E0566E;        /* lighter accent red */
-  --rose-lt:#EC8B9C;     /* lightest — eyebrows, highlights, small accents */
+  /* ---- CODED blue ramp (keeps the old ramp names) ---- */
+  --maroon:#003a82;      /* deepest blue — gradient ends */
+  --mid:#004AA3;         /* CODED blue */
+  --crimson:#2f74d6;     /* PRIMARY accent — bright CODED blue */
+  --rose:#6f9ce8;        /* soft blue */
+  --rose-lt:#9db3ff;     /* lightest — eyebrows, highlights, small accents */
+  --blue:#004AA3;
+  --indigo:#3e50dd;
+  --red:#f84b4b;         /* CODED red — used sparingly for warnings */
+  --red-deep:#c23030;
 
-  /* ---- CODED house blue (used very sparingly) ---- */
-  --blue:#3D7BE0;
+  /* ---- ink ---- */
+  --ink:#ffffff;
+  --ink-dim:#9fb2d4;     /* muted */
+  --ink-faint:#6f83a8;   /* muted-2 */
 
-  /* ---- Ink (text) ---- */
-  --ink:#F5F0F1;         /* primary text */
-  --ink-dim:#AEA2A5;     /* secondary text */
-  --ink-faint:#76696C;   /* tertiary / footnotes / mono captions */
-
-  /* ---- White-alpha scale (overlays, hairlines, muted text on dark) ---- */
+  /* ---- white-alpha scale ---- */
   --w:#fff;
-  --w8:rgba(255,255,255,.82); --w7:rgba(255,255,255,.7);  --w6:rgba(255,255,255,.58);
-  --w5:rgba(255,255,255,.46); --w4:rgba(255,255,255,.34); --w3:rgba(255,255,255,.3);
-  --w2:rgba(255,255,255,.16); --w1:rgba(255,255,255,.09); --w06:rgba(255,255,255,.06);
+  --w8:rgba(255,255,255,.84); --w7:rgba(255,255,255,.72); --w6:rgba(255,255,255,.6);
+  --w5:rgba(255,255,255,.48); --w4:rgba(255,255,255,.36); --w3:rgba(255,255,255,.3);
+  --w2:rgba(255,255,255,.18); --w1:rgba(255,255,255,.10); --w06:rgba(255,255,255,.05);
 
-  /* ---- Hairlines ---- */
-  --line:rgba(255,255,255,.08);
-  --line-2:rgba(255,255,255,.14);
+  /* ---- hairlines ---- */
+  --line:rgba(255,255,255,.12);
+  --line-2:rgba(255,255,255,.16);
 
-  /* ---- Status colours (labs, quiz, answer keys) ---- */
-  --green:#3DC873; --green-lt:#8FE6AE; --green-bg:rgba(61,200,115,.12); --green-bd:rgba(61,200,115,.4);
-  --amber:#E9C46A;
-  --danger:#FF5A6E; --danger-bg:rgba(255,90,110,.1); --danger-bd:rgba(255,90,110,.34);
+  /* ---- status ---- */
+  --green:#37a06a; --green-lt:#5ad0a0; --green-bg:rgba(90,208,160,.12); --green-bd:rgba(90,208,160,.42);
+  --amber:#f0a544;
+  --danger:#ff6b6b; --danger-bg:rgba(255,107,107,.10); --danger-bd:rgba(255,107,107,.36);
 
-  /* ---- Accent trio for "three-of-a-kind" reference cards (cheat sheets) ---- */
-  --ac-rose:#EC8B9C; --ac-cyan:#6FCFE4; --ac-amber:#E9C46A;
+  /* ---- accent trio for three-of-a-kind cards ---- */
+  --ac-rose:#9db3ff; --ac-cyan:#79e2ec; --ac-amber:#ffd196;
 
-  /* ---- Type ---- */
-  --f:'Manrope',system-ui,sans-serif;     /* primary sans (pages) */
-  --mf:'Manrope',system-ui,sans-serif;    /* alias used in decks/companions */
-  --mono:'Space Mono',ui-monospace,monospace;
+  /* ---- type ---- */
+  --f:'IBM Plex Sans','IBM Plex Sans Arabic','Helvetica Neue',Arial,sans-serif;
+  --mf:'IBM Plex Sans','IBM Plex Sans Arabic','Helvetica Neue',Arial,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --ease:cubic-bezier(.22,.61,.36,1);
 }
 
 /* ============================ BASE ============================ */
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 
-/* Standard page background = warm near-black + a single crimson glow top-right.
-   (Landing/hero layers a grid + vignette on top of this — see design-system.md.) */
+/* Page background = navy radial glow + faint grid (CODED hub) */
 body{
-  background:radial-gradient(1100px 640px at 85% -8%,rgba(200,50,74,.12),transparent 60%),var(--base);
+  background:radial-gradient(125% 125% at 82% 6%,#1c3057 0,#14243F 45%,#00112F 100%) fixed,var(--base);
   color:var(--ink);
   font-family:var(--f);
   -webkit-font-smoothing:antialiased;
   line-height:1.5;
   overflow-x:hidden;
 }
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.028) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.028) 1px,transparent 1px);
+  background-size:56px 56px;-webkit-mask-image:radial-gradient(85% 85% at 55% 30%,#000 25%,transparent 100%);mask-image:radial-gradient(85% 85% at 55% 30%,#000 25%,transparent 100%)}
 a{color:inherit;text-decoration:none}
 
 /* ============================ SHARED MOTION ============================ */
-/* Reveal easing used everywhere content animates in */
-/* cubic-bezier(.2,.7,.2,1) over .5s  — see .b build elements in decks */
-@keyframes shimmer{to{background-position:200% 0}}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 4px rgba(200,50,74,.18),0 0 14px var(--crimson)}50%{box-shadow:0 0 0 6px rgba(200,50,74,.0),0 0 20px var(--crimson)}}
+@keyframes shimmer{to{background-position:-220% 0}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 4px rgba(47,116,214,.2),0 0 14px var(--crimson)}50%{box-shadow:0 0 0 6px rgba(47,116,214,0),0 0 20px var(--crimson)}}

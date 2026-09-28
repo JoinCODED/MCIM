@@ -21,6 +21,7 @@ def rd(p):
 
 THEME = rd('css/theme.css')
 BASE = rd('css/base.css')
+CODED_THEME = rd('css/coded-theme.css')
 COMMON = rd('static/common.js')
 LOGO = rd('static/coded-logo.txt').strip()
 if not LOGO.startswith('data:'):
@@ -29,9 +30,9 @@ ICON = {k: 'data:image/png;base64,' + base64.b64encode(open(os.path.join(ROOT, '
         for k in ('word', 'excel', 'powerpoint', 'outlook')}
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">\n'
          '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
-         '<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">')
+         '<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">')
 FAVICON = ('<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E'
-           '%3Crect width=%2732%27 height=%2732%27 rx=%278%27 fill=%27%230A0507%27/%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%277%27 fill=%27%23C8324A%27/%3E%3C/svg%3E">')
+           '%3Crect width=%2732%27 height=%2732%27 rx=%278%27 fill=%27%2300112F%27/%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%277%27 fill=%27%232f74d6%27/%3E%3C/svg%3E">')
 
 
 def esc(s):
@@ -58,6 +59,7 @@ def page(title, body, css='', js='', desc='', qr=False, body_class=''):
 {THEME}
 {BASE}
 {css}
+{CODED_THEME}
 </style>
 <script src="site-config.js"></script>
 {'<script src="qrcode.min.js"></script>' if qr else ''}

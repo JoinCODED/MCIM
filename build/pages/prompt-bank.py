@@ -4,12 +4,12 @@ CSS = SUB_CSS + '''
   .pb-bar .grow{flex:1}
   .filters{display:flex;flex-wrap:wrap;gap:6px}
   .flt{padding:7px 12px;border-radius:999px;font-size:12.5px;font-weight:700;cursor:pointer;border:1px solid var(--w1);background:var(--w06);color:var(--ink-dim);font-family:var(--f)}
-  .flt.on{border-color:rgba(200,50,74,.55);color:#fff;background:rgba(200,50,74,.22)}
+  .flt.on{border-color:rgba(47,116,214,.55);color:#fff;background:rgba(47,116,214,.22)}
   .pcard{background:linear-gradient(180deg,var(--surf2),var(--surf));border:1px solid var(--w1);border-left:3px solid var(--crimson);border-radius:14px;padding:16px 18px;margin-bottom:12px}
   .pc-top{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:8px}
   .pc-title{font-size:15px;font-weight:800;color:var(--ink);margin-right:auto}
   .pc-text{font-family:var(--mono);font-size:13px;line-height:1.6;color:var(--ink);white-space:pre-wrap;background:rgba(0,0,0,.25);border:1px solid var(--w1);border-radius:9px;padding:12px 14px;cursor:pointer}
-  .pc-text:hover{border-color:rgba(200,50,74,.4)}
+  .pc-text:hover{border-color:rgba(47,116,214,.4)}
   .pc-act{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
   .pc-act button{font-size:12px;padding:6px 11px}
   .empty{border:1px dashed var(--w2);border-radius:14px;padding:30px 24px;text-align:center;color:var(--ink-dim);font-size:14.5px;line-height:1.6}

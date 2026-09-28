@@ -3,14 +3,14 @@ CSS = SUB_CSS + '''
   .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px}
   @media(max-width:820px){.tiers{grid-template-columns:1fr}}
   .tiers .card h3{font-size:16.5px;font-weight:800;margin:6px 0 10px;line-height:1.3}
-  .tiers .card.prem{border-color:rgba(200,50,74,.45);background:linear-gradient(180deg,rgba(200,50,74,.12),var(--surf))}
+  .tiers .card.prem{border-color:rgba(47,116,214,.45);background:linear-gradient(180deg,rgba(47,116,214,.12),var(--surf))}
   .tiers ul{list-style:none;display:flex;flex-direction:column;gap:7px}
   .tiers li{font-size:13.5px;color:var(--ink-dim);line-height:1.45;padding-left:20px;position:relative}
   .tiers li::before{content:"✓";position:absolute;left:0;color:var(--green-lt);font-weight:800}
   .tiers li.no::before{content:"✕";color:var(--danger)}
   ol.stp{list-style:none;counter-reset:s;display:flex;flex-direction:column;gap:10px;margin-top:6px}
   ol.stp li{counter-increment:s;display:flex;gap:14px;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:var(--card);font-size:15px;color:var(--ink);line-height:1.5}
-  ol.stp li::before{content:counter(s);flex:none;width:26px;height:26px;border-radius:8px;background:rgba(200,50,74,.16);color:var(--rose-lt);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:12px;font-weight:700}
+  ol.stp li::before{content:counter(s);flex:none;width:26px;height:26px;border-radius:8px;background:rgba(47,116,214,.16);color:var(--rose-lt);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:12px;font-weight:700}
   ol.stp li small{display:block;color:var(--ink-dim);font-size:13.5px;margin-top:3px}
   table.need{width:100%;border-collapse:collapse;font-size:14px;border:1px solid var(--line-2);border-radius:14px;overflow:hidden}
   table.need th,table.need td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.45}

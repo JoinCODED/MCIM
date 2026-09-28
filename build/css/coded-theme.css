@@ -1,0 +1,26 @@
+/* ===== CODED theme layer (coded-reels-playbook look) — loaded LAST on every page ===== */
+/* eyebrows: sans, wide tracking, soft blue, gradient bar */
+.eyebrow{font-family:var(--f)!important;font-weight:700;letter-spacing:.32em;color:var(--rose)}
+.eyebrow::before{height:2px!important;width:34px!important;border-radius:2px;background:linear-gradient(90deg,var(--crimson),transparent)!important;box-shadow:0 0 12px rgba(47,116,214,.5)}
+/* highlights + headline sweep */
+.hl{color:var(--rose-lt)!important}
+@keyframes hlbreathe{0%,100%{text-shadow:0 0 18px rgba(143,168,255,.18)}50%{text-shadow:0 0 30px rgba(143,168,255,.45)}}
+.headline .accent,.sec-title .hl{background:linear-gradient(90deg,#fff,#8fa8ff 30%,#fff 60%)!important;background-size:220% 100%!important;
+  -webkit-background-clip:text!important;background-clip:text!important;color:transparent!important;animation:shimmer 5s linear infinite}
+/* primary buttons: CODED blue gradient pill */
+.cta,.open-btn,.slides-btn,.labcta,.btn.primary,.cap-btn,.tf-btn.next,.lw-btn:not(.ghost),.launch-btn,.rb-open:not(.ghost),.nbtn.next,.brk-act.end,.wall-add button,.pbtn,.zr-b.on,.dial button.on{
+  background:linear-gradient(140deg,#2f74d6,#004AA3)!important;border:1px solid rgba(111,156,232,.5)!important;color:#fff!important;
+  box-shadow:0 10px 34px rgba(0,74,163,.45),inset 0 1px 0 rgba(255,255,255,.18)!important}
+.cta:hover,.open-btn:hover,.slides-btn:hover,.labcta:hover,.rb-open:not(.ghost):hover{box-shadow:0 16px 44px rgba(0,74,163,.6),inset 0 1px 0 rgba(255,255,255,.18)!important}
+/* landing hero: calm navy, like the CODED hub */
+.hero{background:transparent!important}
+.hero .glow{opacity:.4}
+.hero::after{background:radial-gradient(130% 100% at 50% 22%,transparent 55%,rgba(0,8,28,.55))!important}
+/* glass cards */
+.dcard,.panel,.res-bar,.cancard,.fcard,.role-c,.sys,.tier-c,.key,.check-row,.task,.road-row,.cnt,.confcard,.acw,.predw{backdrop-filter:blur(6px)}
+/* decks: navy slide, top accent line */
+.slide{background:radial-gradient(125% 125% at 82% 6%,#1c3057 0,#14243F 45%,#00112F 100%)!important}
+.slide::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;z-index:4;pointer-events:none;background:linear-gradient(90deg,transparent,var(--crimson),transparent);opacity:.85}
+.blob{opacity:.55}
+.prog-track .pt-fill{background:linear-gradient(90deg,#004AA3,#2f74d6,#8fa8ff)!important}
+html:has(.deck-nav),html:has(.deck-nav) body{background:#00081c}

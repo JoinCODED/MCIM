@@ -1,7 +1,7 @@
 # Capstone — "Create a workflow": four role tracks, planner, self-check (participant-facing)
 CSS = SUB_CSS + '''
   .hero-c{border:1px solid var(--line);border-radius:22px;padding:34px 32px;margin-bottom:10px;
-    background:linear-gradient(150deg,rgba(200,50,74,.14),rgba(123,30,40,.05)),var(--card)}
+    background:linear-gradient(150deg,rgba(47,116,214,.14),rgba(0,74,163,.05)),var(--card)}
   .hero-c h1{margin-bottom:10px}
   .how{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:22px}
   @media(max-width:760px){.how{grid-template-columns:repeat(2,1fr)}}
@@ -11,10 +11,10 @@ CSS = SUB_CSS + '''
   .audit ol{margin:8px 0 0 20px}.audit li{color:var(--ink)}
   .tabs2{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 18px}
   .tab2{padding:9px 15px;border-radius:999px;font-size:13px;font-weight:700;cursor:pointer;border:1px solid var(--w1);background:var(--w06);color:var(--ink-dim);font-family:var(--f)}
-  .tab2.on{border-color:rgba(200,50,74,.55);color:#fff;background:rgba(200,50,74,.22)}
+  .tab2.on{border-color:rgba(47,116,214,.55);color:#fff;background:rgba(47,116,214,.22)}
   .track h2{font-size:24px;font-weight:800;letter-spacing:-.3px;margin-bottom:6px}
   .surf{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 14px}
-  .surf span{font-family:var(--mono);font-size:11px;font-weight:700;padding:5px 10px;border-radius:7px;background:rgba(200,50,74,.12);border:1px solid rgba(200,50,74,.3);color:var(--rose-lt)}
+  .surf span{font-family:var(--mono);font-size:11px;font-weight:700;padding:5px 10px;border-radius:7px;background:rgba(47,116,214,.12);border:1px solid rgba(47,116,214,.3);color:var(--rose-lt)}
   .starter{font-size:15px;color:var(--ink);line-height:1.6;margin-bottom:14px}
   .dls{display:flex;flex-wrap:wrap;gap:10px;margin:6px 0 18px}
   .dl{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;border:1px solid var(--green-bd);background:var(--green-bg);color:var(--ink);font-weight:700;font-size:13px}
@@ -27,13 +27,13 @@ CSS = SUB_CSS + '''
   .cstep-t{font-size:15px;font-weight:800;color:var(--ink);width:100%}
   .cstep p{font-size:13.5px;color:var(--ink-dim);line-height:1.55;margin:4px 0 8px}
   .prompt{font-family:var(--mono);font-size:12.5px;line-height:1.6;color:var(--ink);background:rgba(0,0,0,.28);border:1px solid var(--w1);border-radius:9px;padding:28px 14px 12px;position:relative;cursor:pointer;white-space:pre-wrap}
-  .prompt:hover{border-color:rgba(200,50,74,.4)}
+  .prompt:hover{border-color:rgba(47,116,214,.4)}
   .prompt .ct{position:absolute;top:8px;right:10px;font-size:10px;color:var(--ink-faint);font-family:var(--mono)}
   .prompt.copied{border-color:var(--green-bd)}
   .pbs{margin-top:6px;font-size:12px;font-weight:700;color:var(--ink-dim);background:none;border:1px dashed var(--w2);border-radius:8px;padding:5px 10px;cursor:pointer;font-family:var(--f)}
   .pbs:hover{color:var(--rose-lt)}
   .chk{margin-top:8px;font-size:13px;color:var(--amber);line-height:1.5}
-  .yours{margin-top:14px;border:1px solid rgba(233,196,106,.3);background:rgba(233,196,106,.06);border-radius:12px;padding:12px 16px;font-size:14px;color:var(--ink);line-height:1.55}
+  .yours{margin-top:14px;border:1px solid rgba(240,165,68,.3);background:rgba(240,165,68,.06);border-radius:12px;padding:12px 16px;font-size:14px;color:var(--ink);line-height:1.55}
   .yours b{color:var(--amber)}
   .planner{display:grid;gap:12px}
   .planner label{display:block;font-size:12.5px;font-weight:700;color:var(--ink-dim);margin-bottom:6px}
