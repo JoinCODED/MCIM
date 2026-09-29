@@ -714,6 +714,17 @@ a.pending:hover{transform:none!important}
   @media(max-width:760px){.fliprow.three{grid-template-columns:repeat(2,1fr)}}
   .mt-actions{flex-wrap:wrap}
   .mt-actions .btn{white-space:nowrap}
+  /* break slides: big adjustable countdown */
+  .brk-slide{text-align:center;display:flex;flex-direction:column;align-items:center}
+  .brk-slide .mini-timer{margin:26px auto 0;width:100%;max-width:720px}
+  .brk-slide .mt-time{font-size:clamp(84px,15vw,168px);letter-spacing:-.04em}
+  .brk-slide .mt-actions{justify-content:center;flex-wrap:wrap;margin-top:22px}
+  .brk-slide .mt-actions .btn{min-width:64px;justify-content:center}
+  .mt-back{margin-top:14px;font-family:var(--mono);font-size:15px;color:var(--ink-dim);letter-spacing:.04em}
+  .mini-timer.done .mt-back{color:var(--rose-lt);font-weight:700}
+  .brk-next{margin-top:22px;font-size:15px;color:var(--ink-dim)}
+  .brk-next b{color:var(--ink)}
+  .brk-slide .eyebrow::before{display:none!important}
 
 /* ===== CODED theme layer (coded-reels-playbook look) — loaded LAST on every page ===== */
 /* eyebrows: sans, wide tracking, soft blue, gradient bar */
@@ -963,7 +974,30 @@ html:has(.deck-nav),html:has(.deck-nav) body{background:#00081c}
     <span class="eyebrow b" style="padding-left:0">Pause</span>
     <div class="qmark b">?</div>
     <p class="qsub b">Questions on safe use?</p>
-    <div class="parknote b">☕ Then break — back at 10:05 · tap ☕ for the timer</div>
+    <div class="parknote b">🅿️ Quick ones now — then the break</div>
+  </div>
+</div>
+
+<!-- ========== BREAK ========== -->
+<div class="slide" id="s-brk-1">
+  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
+  <div class="slide-pad brk-slide">
+    <span class="eyebrow b" style="padding-left:0">Break · 15 min</span>
+    <h2 class="term-h b">Break.</h2>
+    <div class="mini-timer b" data-min="15">
+      <div class="mt-time">15:00</div>
+      <div class="mt-bar"><div class="mt-fill"></div></div>
+      <div class="mt-back">Scheduled: back at 10:05 AM</div>
+      <div class="mt-actions">
+        <button class="btn" data-d="-5" title="5 minutes less">−5</button>
+        <button class="btn" data-d="-1" title="1 minute less">−1</button>
+        <button class="btn primary mt-start">Start</button>
+        <button class="btn" data-d="1" title="1 minute more">+1</button>
+        <button class="btn" data-d="5" title="5 minutes more">+5</button>
+        <button class="btn mt-reset">Reset</button>
+      </div>
+    </div>
+    <p class="brk-next b">Next: <b>The Prompt Gallery + capstone briefing</b></p>
   </div>
 </div>
 
@@ -1085,7 +1119,30 @@ html:has(.deck-nav),html:has(.deck-nav) body{background:#00081c}
     <span class="eyebrow b" style="padding-left:0">Pause</span>
     <div class="qmark b">?</div>
     <p class="qsub b">Questions on the capstone?</p>
-    <div class="parknote b">☕ Then break — back at 11:10 for the MAP test · tap ☕</div>
+    <div class="parknote b">🅿️ Quick ones now — then the break</div>
+  </div>
+</div>
+
+<!-- ========== BREAK ========== -->
+<div class="slide" id="s-brk-2">
+  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
+  <div class="slide-pad brk-slide">
+    <span class="eyebrow b" style="padding-left:0">Break · 15 min</span>
+    <h2 class="term-h b">Break.</h2>
+    <div class="mini-timer b" data-min="15">
+      <div class="mt-time">15:00</div>
+      <div class="mt-bar"><div class="mt-fill"></div></div>
+      <div class="mt-back">Scheduled: back at 11:10 AM</div>
+      <div class="mt-actions">
+        <button class="btn" data-d="-5" title="5 minutes less">−5</button>
+        <button class="btn" data-d="-1" title="1 minute less">−1</button>
+        <button class="btn primary mt-start">Start</button>
+        <button class="btn" data-d="1" title="1 minute more">+1</button>
+        <button class="btn" data-d="5" title="5 minutes more">+5</button>
+        <button class="btn mt-reset">Reset</button>
+      </div>
+    </div>
+    <p class="brk-next b">Next: <b>The post-workshop MAP test</b></p>
   </div>
 </div>
 
@@ -1119,7 +1176,30 @@ html:has(.deck-nav),html:has(.deck-nav) body{background:#00081c}
     <span class="eyebrow b" style="padding-left:0">Pause</span>
     <div class="qmark b">?</div>
     <p class="qsub b">Done? Look over your capstone plan.</p>
-    <div class="parknote b">☕ Then lunch — back at 1:00 PM to build · tap ☕</div>
+    <div class="parknote b">🅿️ Then buffer and lunch</div>
+  </div>
+</div>
+
+<!-- ========== BREAK ========== -->
+<div class="slide" id="s-brk-3">
+  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
+  <div class="slide-pad brk-slide">
+    <span class="eyebrow b" style="padding-left:0">Buffer + lunch · 80 min</span>
+    <h2 class="term-h b">Lunch.</h2>
+    <div class="mini-timer b" data-min="80">
+      <div class="mt-time">80:00</div>
+      <div class="mt-bar"><div class="mt-fill"></div></div>
+      <div class="mt-back">Scheduled: back at 1:00 PM</div>
+      <div class="mt-actions">
+        <button class="btn" data-d="-5" title="5 minutes less">−5</button>
+        <button class="btn" data-d="-1" title="1 minute less">−1</button>
+        <button class="btn primary mt-start">Start</button>
+        <button class="btn" data-d="1" title="1 minute more">+1</button>
+        <button class="btn" data-d="5" title="5 minutes more">+5</button>
+        <button class="btn mt-reset">Reset</button>
+      </div>
+    </div>
+    <p class="brk-next b">Next: <b>Build your capstone</b></p>
   </div>
 </div>
 
@@ -1166,7 +1246,30 @@ html:has(.deck-nav),html:has(.deck-nav) body{background:#00081c}
     <span class="eyebrow b" style="padding-left:0">Pause</span>
     <div class="qmark b">?</div>
     <p class="qsub b">Last questions?</p>
-    <div class="parknote b">☕ Then break — back at 2:00 PM for certificates · tap ☕</div>
+    <div class="parknote b">🅿️ Quick ones now — then the break</div>
+  </div>
+</div>
+
+<!-- ========== BREAK ========== -->
+<div class="slide" id="s-brk-4">
+  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
+  <div class="slide-pad brk-slide">
+    <span class="eyebrow b" style="padding-left:0">Break · 10 min</span>
+    <h2 class="term-h b">Break.</h2>
+    <div class="mini-timer b" data-min="10">
+      <div class="mt-time">10:00</div>
+      <div class="mt-bar"><div class="mt-fill"></div></div>
+      <div class="mt-back">Scheduled: back at 2:00 PM</div>
+      <div class="mt-actions">
+        <button class="btn" data-d="-5" title="5 minutes less">−5</button>
+        <button class="btn" data-d="-1" title="1 minute less">−1</button>
+        <button class="btn primary mt-start">Start</button>
+        <button class="btn" data-d="1" title="1 minute more">+1</button>
+        <button class="btn" data-d="5" title="5 minutes more">+5</button>
+        <button class="btn mt-reset">Reset</button>
+      </div>
+    </div>
+    <p class="brk-next b">Next: <b>Certificates + survey</b></p>
   </div>
 </div>
 
@@ -1441,18 +1544,30 @@ html:has(.deck-nav),html:has(.deck-nav) body{background:#00081c}
 
   /* ---- countdown timers: <div class="mini-timer" data-min="30"> ---- */
   function fmt(s){ s = Math.max(0, s); return String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(s % 60).padStart(2, '0'); }
+  function hhmm(d){ var h = d.getHours(), m = String(d.getMinutes()).padStart(2, '0'); return (h % 12 || 12) + ':' + m + (h < 12 ? ' AM' : ' PM'); }
   [].slice.call(document.querySelectorAll('.mini-timer[data-min]')).forEach(function(w){
     var total = (+w.getAttribute('data-min')) * 60, remain = total, h = null;
-    var tEl = w.querySelector('.mt-time'), fEl = w.querySelector('.mt-fill'), start = w.querySelector('.mt-start');
-    var label = start ? start.textContent : '';
-    function draw(){ tEl.textContent = fmt(remain); fEl.style.width = Math.max(0, Math.min(100, remain / total * 100)) + '%'; w.classList.toggle('done', remain <= 0); }
+    var tEl = w.querySelector('.mt-time'), fEl = w.querySelector('.mt-fill'), start = w.querySelector('.mt-start'), back = w.querySelector('.mt-back');
+    var label = start ? start.textContent : '', idle = back ? back.textContent : '';
+    function draw(){
+      tEl.textContent = fmt(remain); fEl.style.width = Math.max(0, Math.min(100, remain / total * 100)) + '%'; w.classList.toggle('done', remain <= 0);
+      if (back) back.textContent = remain <= 0 ? 'Time\'s up — welcome back' : (h ? 'Back at ' + hhmm(new Date(Date.now() + remain * 1000)) : idle);
+    }
     if (start) start.onclick = function(){
-      if (h) { clearInterval(h); h = null; start.textContent = 'Resume'; return; }
+      if (h) { clearInterval(h); h = null; start.textContent = 'Resume'; draw(); return; }
+      if (remain <= 0) return;
       start.textContent = 'Pause';
-      h = setInterval(function(){ remain--; draw(); if (remain <= 0) { clearInterval(h); h = null; start.textContent = label; } }, 1000);
+      h = setInterval(function(){ remain--; if (remain <= 0) { clearInterval(h); h = null; start.textContent = label; } draw(); }, 1000);
+      draw();
     };
-    var plus = w.querySelector('.mt-plus'); if (plus) plus.onclick = function(){ remain += 120; if (remain > total) total = remain; draw(); };
-    var rst = w.querySelector('.mt-reset'); if (rst) rst.onclick = function(){ clearInterval(h); h = null; total = (+w.getAttribute('data-min')) * 60; remain = total; draw(); if (start) start.textContent = label; };
+    // adjust buttons: [data-d]="-5" / "1" (minutes). Plain .mt-plus without data-d adds 2 minutes.
+    [].slice.call(w.querySelectorAll('[data-d], .mt-plus')).forEach(function(b){
+      b.onclick = function(){
+        var d = b.hasAttribute('data-d') ? +b.getAttribute('data-d') : 2;
+        remain = Math.max(0, remain + d * 60); if (remain > total) total = remain; draw();
+      };
+    });
+    var rst = w.querySelector('.mt-reset'); if (rst) rst.onclick = function(){ clearInterval(h); h = null; total = (+w.getAttribute('data-min')) * 60; remain = total; if (start) start.textContent = label; draw(); };
     draw();
   });
 

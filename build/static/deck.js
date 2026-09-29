@@ -76,18 +76,30 @@
 
   /* ---- countdown timers: <div class="mini-timer" data-min="30"> ---- */
   function fmt(s){ s = Math.max(0, s); return String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(s % 60).padStart(2, '0'); }
+  function hhmm(d){ var h = d.getHours(), m = String(d.getMinutes()).padStart(2, '0'); return (h % 12 || 12) + ':' + m + (h < 12 ? ' AM' : ' PM'); }
   [].slice.call(document.querySelectorAll('.mini-timer[data-min]')).forEach(function(w){
     var total = (+w.getAttribute('data-min')) * 60, remain = total, h = null;
-    var tEl = w.querySelector('.mt-time'), fEl = w.querySelector('.mt-fill'), start = w.querySelector('.mt-start');
-    var label = start ? start.textContent : '';
-    function draw(){ tEl.textContent = fmt(remain); fEl.style.width = Math.max(0, Math.min(100, remain / total * 100)) + '%'; w.classList.toggle('done', remain <= 0); }
+    var tEl = w.querySelector('.mt-time'), fEl = w.querySelector('.mt-fill'), start = w.querySelector('.mt-start'), back = w.querySelector('.mt-back');
+    var label = start ? start.textContent : '', idle = back ? back.textContent : '';
+    function draw(){
+      tEl.textContent = fmt(remain); fEl.style.width = Math.max(0, Math.min(100, remain / total * 100)) + '%'; w.classList.toggle('done', remain <= 0);
+      if (back) back.textContent = remain <= 0 ? 'Time\'s up — welcome back' : (h ? 'Back at ' + hhmm(new Date(Date.now() + remain * 1000)) : idle);
+    }
     if (start) start.onclick = function(){
-      if (h) { clearInterval(h); h = null; start.textContent = 'Resume'; return; }
+      if (h) { clearInterval(h); h = null; start.textContent = 'Resume'; draw(); return; }
+      if (remain <= 0) return;
       start.textContent = 'Pause';
-      h = setInterval(function(){ remain--; draw(); if (remain <= 0) { clearInterval(h); h = null; start.textContent = label; } }, 1000);
+      h = setInterval(function(){ remain--; if (remain <= 0) { clearInterval(h); h = null; start.textContent = label; } draw(); }, 1000);
+      draw();
     };
-    var plus = w.querySelector('.mt-plus'); if (plus) plus.onclick = function(){ remain += 120; if (remain > total) total = remain; draw(); };
-    var rst = w.querySelector('.mt-reset'); if (rst) rst.onclick = function(){ clearInterval(h); h = null; total = (+w.getAttribute('data-min')) * 60; remain = total; draw(); if (start) start.textContent = label; };
+    // adjust buttons: [data-d]="-5" / "1" (minutes). Plain .mt-plus without data-d adds 2 minutes.
+    [].slice.call(w.querySelectorAll('[data-d], .mt-plus')).forEach(function(b){
+      b.onclick = function(){
+        var d = b.hasAttribute('data-d') ? +b.getAttribute('data-d') : 2;
+        remain = Math.max(0, remain + d * 60); if (remain > total) total = remain; draw();
+      };
+    });
+    var rst = w.querySelector('.mt-reset'); if (rst) rst.onclick = function(){ clearInterval(h); h = null; total = (+w.getAttribute('data-min')) * 60; remain = total; if (start) start.textContent = label; draw(); };
     draw();
   });
 

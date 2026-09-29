@@ -598,22 +598,22 @@ window.LAB = {
     },
     {
       id: 'E1.4', app: 'Copilot Chat', title: 'Web, a file, your work', minutes: '10 min', block: 'Block 2',
-      scenario: 'Copilot\'s answers come from three places: the <b>web</b>, a <b>file</b> you give it, or — with a Premium licence — <b>your work</b> (emails, files, meetings). Try each one you have. Then decide which answer you can check.',
+      scenario: 'Copilot\'s answers come from three places: the <b>web</b>, a <b>file</b> you give it, or <b>your work</b> (emails, files, meetings). Try all three. Then decide which answer you can check.',
       files: [ { label: 'tamra-company-profile.docx', href: 'tamra-company-profile.docx', note: 'A profile of Tamra Foods Co. — a fictional Kuwaiti company used in all our exercises.' } ],
       steps: [
         '<b>Web.</b> Run prompt 1. Look for the links at the end of the answer — that is where it came from.',
         '<b>A file.</b> Download the Tamra profile above. In Copilot Chat, select <b>+</b> (Add) → <b>Upload</b>, choose the file, then run prompt 2. Check the answer against the file.',
-        '<b>Your work (Premium only).</b> Turn on <b>Work IQ</b>. Type <kbd>/</kbd> and pick a file you know well, then run prompt 3. No Work IQ button? Skip this step.',
+        '<b>Your work.</b> Type <kbd>/</kbd> in the chat box and pick a file you know well, then run prompt 3.',
         '<b>Compare.</b> Which answer could you check fastest? Write one line in the box below.'
       ],
       prompts: [
         { label: '1 · Web', text: 'What is Microsoft Graph? Explain it in two sentences for someone who isn\'t technical.' },
         { label: '2 · A file', text: 'Using only the attached file: what does Tamra Foods sell, and which three customer groups matter most? Answer in three bullet points, and quote the sentence each point comes from.' },
-        { label: '3 · Your work (Premium)', text: 'Summarise [type / and pick your file] in three bullet points. Then list any deadlines it mentions.' }
+        { label: '3 · Your work', text: 'Summarise [type / and pick your file] in three bullet points. Then list any deadlines it mentions.' }
       ],
       expect: 'An answer from each source you can reach — and one line on which one you could check.',
       stretch: "Ask the file something it can't answer: <i>“Using only the attached file, what was Tamra's profit in 2025?”</i> Does Copilot say it isn't in the file — or does it guess?",
-      boss: 'Ask the same question twice: once with the file attached and once without (or Work IQ on, then off). Write down exactly what changed.'
+      boss: 'Ask the same question twice: once with the file attached and once without. Write down exactly what changed.'
     },
     {
       id: 'E1.5', app: 'Copilot Chat', title: 'The one-page brief', minutes: '12 min', block: 'Block 2',
@@ -633,11 +633,11 @@ window.LAB = {
       reveal: '<ul><li><b>Active users vs downloads:</b> 38,000 active users; 52,000 downloads. A summary that says “52,000 users” mixed them up.</li><li><b>Two percentages:</b> 98% is wholesale on-time delivery; 94% is café guest satisfaction. Easy to swap.</li><li><b>Growth:</b> revenue KWD 8.9m → 9.6m (+7.9%); operating profit KWD 1.87m (19.5% margin).</li></ul>',
       expect: 'A one-page brief with a section next to every point — and at least one number you checked in the report yourself.',
       stretch: 'Research a topic on the web: <i>“What are three trends in food-delivery apps in the Gulf in 2026? Cite a source for each.”</i> Open one source. Does it really say that?',
-      boss: 'Two sources: attach the annual report <b>and</b> <a href="tamra-h1-2026-business-review.docx" download>the H1 2026 business review</a>. Ask: <i>“What changed between 2025 and the first half of 2026? For each point, say which document it comes from.”</i> Premium? Try the <b>Researcher</b> agent for the same question.'
+      boss: 'Two sources: attach the annual report <b>and</b> <a href="tamra-h1-2026-business-review.docx" download>the H1 2026 business review</a>. Ask: <i>“What changed between 2025 and the first half of 2026? For each point, say which document it comes from.”</i> Then try the <b>Researcher</b> agent for the same question.'
     },
     {
       id: 'E1.6', app: 'Copilot Chat', title: 'Feature hunt', minutes: 'early finishers', block: 'Block 2', optional: true,
-      scenario: 'Finished early? Find these features in your Copilot. Some need the Premium licence — that is useful to know, too. Menus move often; if you can\'t find one, ask your neighbour.',
+      scenario: 'Finished early? Find these features in your Copilot. Menus move often; if you can\'t find one, ask your neighbour.',
       widget: 'hunt',
       hunt: [
         { name: 'New chat', where: 'Top of the chat. Starts a clean conversation — Copilot forgets the old one.' },
@@ -646,11 +646,10 @@ window.LAB = {
         { name: 'Prompt Gallery', where: 'Prompt ideas under the prompt box or in the … menu. We use it on Day 3.' },
         { name: 'Copilot Pages', where: 'Under an answer: <b>Edit in Pages</b> turns it into a page you can edit and share.' },
         { name: 'Model choice', where: 'Auto, Quick response or Think deeper — for fast or deeper answers.' },
-        { name: 'Work IQ button', where: 'Top left of the chat. Premium only — switches your work data on or off.' },
-        { name: 'Agents', where: 'Researcher and Analyst in the left panel. Premium only.' },
-        { name: 'Type /', where: 'Refer to a file, person, email or meeting. Premium, with Work IQ on.' }
+        { name: 'Agents', where: 'Researcher and Analyst in the left panel. Ask Researcher a question and watch it plan.' },
+        { name: 'Type /', where: 'Refer to a file, person, email or meeting in your prompt.' }
       ],
-      expect: 'At least five features ticked — and you know which ones your licence doesn\'t include.'
+      expect: 'At least five features ticked — and one you will use next week.'
     },
     {
       id: 'E1.7', app: 'Copilot Chat', title: 'From zero to hero', minutes: '15 min', block: 'Block 3',

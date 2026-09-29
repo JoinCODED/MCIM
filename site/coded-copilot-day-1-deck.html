@@ -714,6 +714,17 @@ a.pending:hover{transform:none!important}
   @media(max-width:760px){.fliprow.three{grid-template-columns:repeat(2,1fr)}}
   .mt-actions{flex-wrap:wrap}
   .mt-actions .btn{white-space:nowrap}
+  /* break slides: big adjustable countdown */
+  .brk-slide{text-align:center;display:flex;flex-direction:column;align-items:center}
+  .brk-slide .mini-timer{margin:26px auto 0;width:100%;max-width:720px}
+  .brk-slide .mt-time{font-size:clamp(84px,15vw,168px);letter-spacing:-.04em}
+  .brk-slide .mt-actions{justify-content:center;flex-wrap:wrap;margin-top:22px}
+  .brk-slide .mt-actions .btn{min-width:64px;justify-content:center}
+  .mt-back{margin-top:14px;font-family:var(--mono);font-size:15px;color:var(--ink-dim);letter-spacing:.04em}
+  .mini-timer.done .mt-back{color:var(--rose-lt);font-weight:700}
+  .brk-next{margin-top:22px;font-size:15px;color:var(--ink-dim)}
+  .brk-next b{color:var(--ink)}
+  .brk-slide .eyebrow::before{display:none!important}
 
 /* ===== CODED theme layer (coded-reels-playbook look) — loaded LAST on every page ===== */
 /* eyebrows: sans, wide tracking, soft blue, gradient bar */
@@ -846,7 +857,7 @@ html:has(.deck-nav),html:has(.deck-nav) body{background:#00081c}
     <ol class="steps-n">
       <li class="b"><span>Open <code>copilot.cloud.microsoft</code><small>or <code>m365copilot.com</code></small></span></li>
       <li class="b"><span>Sign in: <b>work account</b> or the CODED account on your card.<small>Never a personal account.</small></span></li>
-      <li class="b"><span>Find the label next to Copilot.<small>Basic or Premium?</small></span></li>
+      <li class="b"><span>Type <b>“Hello”</b> and press Enter.<small>An answer back? You're ready.</small></span></li>
     </ol>
     <p class="body-l b">Stuck? Raise your hand.</p>
   </div>
@@ -1027,7 +1038,30 @@ html:has(.deck-nav),html:has(.deck-nav) body{background:#00081c}
     <span class="eyebrow b" style="padding-left:0">Pause</span>
     <div class="qmark b">?</div>
     <p class="qsub b">Questions on how the engine works?</p>
-    <div class="parknote b">☕ Then break — back at 10:50 · tap ☕ for the timer</div>
+    <div class="parknote b">🅿️ Quick ones now — then the break</div>
+  </div>
+</div>
+
+<!-- ========== BREAK ========== -->
+<div class="slide" id="s-brk-1">
+  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
+  <div class="slide-pad brk-slide">
+    <span class="eyebrow b" style="padding-left:0">Break · 15 min</span>
+    <h2 class="term-h b">Break.</h2>
+    <div class="mini-timer b" data-min="15">
+      <div class="mt-time">15:00</div>
+      <div class="mt-bar"><div class="mt-fill"></div></div>
+      <div class="mt-back">Scheduled: back at 10:50 AM</div>
+      <div class="mt-actions">
+        <button class="btn" data-d="-5" title="5 minutes less">−5</button>
+        <button class="btn" data-d="-1" title="1 minute less">−1</button>
+        <button class="btn primary mt-start">Start</button>
+        <button class="btn" data-d="1" title="1 minute more">+1</button>
+        <button class="btn" data-d="5" title="5 minutes more">+5</button>
+        <button class="btn mt-reset">Reset</button>
+      </div>
+    </div>
+    <p class="brk-next b">Next: <b>Meet Copilot</b></p>
   </div>
 </div>
 
@@ -1127,7 +1161,7 @@ html:has(.deck-nav),html:has(.deck-nav) body{background:#00081c}
         <thead><tr><th></th><th class="us">Microsoft Copilot</th><th>ChatGPT</th><th>Gemini</th><th>Claude</th></tr></thead>
         <tbody>
                     <tr><th>Lives inside</th><td class="us">Your Office apps</td><td>Its own app</td><td>Gmail, Docs</td><td>Its own app</td></tr>
-          <tr><th>Sees your work data</th><td class="us">Microsoft 365 (Premium)</td><td>If connected</td><td>Google Workspace</td><td>If connected</td></tr>
+          <tr><th>Sees your work data</th><td class="us">Microsoft 365</td><td>If connected</td><td>Google Workspace</td><td>If connected</td></tr>
           <tr><th>Business plans train on it?</th><td class="us">No</td><td>No</td><td>No</td><td>No</td></tr>
           <tr><th>Engine</th><td class="us">GPT + Claude</td><td>GPT</td><td>Gemini</td><td>Claude</td></tr>
         </tbody>
@@ -1173,26 +1207,12 @@ html:has(.deck-nav),html:has(.deck-nav) body{background:#00081c}
       <div class="flip"><div class="fin"><div class="fface"><img class="applogo" src="data:image/png;base64,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" alt=""><span class="fn">Outlook</span></div><div class="fface back"><span class="fm">Summarise threads, draft replies</span><span class="ft">Day 2</span></div></div></div>
       <div class="flip"><div class="fin"><div class="fface"><span class="fl" style="color:var(--ac-cyan)">🎙️</span><span class="fn">Teams</span></div><div class="fface back"><span class="fm">Meeting recaps and action items</span><span class="ft">Day 2</span></div></div></div>
       <div class="flip"><div class="fin"><div class="fface"><span class="fl" style="color:var(--amber)">📒</span><span class="fn">Pages &amp; Notebooks</span></div><div class="fface back"><span class="fm">Keep, edit and share answers; group files for a project</span><span class="ft">Today · stretch</span></div></div></div>
-      <div class="flip"><div class="fin"><div class="fface"><span class="fl" style="color:var(--green-lt)">🤖</span><span class="fn">Agents</span></div><div class="fface back"><span class="fm">Researcher, Analyst — or build your own</span><span class="ft">Premium</span></div></div></div>
+      <div class="flip"><div class="fin"><div class="fface"><span class="fl" style="color:var(--green-lt)">🤖</span><span class="fn">Agents</span></div><div class="fface back"><span class="fm">Researcher, Analyst — or build your own</span><span class="ft">Try it</span></div></div></div>
     </div>
     <p class="body-l b">Two ways in: <b>Copilot Chat</b> and <b>in-app Copilot</b>.</p>
   </div>
 </div>
 
-<!-- ========== WHICH COPILOT DO YOU HAVE ========== -->
-<div class="slide" id="s-b2-tiers">
-  <div class="bg-grid"></div><div class="blob b1"></div>
-  <div class="slide-pad">
-    <span class="eyebrow b">Check Your Label</span>
-    <h2 class="term-h b">Which Copilot <span class="hl">do you have?</span></h2>
-    <div class="tiers3">
-      <div class="tier-c b"><div class="tl">Included</div><h3>Copilot Chat (Basic)</h3><ul><li>Web chat</li><li>Upload files</li><li>Copilot in Outlook</li><li class="no">Not in Word, Excel, PowerPoint</li></ul></div>
-      <div class="tier-c b"><div class="tl">Included</div><h3>Microsoft 365 Copilot (Basic)</h3><ul><li>All of the left</li><li>In Word, Excel, PowerPoint</li><li class="no">Slower at busy times</li></ul></div>
-      <div class="tier-c prem b"><div class="tl">Paid licence</div><h3>Microsoft 365 Copilot (Premium)</h3><ul><li>Your emails, files, meetings</li><li>A <b>Work IQ</b> button</li><li>Researcher and Analyst</li></ul></div>
-    </div>
-    <p class="body-l b">New name this month: <b>Microsoft Copilot</b>. Same product.</p>
-  </div>
-</div>
 
 <!-- ========== RESEARCH · LONG SOURCE → SHORT BRIEF ========== -->
 <div class="slide" id="s-b2-research">
@@ -1208,7 +1228,7 @@ html:has(.deck-nav),html:has(.deck-nav) body{background:#00081c}
     <div class="road" style="margin-top:28px">
       <div class="road-row b"><span class="rn">01</span><div><div class="rt">Condense</div><div class="rd">A report or file → a one-page brief</div></div></div>
       <div class="road-row b"><span class="rn">02</span><div><div class="rt">Cite</div><div class="rd">“Say which section each point comes from”</div></div></div>
-      <div class="road-row b"><span class="rn">03</span><div><div class="rt">Research</div><div class="rd">The web — or the Researcher agent (Premium)</div></div></div>
+      <div class="road-row b"><span class="rn">03</span><div><div class="rt">Research</div><div class="rd">The web — or the Researcher agent</div></div></div>
     </div>
   </div>
 </div>
@@ -1251,7 +1271,30 @@ html:has(.deck-nav),html:has(.deck-nav) body{background:#00081c}
     <span class="eyebrow b" style="padding-left:0">Pause</span>
     <div class="qmark b">?</div>
     <p class="qsub b">Questions on Copilot?</p>
-    <div class="parknote b">☕ Then break and lunch — back at 1:00 PM · tap ☕ for the timer</div>
+    <div class="parknote b">🅿️ Quick ones now — then the break</div>
+  </div>
+</div>
+
+<!-- ========== BREAK ========== -->
+<div class="slide" id="s-brk-2">
+  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
+  <div class="slide-pad brk-slide">
+    <span class="eyebrow b" style="padding-left:0">Break + lunch · 80 min</span>
+    <h2 class="term-h b">Break and lunch.</h2>
+    <div class="mini-timer b" data-min="80">
+      <div class="mt-time">80:00</div>
+      <div class="mt-bar"><div class="mt-fill"></div></div>
+      <div class="mt-back">Scheduled: back at 1:00 PM</div>
+      <div class="mt-actions">
+        <button class="btn" data-d="-5" title="5 minutes less">−5</button>
+        <button class="btn" data-d="-1" title="1 minute less">−1</button>
+        <button class="btn primary mt-start">Start</button>
+        <button class="btn" data-d="1" title="1 minute more">+1</button>
+        <button class="btn" data-d="5" title="5 minutes more">+5</button>
+        <button class="btn mt-reset">Reset</button>
+      </div>
+    </div>
+    <p class="brk-next b">Next: <b>Prompting with CTFT</b></p>
   </div>
 </div>
 
@@ -1783,18 +1826,30 @@ window.DECK_PRED=[
 
   /* ---- countdown timers: <div class="mini-timer" data-min="30"> ---- */
   function fmt(s){ s = Math.max(0, s); return String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(s % 60).padStart(2, '0'); }
+  function hhmm(d){ var h = d.getHours(), m = String(d.getMinutes()).padStart(2, '0'); return (h % 12 || 12) + ':' + m + (h < 12 ? ' AM' : ' PM'); }
   [].slice.call(document.querySelectorAll('.mini-timer[data-min]')).forEach(function(w){
     var total = (+w.getAttribute('data-min')) * 60, remain = total, h = null;
-    var tEl = w.querySelector('.mt-time'), fEl = w.querySelector('.mt-fill'), start = w.querySelector('.mt-start');
-    var label = start ? start.textContent : '';
-    function draw(){ tEl.textContent = fmt(remain); fEl.style.width = Math.max(0, Math.min(100, remain / total * 100)) + '%'; w.classList.toggle('done', remain <= 0); }
+    var tEl = w.querySelector('.mt-time'), fEl = w.querySelector('.mt-fill'), start = w.querySelector('.mt-start'), back = w.querySelector('.mt-back');
+    var label = start ? start.textContent : '', idle = back ? back.textContent : '';
+    function draw(){
+      tEl.textContent = fmt(remain); fEl.style.width = Math.max(0, Math.min(100, remain / total * 100)) + '%'; w.classList.toggle('done', remain <= 0);
+      if (back) back.textContent = remain <= 0 ? 'Time\'s up — welcome back' : (h ? 'Back at ' + hhmm(new Date(Date.now() + remain * 1000)) : idle);
+    }
     if (start) start.onclick = function(){
-      if (h) { clearInterval(h); h = null; start.textContent = 'Resume'; return; }
+      if (h) { clearInterval(h); h = null; start.textContent = 'Resume'; draw(); return; }
+      if (remain <= 0) return;
       start.textContent = 'Pause';
-      h = setInterval(function(){ remain--; draw(); if (remain <= 0) { clearInterval(h); h = null; start.textContent = label; } }, 1000);
+      h = setInterval(function(){ remain--; if (remain <= 0) { clearInterval(h); h = null; start.textContent = label; } draw(); }, 1000);
+      draw();
     };
-    var plus = w.querySelector('.mt-plus'); if (plus) plus.onclick = function(){ remain += 120; if (remain > total) total = remain; draw(); };
-    var rst = w.querySelector('.mt-reset'); if (rst) rst.onclick = function(){ clearInterval(h); h = null; total = (+w.getAttribute('data-min')) * 60; remain = total; draw(); if (start) start.textContent = label; };
+    // adjust buttons: [data-d]="-5" / "1" (minutes). Plain .mt-plus without data-d adds 2 minutes.
+    [].slice.call(w.querySelectorAll('[data-d], .mt-plus')).forEach(function(b){
+      b.onclick = function(){
+        var d = b.hasAttribute('data-d') ? +b.getAttribute('data-d') : 2;
+        remain = Math.max(0, remain + d * 60); if (remain > total) total = remain; draw();
+      };
+    });
+    var rst = w.querySelector('.mt-reset'); if (rst) rst.onclick = function(){ clearInterval(h); h = null; total = (+w.getAttribute('data-min')) * 60; remain = total; if (start) start.textContent = label; draw(); };
     draw();
   });
 

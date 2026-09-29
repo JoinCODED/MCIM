@@ -8,7 +8,7 @@ DAYS = {
   'hours': '9:00 AM – 2:00 PM', 'hours_short': '9:00 – 2:00',
   'sub': 'From how AI works to prompts that deliver.',
   'lede': 'How AI and large language models work, what Copilot is and what it can do — then the CTFT prompt recipe, practised in Copilot Chat until your prompts come back sendable.',
-  'brief': 'A foundations day for a mixed room of executive, sales, marketing and technical professionals. We open with a 30-minute MAP test — a starting point, not an exam. Block 1 builds the mental model: how an AI learns patterns, predicts one token at a time, and why it can sound sure while it is wrong. Block 2 meets Copilot: its three parts (Microsoft 365 apps, Microsoft Graph and the language model), how it compares to other AI chatbots, what it can do, and which version you have — then you condense a report into a one-page brief and check its numbers against the source. After lunch, Block 3 drills the CTFT prompt recipe — Context, Task, Format, Tone — from zero to hero, then you build a prompt for your own job and start your Prompt Bank. Every block ends with you doing, not us talking. Sample data only.',
+  'brief': 'A foundations day for a mixed room of executive, sales, marketing and technical professionals. We open with a 30-minute MAP test — a starting point, not an exam. Block 1 builds the mental model: how an AI learns patterns, predicts one token at a time, and why it can sound sure while it is wrong. Block 2 meets Copilot: its three parts (Microsoft 365 apps, Microsoft Graph and the language model), how it compares to other AI chatbots, what it can do, — then you condense a report into a one-page brief and check its numbers against the source. After lunch, Block 3 drills the CTFT prompt recipe — Context, Task, Format, Tone — from zero to hero, then you build a prompt for your own job and start your Prompt Bank. Every block ends with you doing, not us talking. Sample data only.',
   'ros': [
    ('n', 'Pre-workshop MAP test', '9:00 – 9:30', 'Your starting point — a map, not an exam. You take it again on Thursday.'),
    ('n', 'Welcome, setup check, icebreaker', '9:30 – 9:45', 'The pain poll, intros with a twist, and a 3-minute check that you can reach Copilot.'),
@@ -23,15 +23,15 @@ DAYS = {
   'outcomes': [
    'Explain in plain words how a large language model predicts text — and why it can sound sure while it is wrong',
    'Name the three parts of the Copilot system — Microsoft 365 apps, Microsoft Graph and the language model — and what each one does',
-   'Say how Copilot differs from other AI chatbots, and which Copilot licence you have',
+   'Say how Copilot differs from other AI chatbots',
    'Condense a long source into a one-page brief — and check its numbers against the source',
    'Write and improve prompts with CTFT — or Microsoft’s Goal · Context · Source · Expectations',
   ],
-  'chips': ['How AI works', 'LLMs & tokens', 'Hallucinations', 'The Copilot system', 'Copilot vs other AI', 'Features & licences', 'Research & verify', 'CTFT prompting', 'Copilot Chat', 'Prompt Bank'],
+  'chips': ['How AI works', 'LLMs & tokens', 'Hallucinations', 'The Copilot system', 'Copilot vs other AI', 'Features', 'Research & verify', 'CTFT prompting', 'Copilot Chat', 'Prompt Bank'],
   'lab_blurb': 'Eight hands-on tasks in Copilot Chat — from your first prompt to one built for your own job. Everything saves in your browser.',
   'resources': [
    ('link:mapPre', 'MAP test — pre-workshop', 'map'),
-   ('before-you-start.html', 'Before you start — setup & licence check', 'setup'),
+   ('before-you-start.html', 'Before you start — setup check', 'setup'),
    ('tamra-company-profile.docx', 'Sample file · Tamra company profile (E1.4)', 'doc'),
    ('tamra-annual-report-2025.docx', 'Sample file · Tamra annual report 2025 (E1.5)', 'doc'),
    ('prompt-bank.html', 'My Prompt Bank', 'bank'),
