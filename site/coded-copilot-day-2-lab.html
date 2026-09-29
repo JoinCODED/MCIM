@@ -553,7 +553,7 @@ var PPT_STEPS = [
   '<b>Generate:</b> run prompt 2 to add one new slide.',
   '<b>Check:</b> open two slides. Check every number against the source file. Then fix one slide by hand — feel where Copilot stops and you start.'
 ];
-var PPT_FALLBACK = 'Upload the file to Copilot Chat and run: <i>“Turn this document into a slide-by-slide outline: a title, three bullets and speaker notes for each slide.”</i> Build the slides in PowerPoint from the outline. Note: creating a deck from a <b>PDF</b> needs the Premium licence; <b>Word</b> files work with every version of Copilot in PowerPoint.';
+var PPT_FALLBACK = 'Upload the file to Copilot Chat and run: <i>“Turn this document into a slide-by-slide outline: a title, three bullets and speaker notes for each slide.”</i> Build the slides in PowerPoint from the outline.';
 var XL_STEPS = [
   'Download your workbook. Open it in Excel (desktop or web) and click anywhere inside the table.',
   '<b>Check the data first:</b> one header row, no merged cells, no blank rows or columns. Not a table yet? Click inside the data and press <kbd>Ctrl</kbd>+<kbd>T</kbd> (Format as Table).',
@@ -567,7 +567,7 @@ var OL_STEPS = [
   'Run prompt 2 to draft the reply. Then steer the tone twice: <i>“shorter”</i>, <i>“a little warmer”</i>. Don\'t retype.',
   'Before you send: run prompt 3, or use <b>Coaching by Copilot</b>, to check tone and clarity. Would you send it?'
 ];
-var OL_FALLBACK = 'Copilot Chat works in Outlook for every work account, but some buttons (like Summary by Copilot) depend on your version. No button? Paste the thread into the Copilot pane in Outlook — or into Copilot Chat — and use the same prompts.';
+var OL_FALLBACK = 'No Summary by Copilot button? Paste the thread into the Copilot pane in Outlook — or into Copilot Chat — and use the same prompts.';
 
 window.LAB = {
   day: 'Day 2',
@@ -848,7 +848,7 @@ window.LAB = {
       id: 'E2.6', app: 'Teams', title: 'Recap the meeting', minutes: '10 min', block: 'Block 4 · Outlook + Teams',
       scenario: 'Sunday\'s leadership meeting ran almost two hours. The Teams transcript is below. Turn it into <b>who does what, by when</b> — then write the follow-up for your area.',
       files: [ { label: 'tamra-leadership-meeting-transcript.docx', href: 'tamra-leadership-meeting-transcript.docx', note: 'A Teams transcript (downloaded as a Word file). Same meeting as the Day 3 Executive capstone.' } ],
-      fallback: 'At work, open the meeting in Teams → <b>Recap</b> → Copilot, and ask the same questions. It needs transcription or recording switched on, and what you see depends on your Copilot version. Here, everyone uploads the transcript to Copilot Chat.',
+      fallback: 'At work, open the meeting in Teams → <b>Recap</b> → Copilot, and ask the same questions. It needs transcription or recording switched on. Here, everyone uploads the transcript to Copilot Chat.',
       steps: [
         'Download the transcript. In Copilot Chat, select <b>+</b> → <b>Upload</b> and attach it.',
         '<b>Recap:</b> run prompt 1. Check one decision against the transcript.',
@@ -1034,7 +1034,7 @@ window.LAB = {
     h += '<div class="task-tag"><span class="app">' + esc(t.app) + '</span> ' + esc(t.id) + (t.minutes ? ' · ' + esc(t.minutes) : '') + (t.optional ? ' · stretch' : '') + '</div>';
     h += '<h1 class="task-h">' + esc(t.title) + '</h1>' + roleTabs;
     h += '<p class="scn">' + t.scenario + '</p>';
-    if (t.fallback) h += '<details class="fallback"><summary>No Copilot in this app? (Copilot Chat Basic)</summary><div>' + t.fallback + '</div></details>';
+    if (t.fallback) h += '<details class="fallback"><summary>No Copilot in this app?</summary><div>' + t.fallback + '</div></details>';
     if (t.dataset) h += datasetBlock(t.dataset);
     if (t.files) h += filesBlock(t.files);
     if (t.briefs) h += briefsBlock(t.briefs);

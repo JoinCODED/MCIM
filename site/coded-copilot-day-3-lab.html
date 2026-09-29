@@ -592,7 +592,7 @@ window.LAB = {
       },
       expect: 'Three gallery prompts found, one adapted with CTFT and tested, saved in Copilot and in your Prompt Bank.',
       stretch: 'Share your adapted prompt with a team (<b>Share</b> → pick a Teams team) — if your company uses Teams. On a CODED account, try it with a colleague in the room.',
-      boss: 'Premium only: <b>schedule</b> your prompt to run every Sunday morning (hover over the prompt in the chat → <b>Schedule this prompt</b>). What would you want waiting for you at the start of every week?'
+      boss: '<b>Schedule</b> your prompt to run every Sunday morning (hover over the prompt in the chat → <b>Schedule this prompt</b>). What would you want waiting for you at the start of every week?'
     },
     {
       id: 'E3.4', app: 'Capstone', title: 'Plan your capstone', minutes: '10 min', block: 'Block 2',
@@ -778,7 +778,7 @@ window.LAB = {
     h += '<div class="task-tag"><span class="app">' + esc(t.app) + '</span> ' + esc(t.id) + (t.minutes ? ' · ' + esc(t.minutes) : '') + (t.optional ? ' · stretch' : '') + '</div>';
     h += '<h1 class="task-h">' + esc(t.title) + '</h1>' + roleTabs;
     h += '<p class="scn">' + t.scenario + '</p>';
-    if (t.fallback) h += '<details class="fallback"><summary>No Copilot in this app? (Copilot Chat Basic)</summary><div>' + t.fallback + '</div></details>';
+    if (t.fallback) h += '<details class="fallback"><summary>No Copilot in this app?</summary><div>' + t.fallback + '</div></details>';
     if (t.dataset) h += datasetBlock(t.dataset);
     if (t.files) h += filesBlock(t.files);
     if (t.briefs) h += briefsBlock(t.briefs);

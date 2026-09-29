@@ -52,7 +52,7 @@ window.LAB = {
       },
       expect: 'Three gallery prompts found, one adapted with CTFT and tested, saved in Copilot and in your Prompt Bank.',
       stretch: 'Share your adapted prompt with a team (<b>Share</b> → pick a Teams team) — if your company uses Teams. On a CODED account, try it with a colleague in the room.',
-      boss: 'Premium only: <b>schedule</b> your prompt to run every Sunday morning (hover over the prompt in the chat → <b>Schedule this prompt</b>). What would you want waiting for you at the start of every week?'
+      boss: '<b>Schedule</b> your prompt to run every Sunday morning (hover over the prompt in the chat → <b>Schedule this prompt</b>). What would you want waiting for you at the start of every week?'
     },
     {
       id: 'E3.4', app: 'Capstone', title: 'Plan your capstone', minutes: '10 min', block: 'Block 2',

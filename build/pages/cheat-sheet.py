@@ -30,7 +30,7 @@ SECTIONS = [
  ], 'Chat asks, Word drafts, Outlook replies — one recipe steering all three.'),
  ('Show and analyse', [
   ('rose', 'PowerPoint', 'create · generate · restructure', 'Like a designer who already read the report.',
-   'Create a deck from a Word file (PDF with Premium), add slides from a prompt, and reorder, merge and trim a messy deck.',
+   'Create a deck from a Word or PDF file, add slides from a prompt, and reorder, merge and trim a messy deck.',
    '“Create a 6-slide board summary from /H1 review. Keep every figure traceable. Add speaker notes.”',
    'The tell: polish is not proof — check two slides against the source.'),
   ('cyan', 'Excel', 'analyse · add · visualise', 'Like an analyst who shows the working.',
