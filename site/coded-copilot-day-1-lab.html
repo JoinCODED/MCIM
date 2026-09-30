@@ -696,7 +696,7 @@ window.LAB = {
 
 /* ===== LAB ENGINE — task-based Copilot lab =====
    window.LAB = { day, key, back, tasks:[...] }  ·  deep link #E1.3  ·  progress in localStorage
-   task fields: id app title minutes scenario steps prompt prompts starters promptSteps goal findings
+   task fields: id app title minutes scenario steps prompt prompts starters promptSteps goal findings writeOwn
                 reveal dataset files briefs widget launch launches expect stretch boss fallback roles(variants) */
 (function(){
   var L = window.LAB, T = L.tasks, KEY = L.key;
@@ -841,15 +841,18 @@ window.LAB = {
     if (t.briefs) h += briefsBlock(t.briefs);
     if (t.launch) h += '<a class="launch-btn" href="' + attr(t.launch.href) + '"' + (t.launch.ext ? ' target="_blank" rel="noopener"' : '') + '><span><b>' + esc(t.launch.label) + '</b><span class="sub">' + (t.launch.note || '') + '</span></span><span class="ar">→</span></a>';
     if (t.launches) h += t.launches.map(function(l){ return '<a class="launch-btn" ' + (l.link ? 'data-link="' + l.link + '"' : 'href="' + attr(l.href) + '" target="_blank" rel="noopener"') + '><span><b>' + esc(l.label) + '</b><span class="sub"' + (l.link ? ' data-pending="Link coming soon — your trainer will share it in the room."' : '') + '>' + (l.note || '') + '</span></span><span class="ar">→</span></a>'; }).join('');
-    if (t.ctftNote) h += '<div class="ctft-note"><b>Write the prompt yourself.</b> Use <b>CTFT — Context · Task · Format · Tone</b> for each goal below. Stuck? Tap “Reveal a suggested prompt”.</div>';
+    if (t.ctftNote || t.writeOwn) h += '<div class="ctft-note"><b>Write the prompt yourself.</b> Use <b>CTFT — Context · Task · Format · Tone</b> for each goal below. Stuck? Tap “Reveal a suggested prompt”.</div>';
     if (t.steps) {
       h += '<div class="step-card"><div class="sc-k">Steps</div><ol>' + t.steps.map(function(x){ return '<li>' + x + '</li>'; }).join('') + '</ol>';
       if (t.goal) h += goalBlock(t.goal);
       if (t.prompt) h += (t.hidePrompt ? revealPrompt(t.prompt, t.id + ' · ' + t.title) : promptBox(t.prompt, '', t.id + ' · ' + t.title));
-      if (t.prompts) h += t.prompts.map(function(p){ return promptBox(p.text, p.label, t.id + ' · ' + (p.label || t.title)); }).join('');
-      if (t.findings) h += findingsBlock(t.findings, 'top');
+      if (t.prompts && !t.writeOwn) h += t.prompts.map(function(p){ return promptBox(p.text, p.label, t.id + ' · ' + (p.label || t.title)); }).join('');
+      if (t.findings && !t.writeOwn) h += findingsBlock(t.findings, 'top');
       h += '</div>';
     }
+    /* writeOwn: each prompt becomes a goal to write a CTFT prompt for; the prompt itself hides behind "Stuck?" */
+    if (t.prompts && t.writeOwn) h += promptStepsBlock(t.prompts.map(function(p){ return { label: p.label.replace(/^\d+\s*·\s*/, ''), goal: p.goal, prompt: p.text }; }), t) +
+      (t.findings ? '<div class="step-card">' + findingsBlock(t.findings, 'top') + '</div>' : '');
     if (t.starters) h += '<div class="step-card"><div class="sc-k">Starter menu — tap any to copy</div><div class="lw-starters">' + t.starters.map(function(x){ return promptBox(x, '', t.id + ' · starter'); }).join('') + '</div></div>';
     if (t.promptSteps) h += promptStepsBlock(t.promptSteps, t);
     if (t.widget && W[t.widget]) h += W[t.widget](t);

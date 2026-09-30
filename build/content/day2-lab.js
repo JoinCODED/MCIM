@@ -1,16 +1,16 @@
 (function(){
 var WORD_STEPS = [
   'Copy your notes (tap the box below). In Word, open a <b>new blank document</b> and select <b>Copilot</b> (or <b>Draft with Copilot</b>).',
-  '<b>Draft:</b> run prompt 1 with your notes pasted after it. Read the result once. Don\'t fix anything by hand yet.',
-  '<b>Rewrite:</b> run prompt 2. Steer it — don\'t retype.',
-  '<b>Ground:</b> save your grounding file (below) to your OneDrive. Run prompt 3 and pick the file after you type <kbd>/</kbd>. No file option? Upload or paste the file\'s text instead.',
+  '<b>Draft:</b> write your prompt for goal 1 and paste your notes after it. Read the result once. Don\'t fix anything by hand yet.',
+  '<b>Rewrite:</b> write your prompt for goal 2. Steer it — don\'t retype.',
+  '<b>Ground:</b> save your grounding file (below) to your OneDrive. Write your prompt for goal 3 and pick the file after you type <kbd>/</kbd>. No file option? Upload or paste the file\'s text instead.',
   '<b>Check:</b> compare the final version with your notes. Anything missing? Anything invented? Fix it by hand — then save your best prompt.'
 ];
-var WORD_FALLBACK = 'Open Copilot Chat. Paste your notes and run the same prompts. For step 4, upload the grounding file with <b>+</b> → <b>Upload</b>. Copy the final text into Word.';
+var WORD_FALLBACK = 'Open Copilot Chat. Paste your notes and write your prompts for the same goals. For goal 3, upload the grounding file with <b>+</b> → <b>Upload</b>. Copy the final text into Word.';
 var PPT_STEPS = [
   'Download your source file (below) and save it to your <b>OneDrive</b>.',
-  'In PowerPoint, open a <b>blank presentation</b>. Select <b>Copilot</b> → <b>Create a presentation from a file</b> — or type <kbd>/</kbd> in the Copilot box and pick your file. Run prompt 1.',
-  '<b>Generate:</b> run prompt 2 to add one new slide.',
+  'In PowerPoint, open a <b>blank presentation</b>. Select <b>Copilot</b> → <b>Create a presentation from a file</b> — or type <kbd>/</kbd> in the Copilot box and pick your file. Write your prompt for goal 1.',
+  '<b>Generate:</b> write your prompt for goal 2 to add one new slide.',
   '<b>Check:</b> open two slides. Check every number against the source file. Then fix one slide by hand — feel where Copilot stops and you start.'
 ];
 var PPT_FALLBACK = 'Upload the file to Copilot Chat and run: <i>“Turn this document into a slide-by-slide outline: a title, three bullets and speaker notes for each slide.”</i> Build the slides in PowerPoint from the outline.';
@@ -23,11 +23,11 @@ var XL_STEPS = [
 var XL_FALLBACK = 'Upload the workbook to Copilot Chat and ask the same questions. Ask it to show the numbers behind every answer — then check them yourself in Excel with a filter or a PivotTable.';
 var OL_STEPS = [
   'Copy the thread (tap the box below). Write a new email <b>to yourself</b>, paste it, use the subject line shown, and send. (Or paste it straight into Copilot Chat.)',
-  'Open the email. Select <b>Summary by Copilot</b> at the top — or run prompt 1 in the Copilot pane.',
-  'Run prompt 2 to draft the reply. Then steer the tone twice: <i>“shorter”</i>, <i>“a little warmer”</i>. Don\'t retype.',
-  'Before you send: run prompt 3, or use <b>Coaching by Copilot</b>, to check tone and clarity. Would you send it?'
+  'Open the email. Select <b>Summary by Copilot</b> at the top — or write your prompt for goal 1 in the Copilot pane.',
+  'Write your prompt for goal 2 to draft the reply. Then steer the tone twice: <i>“shorter”</i>, <i>“a little warmer”</i>. Don\'t retype.',
+  'Before you send: write your prompt for goal 3, or use <b>Coaching by Copilot</b>, to check tone and clarity. Would you send it?'
 ];
-var OL_FALLBACK = 'No Summary by Copilot button? Paste the thread into the Copilot pane in Outlook — or into Copilot Chat — and use the same prompts.';
+var OL_FALLBACK = 'No Summary by Copilot button? Paste the thread into the Copilot pane in Outlook — or into Copilot Chat — and work through the same goals.';
 
 window.LAB = {
   day: 'Day 2',
@@ -35,7 +35,7 @@ window.LAB = {
   tasks: [
     /* ======================================================= WORD */
     {
-      id: 'E2.1', app: 'Word', title: 'Notes in — a document out', minutes: '25 min', block: 'Block 1 · Word',
+      id: 'E2.1', app: 'Word', title: 'Notes in — a document out', minutes: '25 min', block: 'Block 1 · Word', writeOwn: true,
       scenario: '', steps: WORD_STEPS, fallback: WORD_FALLBACK,
       roles: {
         executive: {
@@ -44,9 +44,9 @@ window.LAB = {
 'MONTHLY OPERATIONS REVIEW — notes (Tamra Foods Co., sample data)\nThursday 24 Sep 2026 · Chair: Yousef (COO)\n\n- Cafés: August revenue up about 2% again. Satisfaction still the highest of the three units (about 4.6 out of 5).\n- Salmiya café: lunch wait time too long — average 11 min, target 6 min. Two staff short since July.\n- Wholesale: July dropped about 21% vs June. August recovered part of it. Two big hotel clients paused orders in July (summer).\n- Top 5 hotel clients = about 31% of wholesale revenue. Risk if one leaves.\n- Delivery app: revenue up about 60% since January, BUT operating costs up faster (driver pay + platform fees). August operating margin slightly negative (about -3%).\n- Faisal (CFO) wants a new delivery fee model by Q4. Options: minimum order value, distance fee, or a monthly subscription.\n- POS terminals: repeated faults at Fahaheel after the firmware 4.2 update in August (13 tickets). IT proposes a KWD 120k upgrade for all 6 cafés.\n- Cold brew launch 18 Oct. Marketing asks for KWD 18k. CFO says 12k.\n- Decisions needed from the CEO: (1) delivery fee model direction, (2) approve the POS upgrade, (3) cold brew budget.\n- Next review: Thursday 29 Oct.' }],
           files: [{ label: 'tamra-h1-2026-business-review.docx', href: 'tamra-h1-2026-business-review.docx', note: '<b>Grounding file</b> — the board\'s H1 review. Your summary should use its unit names and style.' }],
           prompts: [
-            { label: '1 · Draft', text: 'Using these notes, draft a one-page executive summary for our CEO. Three sections: What happened, What matters, Decisions needed. Under 300 words. [paste the notes]' },
-            { label: '2 · Rewrite', text: 'Make it 20% shorter. Put the three decisions first, as a numbered list, with one line on the options for each.' },
-            { label: '3 · Ground', text: 'Use the same business-unit names and headline style as /tamra-h1-2026-business-review. Keep every number exactly as it is in my notes.' }
+            { label: '1 · Draft', goal: 'Turn your notes into a one-page summary for the CEO: what happened, what matters, and the decisions she must make.', text: 'Using these notes, draft a one-page executive summary for our CEO. Three sections: What happened, What matters, Decisions needed. Under 300 words. [paste the notes]' },
+            { label: '2 · Rewrite', goal: 'Make the draft shorter. Put the three decisions first, with the options for each.', text: 'Make it 20% shorter. Put the three decisions first, as a numbered list, with one line on the options for each.' },
+            { label: '3 · Ground', goal: 'Make the summary match the board’s H1 review — same unit names, same style — without changing any of your numbers. Type <kbd>/</kbd> to point Copilot to the file.', text: 'Use the same business-unit names and headline style as /tamra-h1-2026-business-review. Keep every number exactly as it is in my notes.' }
           ],
           expect: 'One page, decisions first — and every number matches your notes: +60%, about −3%, −21%, 31%, KWD 120k, 18k vs 12k.',
           stretch: 'The <b>summarise</b> move: open <a href="tamra-supplier-notice.docx" download>tamra-supplier-notice.docx</a> in Word and ask: <i>“Summarise this notice into five key points for a busy manager.”</i> Check it: does the new cut-off say 2:00 pm (new) or 5:00 pm (old)?',
@@ -58,9 +58,9 @@ window.LAB = {
 'CALL NOTES — Al-Ward Co-op (fictional, sample data)\nTuesday 29 Sep 2026 · Met: Abdullah (Purchasing Manager) and Reem (Branch Manager)\n\n- New branch opens in Farwaniya on 15 Nov. They want a "local premium" shelf near the entrance.\n- Interested in: premium dates (1 kg boxes), stuffed dates (gift boxes), date syrup (500 ml).\n- Expected volume: about 300 boxes a month to start. Could double in busy seasons.\n- Current supplier: late twice last month. Nobody answers the phone after 3 pm.\n- They care about: on-time delivery, help with the shelf display, easy returns for damaged boxes.\n- Payment: from 1 Nov, co-ops pay within 45 days. They asked about the 2% early-payment discount.\n- Our offer: next-day delivery if they order by 2:00 pm; a free display stand for the first 3 months; a tasting day at the opening.\n- Price: Tier 2 (standard co-op price). Tier 1 possible if they sign for 12 months.\n- Next step: they need a short proposal letter by Sunday for their board meeting on Tuesday 6 Oct.' }],
           files: [{ label: 'tamra-house-style-letter.docx', href: 'tamra-house-style-letter.docx', note: '<b>Grounding file</b> — Tamra\'s house voice: warm, clear, short sentences.' }],
           prompts: [
-            { label: '1 · Draft', text: 'Using these call notes, draft a proposal letter from Tamra Foods to Al-Ward Co-op. Include their needs, our offer, delivery and payment terms, and the next step. Under 350 words. [paste the notes]' },
-            { label: '2 · Rewrite', text: 'Make it warmer and more confident. Put our three strongest points in a short bulleted list near the top.' },
-            { label: '3 · Ground', text: 'Rewrite it in the voice of /tamra-house-style-letter: warm, clear, short sentences, and a direct contact line at the end.' }
+            { label: '1 · Draft', goal: 'Turn your call notes into a proposal letter for Al-Ward’s board: their needs, our offer, delivery and payment terms, and the next step.', text: 'Using these call notes, draft a proposal letter from Tamra Foods to Al-Ward Co-op. Include their needs, our offer, delivery and payment terms, and the next step. Under 350 words. [paste the notes]' },
+            { label: '2 · Rewrite', goal: 'Make the letter warmer and more confident. Our three strongest points should be easy to see near the top.', text: 'Make it warmer and more confident. Put our three strongest points in a short bulleted list near the top.' },
+            { label: '3 · Ground', goal: 'Make the letter sound like Tamra’s house voice. Type <kbd>/</kbd> to point Copilot to the house-style letter.', text: 'Rewrite it in the voice of /tamra-house-style-letter: warm, clear, short sentences, and a direct contact line at the end.' }
           ],
           expect: 'A letter you would send, with the right terms: 2:00 pm order cut-off, 45-day payment, 2% early-payment discount, three months of free display stand, and their board date (6 Oct).',
           stretch: 'Check your terms against the source: open <a href="tamra-supplier-notice.docx" download>tamra-supplier-notice.docx</a> and ask Copilot <i>“Which payment terms in this notice apply to co-ops?”</i> Does your letter match?',
@@ -72,9 +72,9 @@ window.LAB = {
 'PRODUCT FACTS — Tamra Cold Brew (sample data)\n\n- What: cold brew coffee, steeped slowly, sweetened with Tamra date syrup.\n- Size and price: 250 ml bottle, KWD 1.750.\n- Where: all 6 Tamra Cafés, the Tamra app, and selected co-ops — from Sunday 18 Oct 2026.\n- Taste: smooth, low bitterness, a naturally sweet finish.\n- Made in Kuwait: from our Shuwaikh kitchen.\n- Launch offer (first two weeks, app only): a bundle of two bottles and a date bar at a launch price.\n- Audience: young professionals, 22–35, busy mornings, like things that feel local and modern.\n- Brand rules: local and warm. English and Arabic. NO health claims — never "healthy", "sugar-free" or "good for you".\n- Quote from Sara Al-Hajri, Head of Marketing: "We wanted a coffee that tastes like Kuwait: dates, and a little patience."' }],
           files: [{ label: 'tamra-campaign-brief-cold-brew.docx', href: 'tamra-campaign-brief-cold-brew.docx', note: '<b>Grounding file</b> — the campaign brief, with the brand rules.' }],
           prompts: [
-            { label: '1 · Draft', text: 'Using these product facts, write a 300-word launch article for the Tamra website. Include a headline, the launch offer and Sara\'s quote. [paste the facts]' },
-            { label: '2 · Rewrite', text: 'Turn it into a LinkedIn post: under 120 words, three short paragraphs, one call to action and three hashtags.' },
-            { label: '3 · Ground', text: 'Check the post against the brand rules in /tamra-campaign-brief-cold-brew. List anything that breaks a rule, then fix it.' }
+            { label: '1 · Draft', goal: 'Turn the product facts into a short launch article for the Tamra website, with a headline, the launch offer and Sara’s quote.', text: 'Using these product facts, write a 300-word launch article for the Tamra website. Include a headline, the launch offer and Sara\'s quote. [paste the facts]' },
+            { label: '2 · Rewrite', goal: 'Turn the article into a short LinkedIn post that ends with a call to action.', text: 'Turn it into a LinkedIn post: under 120 words, three short paragraphs, one call to action and three hashtags.' },
+            { label: '3 · Ground', goal: 'Check the post against the brand rules in the campaign brief (type <kbd>/</kbd>), and fix anything that breaks a rule.', text: 'Check the post against the brand rules in /tamra-campaign-brief-cold-brew. List anything that breaks a rule, then fix it.' }
           ],
           expect: 'An article and a LinkedIn post with the right facts — 18 Oct, 250 ml, KWD 1.750, the app-only bundle — and not one health claim.',
           stretch: 'Ask for an Arabic version of the LinkedIn post. If you read Arabic, check it sounds natural — not translated word for word.',
@@ -86,9 +86,9 @@ window.LAB = {
 'ROUGH NOTES — POS terminal freeze (sample data)\n\n- happens mostly at lunch rush. screen stops, card reader light stays orange\n- first: DON\'T unplug. a sale in progress can be lost\n- hold power button 10 sec until screen goes black. wait 30 sec. press power again\n- restart takes ~2 min. log in with cashier PIN\n- check last sale in "Recent sales". not there → ring the sale again\n- card reader still orange after restart → unplug reader cable, wait 10 sec, plug back in\n- frozen again within 1 hour → move to the backup terminal + call the IT help desk (ext. 4400)\n- Fahaheel: happens more since the firmware 4.2 update in Aug. IT is on it (upgrade project).\n- log every freeze in the IT form: time, terminal number, what you were doing' }],
           files: [{ label: 'tamra-pos-upgrade-project-plan.docx', href: 'tamra-pos-upgrade-project-plan.docx', note: '<b>Grounding file</b> — the POS upgrade plan, with the support plan and the help-desk promise.' }],
           prompts: [
-            { label: '1 · Draft', text: 'Using these notes, write a step-by-step guide for café cashiers: "What to do when a POS terminal freezes". Numbered steps, plain English, under 250 words. [paste the notes]' },
-            { label: '2 · Rewrite', text: 'Add a short "Never do this" box at the top, and a table at the end with three columns: Problem · What to do · Who to call.' },
-            { label: '3 · Ground', text: 'Check the guide against the support plan in /tamra-pos-upgrade-project-plan. Use the same names for the help desk and the café POS champion, and fix anything that doesn\'t match.' }
+            { label: '1 · Draft', goal: 'Turn your rough notes into a step-by-step guide a new cashier can follow when a POS terminal freezes. Plain English, numbered steps.', text: 'Using these notes, write a step-by-step guide for café cashiers: "What to do when a POS terminal freezes". Numbered steps, plain English, under 250 words. [paste the notes]' },
+            { label: '2 · Rewrite', goal: 'Make the guide safer and faster to scan: what never to do comes first, and it ends with a quick reference — problem, what to do, who to call.', text: 'Add a short "Never do this" box at the top, and a table at the end with three columns: Problem · What to do · Who to call.' },
+            { label: '3 · Ground', goal: 'Check the guide against the support plan in the POS project plan (type <kbd>/</kbd>). Names and contacts must match.', text: 'Check the guide against the support plan in /tamra-pos-upgrade-project-plan. Use the same names for the help desk and the café POS champion, and fix anything that doesn\'t match.' }
           ],
           expect: 'A guide a new cashier could follow at lunch rush: “don\'t unplug” first, clear numbered steps, the table, and the right help-desk contact.',
           stretch: 'Ask: <i>“Rewrite this for a laminated card next to the till — six steps at most, 60 words.”</i>',
@@ -99,7 +99,7 @@ window.LAB = {
 
     /* ======================================================= POWERPOINT */
     {
-      id: 'E2.2', app: 'PowerPoint', title: 'A document becomes a deck', minutes: '25 min', block: 'Block 2 · PowerPoint',
+      id: 'E2.2', app: 'PowerPoint', title: 'A document becomes a deck', minutes: '25 min', block: 'Block 2 · PowerPoint', writeOwn: true,
       scenario: '', steps: PPT_STEPS, fallback: PPT_FALLBACK,
       findings: [ { label: 'A number you checked — and where it is in the source', hint: 'e.g. KWD 120,000 · Budget table' }, { label: 'Anything wrong, vague or missing?', hint: 'what you fixed by hand' } ],
       roles: {
@@ -107,8 +107,8 @@ window.LAB = {
           scenario: 'The board meets next week. Turn the H1 business review into a <b>6-slide board deck</b> — then check that every number survived the trip.',
           files: [{ label: 'tamra-h1-2026-business-review.docx', href: 'tamra-h1-2026-business-review.docx', note: 'Your source: the H1 2026 business review.' }],
           prompts: [
-            { label: '1 · Create', text: 'Create a 6-slide board presentation from /tamra-h1-2026-business-review: headline results, results by business unit, what is driving the numbers, outlook for H2, risks, and the three decisions we need. Keep every figure traceable to the source. Add speaker notes.' },
-            { label: '2 · Generate', text: 'Add one slide that compares the three business units in a simple table: H1 revenue, operating margin and customer satisfaction.' }
+            { label: '1 · Create', goal: 'Build a 6-slide board deck from the H1 review: results, what drives them, the outlook, risks and the decisions needed. Add speaker notes. Every number must come from the source.', text: 'Create a 6-slide board presentation from /tamra-h1-2026-business-review: headline results, results by business unit, what is driving the numbers, outlook for H2, risks, and the three decisions we need. Keep every figure traceable to the source. Add speaker notes.' },
+            { label: '2 · Generate', goal: 'Add one slide that compares the three business units side by side: revenue, margin and customer satisfaction.', text: 'Add one slide that compares the three business units in a simple table: H1 revenue, operating margin and customer satisfaction.' }
           ],
           reveal: '<ul><li>H1 revenue: <b>KWD 5,026,200</b> — Cafés 1,954,200 · Wholesale 2,418,100 · Delivery app 653,900.</li><li>Operating profit KWD 1,011,400 — a <b>20.1%</b> margin.</li><li>Delivery margin fell from 18.2% (Jan) to 8.1% (Jun). Top 5 hotel clients ≈ 31% of wholesale.</li><li>Decisions: POS upgrade <b>KWD 120,000</b> · a new delivery fee model · cold-brew budget <b>KWD 18,000</b>.</li></ul>',
           expect: 'A 6-slide deck from the report, one new comparison slide, and two slides checked number by number.',
@@ -119,8 +119,8 @@ window.LAB = {
           scenario: 'Darwaza Hotels decides on a supplier by 30 November. Turn the account brief into a <b>client-facing pitch deck</b>.',
           files: [{ label: 'tamra-account-brief-darwaza-hotels.docx', href: 'tamra-account-brief-darwaza-hotels.docx', note: 'Your source: the internal account brief. Careful — parts of it are for our eyes only.' }],
           prompts: [
-            { label: '1 · Create', text: 'Create a 7-slide pitch deck for Darwaza Hotels from /tamra-account-brief-darwaza-hotels: their needs, the problems with their current supplier, our offer, our three price tiers, our delivery promise, proof points, and next steps. It goes to the client — leave out internal notes. Add speaker notes.' },
-            { label: '2 · Generate', text: 'Add one slide: "Your first 90 days with Tamra" — a simple timeline from contract to full delivery.' }
+            { label: '1 · Create', goal: 'Build a 7-slide pitch deck for Darwaza Hotels from the account brief, with speaker notes. It goes to the client — nothing internal on any slide.', text: 'Create a 7-slide pitch deck for Darwaza Hotels from /tamra-account-brief-darwaza-hotels: their needs, the problems with their current supplier, our offer, our three price tiers, our delivery promise, proof points, and next steps. It goes to the client — leave out internal notes. Add speaker notes.' },
+            { label: '2 · Generate', goal: 'Add one slide that shows Darwaza their first 90 days with Tamra, from contract to full delivery.', text: 'Add one slide: "Your first 90 days with Tamra" — a simple timeline from contract to full delivery.' }
           ],
           reveal: '<ul><li>Budget about <b>KWD 70,000</b> a year · proposal due <b>15 Oct</b> · decision by <b>30 Nov 2026</b> · first delivery Sunday 3 Jan 2027.</li><li>Delivery promise: next-day, <b>98% on-time</b> over 12 months, one account manager.</li><li><b>Watch out:</b> the brief has an internal “Risks and objections” table. Did any of it land on a client slide? Delete it.</li></ul>',
           expect: 'A client-ready 7-slide deck, a 90-day timeline slide — and no internal notes on any slide.',
@@ -131,8 +131,8 @@ window.LAB = {
           scenario: 'Management wants to see the cold-brew launch plan on Sunday. Turn the campaign brief into a <b>6-slide launch deck</b>.',
           files: [{ label: 'tamra-campaign-brief-cold-brew.docx', href: 'tamra-campaign-brief-cold-brew.docx', note: 'Your source: the cold-brew campaign brief.' }],
           prompts: [
-            { label: '1 · Create', text: 'Create a 6-slide launch plan for our management team from /tamra-campaign-brief-cold-brew: the objective, the audience, key messages, channels and budget, timeline, and how we will measure success. Add speaker notes.' },
-            { label: '2 · Generate', text: 'Add one slide with three example social posts for launch week — one each for Instagram, TikTok and Snapchat. Follow the brand rules in the brief.' }
+            { label: '1 · Create', goal: 'Build a 6-slide launch plan for management from the campaign brief: objective, audience, messages, channels and budget, timeline, and how we measure success. Add speaker notes.', text: 'Create a 6-slide launch plan for our management team from /tamra-campaign-brief-cold-brew: the objective, the audience, key messages, channels and budget, timeline, and how we will measure success. Add speaker notes.' },
+            { label: '2 · Generate', goal: 'Add one slide with three example posts for launch week — Instagram, TikTok and Snapchat — that follow the brand rules.', text: 'Add one slide with three example social posts for launch week — one each for Instagram, TikTok and Snapchat. Follow the brand rules in the brief.' }
           ],
           reveal: '<ul><li>Launch <b>18 Oct 2026</b>, six weeks to 28 Nov · budget <b>KWD 18,000</b>.</li><li>Targets: 25,000 bottles · 4,000 new app users · 15% of café coffee orders · 2 million impressions.</li><li>Brand rules: bilingual, <b>no health claims</b>. Check your three example posts for “healthy” or “sugar-free”.</li></ul>',
           expect: 'A 6-slide plan with the right targets and budget, plus a posts slide that follows the brand rules.',
@@ -143,8 +143,8 @@ window.LAB = {
           scenario: 'The steering committee meets on Thursday. Turn the POS upgrade project plan into a <b>6-slide decision deck</b>.',
           files: [{ label: 'tamra-pos-upgrade-project-plan.docx', href: 'tamra-pos-upgrade-project-plan.docx', note: 'Your source: the POS upgrade project plan.' }],
           prompts: [
-            { label: '1 · Create', text: 'Create a 6-slide steering-committee presentation from /tamra-pos-upgrade-project-plan: why we need it, scope, phases and timeline, budget, risks and mitigations, and support and training. Add speaker notes.' },
-            { label: '2 · Generate', text: 'Add one slide for café managers: "What changes for your team, and when" — plain language, no technical terms.' }
+            { label: '1 · Create', goal: 'Build a 6-slide decision deck for the steering committee from the POS project plan: why, scope, timeline, budget, risks, and support and training. Add speaker notes.', text: 'Create a 6-slide steering-committee presentation from /tamra-pos-upgrade-project-plan: why we need it, scope, phases and timeline, budget, risks and mitigations, and support and training. Add speaker notes.' },
+            { label: '2 · Generate', goal: 'Add one slide for café managers: what changes for their team, and when. No technical words.', text: 'Add one slide for café managers: "What changes for your team, and when" — plain language, no technical terms.' }
           ],
           reveal: '<ul><li>Budget <b>KWD 120,000</b> · all six cafés · kitchen screens · app orders go straight to the POS.</li><li>Why now: <b>13 POS tickets at Fahaheel in August</b>, many after the firmware 4.2 update · vendor support ends in 2027.</li><li>Installs at night · Fahaheel first in wave 1 · P1 POS tickets answered within 30 minutes.</li></ul>',
           expect: 'A 6-slide decision deck with the right budget and reasons, plus a jargon-free slide for café managers.',
@@ -245,7 +245,7 @@ window.LAB = {
 
     /* ======================================================= OUTLOOK */
     {
-      id: 'E2.5', app: 'Outlook', title: 'Tame the thread — then reply', minutes: '20 min', block: 'Block 4 · Outlook',
+      id: 'E2.5', app: 'Outlook', title: 'Tame the thread — then reply', minutes: '20 min', block: 'Block 4 · Outlook', writeOwn: true,
       scenario: '', steps: OL_STEPS, fallback: OL_FALLBACK,
       roles: {
         executive: {
@@ -253,9 +253,9 @@ window.LAB = {
           briefs: [{ label: 'Thread · Board pack — Q3 numbers (need your call)', text:
 'SUBJECT: Board pack — Q3 numbers (need your call)   [sample data]\n\n[1] From: Faisal Al-Rashed (CFO) — Sun 27 Sep, 9:12\nAll, the board pack is due to the CEO\'s office on Wednesday 30 Sep. I\'ll show the delivery app figures as they are: August operating margin is -3.1%. I think the fee-model options paper must go with it.\n\n[2] From: Sara Al-Hajri (Head of Marketing) — Sun 27 Sep, 10:40\nCan we lead with growth? Delivery revenue is up 61% since January. If we open with "loss", the board will cut the cold brew budget.\n\n[3] From: Yousef Al-Shammari (COO) — Sun 27 Sep, 13:05\nBoth are true. My view: show growth AND margin on the same slide. The POS upgrade (KWD 120k) must be in the pack too — Fahaheel had 13 terminal faults in August.\n\n[4] From: Faisal Al-Rashed (CFO) — Mon 28 Sep, 8:30\nFine with one slide. But the fee-model paper is not ready — two options still need costing. Can it go to the November board instead?\n\n[5] From: Noura Al-Ajmi (Head of Sales) — Mon 28 Sep, 11:15\nSmall point: please don\'t show client names in the wholesale section. Darwaza Hotels is still in negotiation.\n\n[6] From: Mariam (CEO\'s office) — Tue 29 Sep, 9:00\n@you — welcome back. Dana asks you to confirm by Wednesday noon: (a) one slide or two for delivery, (b) fee-model paper now or in November, (c) POS upgrade in or out.' }],
           prompts: [
-            { label: '1 · Summarise', text: 'Summarise this thread for me — I have been on leave. List the decisions already agreed, the questions still open, and who wants what.' },
-            { label: '2 · Draft the reply', text: 'Draft my reply to Mariam in the CEO\'s office. Answer (a), (b) and (c) with a one-line reason each: one slide for delivery showing growth and margin together; the fee-model paper goes to the November board; the POS upgrade is in. Under 150 words. Direct and polite.' },
-            { label: '3 · Check before sending', text: 'Check my reply: is it clear, is the tone right for the CEO\'s office, and did I answer all three questions?' }
+            { label: '1 · Summarise', goal: 'Get the picture fast: what is already agreed, what is still open, and who wants what.', text: 'Summarise this thread for me — I have been on leave. List the decisions already agreed, the questions still open, and who wants what.' },
+            { label: '2 · Draft the reply', goal: 'Draft your reply to Mariam. Answer (a), (b) and (c), with a short reason for each. Your calls: one delivery slide with growth and margin together; the fee-model paper goes to the November board; the POS upgrade is in.', text: 'Draft my reply to Mariam in the CEO\'s office. Answer (a), (b) and (c) with a one-line reason each: one slide for delivery showing growth and margin together; the fee-model paper goes to the November board; the POS upgrade is in. Under 150 words. Direct and polite.' },
+            { label: '3 · Check before sending', goal: 'Before you send: is the reply clear, is the tone right for the CEO’s office, and does it answer all three questions?', text: 'Check my reply: is it clear, is the tone right for the CEO\'s office, and did I answer all three questions?' }
           ],
           expect: 'A summary that separates what\'s <b>agreed</b> (growth and margin on one slide; no client names) from what\'s <b>still open</b> (a, b, c) — and a reply that answers all three.',
           stretch: 'Ask: <i>“Draft a two-line note to Faisal and Sara explaining my decision on (a).”</i> Same facts, a softer tone.',
@@ -266,9 +266,9 @@ window.LAB = {
           briefs: [{ label: 'Thread · Darwaza Hotels — damaged trial order', text:
 'SUBJECT: Darwaza Hotels — damaged trial order   [sample data]\n\n[1] From: Hessa Al-Qattan (Procurement Manager, Darwaza Hotels) — Sun 27 Sep, 10:05\nHello, our trial order arrived this morning. Three boxes of stuffed dates were crushed — the second time this month. We use them for VIP welcome trays, so this matters. We choose our supplier by 30 November.\n\n[2] From: Bader (Warehouse, Tamra) — Sun 27 Sep, 12:30\nRe: damaged boxes. We can send replacements on Thursday 1 Oct, morning slot. The packaging team is checking the carton type for hotel orders.\n\n[3] From: Khalid (Sales, Tamra) — Sun 27 Sep, 14:10\nFW: can someone own this today? They are comparing us with two other suppliers.\n\n[4] From: Finance (Tamra) — Mon 28 Sep, 9:20\nIs a credit note approved for the three boxes (KWD 37.500)? I need a manager\'s OK before I issue it.\n\n[5] From: Hessa Al-Qattan (Darwaza Hotels) — Mon 28 Sep, 16:45\nWe still have no answer. Also, can you send the Tier 1 prices you mentioned? Our review meeting is on Thursday.\n\n[6] From: Noura Al-Ajmi (Head of Sales) — Tue 29 Sep, 8:15\n@you — please reply to Hessa this morning. The credit note is approved. Tier 1 prices: send the approved price sheet only — no new discounts.' }],
           prompts: [
-            { label: '1 · Summarise', text: 'Summarise this thread: the issue, what has been promised and by whom, and what is still open.' },
-            { label: '2 · Draft the reply', text: 'Draft my reply to Hessa. Apologise once, confirm the replacement boxes on Thursday 1 Oct (morning), confirm the credit note, and say the Tier 1 price sheet is attached. No new discounts. Under 130 words. Warm and confident.' },
-            { label: '3 · Check before sending', text: 'Check my reply: did I promise anything that is not in the thread? Is the tone right for a client who is comparing suppliers?' }
+            { label: '1 · Summarise', goal: 'Find out what went wrong, what has been promised and by whom, and what is still open.', text: 'Summarise this thread: the issue, what has been promised and by whom, and what is still open.' },
+            { label: '2 · Draft the reply', goal: 'Draft your reply to Hessa: one apology, the replacement date, the credit note and the Tier 1 price sheet. No new discounts. Warm and short.', text: 'Draft my reply to Hessa. Apologise once, confirm the replacement boxes on Thursday 1 Oct (morning), confirm the credit note, and say the Tier 1 price sheet is attached. No new discounts. Under 130 words. Warm and confident.' },
+            { label: '3 · Check before sending', goal: 'Before you send: do you promise anything that is not in the thread? Is the tone right for a client who is comparing suppliers?', text: 'Check my reply: did I promise anything that is not in the thread? Is the tone right for a client who is comparing suppliers?' }
           ],
           expect: 'A summary that separates <b>promised</b> (replacement Thu 1 Oct, credit note approved) from <b>still open</b> (the price sheet) — and a reply that promises nothing new.',
           stretch: 'Ask Copilot to draft the internal follow-up to Bader and Finance: who does what, by when.',
@@ -279,9 +279,9 @@ window.LAB = {
           briefs: [{ label: 'Thread · Cold brew launch — influencer shoot', text:
 'SUBJECT: Cold brew launch — influencer shoot   [sample data]\n\n[1] From: Lamia (Account Director, Bayt Creative — our agency) — Sun 27 Sep, 11:00\nHi team! The rooftop café in Shuwaikh is confirmed for the shoot. We need to move it from Sun 4 Oct to Thu 8 Oct. The location fee is an extra KWD 1,200.\n\n[2] From: Sara Al-Hajri (Head of Marketing) — Sun 27 Sep, 15:20\n8 Oct is tight — launch is 18 Oct. Can we still get edited videos by 13 Oct? The extra 1,200 needs Faisal\'s approval.\n\n[3] From: Lamia (Bayt Creative) — Mon 28 Sep, 10:10\nYes — edited videos by 13 Oct if we get caption approval by Thursday 1 Oct. Draft captions:\n1) "Tamra Cold Brew — the healthy way to wake up."\n2) "Dates + coffee = Kuwait in a bottle."\n3) "Sugar-free energy for busy mornings."\n\n[4] From: Faisal Al-Rashed (CFO) — Mon 28 Sep, 17:30\nApproved: the extra KWD 1,200, one time only. Keep the total launch budget within KWD 18,000.\n\n[5] From: Sara Al-Hajri — Tue 29 Sep, 9:05\n@you — please reply to Lamia today: confirm 8 Oct, the 13 Oct video deadline, and the captions. Remember our brand rules.' }],
           prompts: [
-            { label: '1 · Summarise', text: 'Summarise this thread: what is agreed, what is still open, and every deadline with its date.' },
-            { label: '2 · Draft the reply', text: 'Draft my reply to Lamia: confirm the shoot on Thursday 8 Oct and edited videos by 13 Oct. Approve caption 2. Politely reject captions 1 and 3 — they break our no-health-claims rule — and ask for two new options in English and Arabic by Thursday 1 Oct. Under 150 words. Friendly and clear.' },
-            { label: '3 · Check before sending', text: 'Check my reply against our brand rules: bilingual, no health claims, local and warm. Is anything unclear for the agency?' }
+            { label: '1 · Summarise', goal: 'Find what is agreed, what is still open, and every deadline with its date.', text: 'Summarise this thread: what is agreed, what is still open, and every deadline with its date.' },
+            { label: '2 · Draft the reply', goal: 'Draft your reply to Lamia: confirm the dates, approve only the captions that follow the brand rules, and ask for new options — in English and Arabic — to replace the rest.', text: 'Draft my reply to Lamia: confirm the shoot on Thursday 8 Oct and edited videos by 13 Oct. Approve caption 2. Politely reject captions 1 and 3 — they break our no-health-claims rule — and ask for two new options in English and Arabic by Thursday 1 Oct. Under 150 words. Friendly and clear.' },
+            { label: '3 · Check before sending', goal: 'Before you send: check the reply against the brand rules (bilingual, no health claims, local and warm). Could the agency misread anything?', text: 'Check my reply against our brand rules: bilingual, no health claims, local and warm. Is anything unclear for the agency?' }
           ],
           expect: 'A summary that catches the two caption problems (“healthy”, “sugar-free”) — and a reply that confirms the dates and keeps the brand rules.',
           stretch: 'Write the two replacement captions yourself with Copilot — English and Arabic. Check: no “healthy”, no “sugar-free”, no “good for you”.',
@@ -292,9 +292,9 @@ window.LAB = {
           briefs: [{ label: 'Thread · P1 — delivery app orders failing', text:
 'SUBJECT: P1 — delivery app orders failing (Thu 24 Sep)   [sample data]\n\n[1] From: Ahmad (IT Support) — Thu 24 Sep, 19:52\nP1 opened. Delivery app orders failing at checkout since about 19:40. Customers see "payment error". Investigating.\n\n[2] From: Mariam (IT Support) — Thu 24 Sep, 20:25\nThe payment gateway certificate expired at 19:38. Renewing now. Workaround: cafés are taking phone orders.\n\n[3] From: Yousef Al-Shammari (COO) — Thu 24 Sep, 20:40\nHow many orders are affected? Thursday night is our busiest evening. I need an update for Dana tonight.\n\n[4] From: Mariam (IT Support) — Thu 24 Sep, 21:20\nFixed at 21:15. About 180 orders failed. No customer was charged twice — failed payments were not taken.\n\n[5] From: Sara Al-Hajri (Head of Marketing) — Fri 25 Sep, 10:10\nCustomers are asking on Instagram. Should we send an apology message and a code?\n\n[6] From: Omar Al-Enezi (Head of IT) — Sun 27 Sep, 8:30\n@you — please write the stakeholder update today: what happened, the impact, the fix, and how we stop it happening again. Also a short customer message Sara can use. No promo code until Faisal agrees.' }],
           prompts: [
-            { label: '1 · Summarise', text: 'Summarise this incident thread as a timeline: time, what happened, who acted.' },
-            { label: '2 · Draft the update', text: 'Draft a stakeholder update from IT: what happened, the impact, the fix, the root cause, and three actions to stop it happening again. Under 200 words. Clear, calm, no jargon.' },
-            { label: '3 · Customer message + check', text: 'Now write a two-sentence customer message for Sara: apologetic, no promo code, no technical words. Then check both messages for tone and clarity.' }
+            { label: '1 · Summarise', goal: 'Turn the thread into a timeline: when each thing happened, and who acted.', text: 'Summarise this incident thread as a timeline: time, what happened, who acted.' },
+            { label: '2 · Draft the update', goal: 'Draft the update the Head of IT asked for: what happened, the impact, the fix, the root cause, and how we stop it happening again. A non-technical reader should get it in one minute.', text: 'Draft a stakeholder update from IT: what happened, the impact, the fix, the root cause, and three actions to stop it happening again. Under 200 words. Clear, calm, no jargon.' },
+            { label: '3 · Customer message + check', goal: 'Write a short customer message Sara can use: sorry, no promo code, no technical words. Then have Copilot check both messages for tone and clarity.', text: 'Now write a two-sentence customer message for Sara: apologetic, no promo code, no technical words. Then check both messages for tone and clarity.' }
           ],
           expect: 'A timeline that matches the thread (expired 19:38 → fixed 21:15, about 180 orders, no double charges) and an update a non-technical COO can read in one minute.',
           stretch: 'Ask Copilot to turn the three actions into a checklist with an owner and a due date for each.',
@@ -305,33 +305,33 @@ window.LAB = {
 
     /* ======================================================= TEAMS */
     {
-      id: 'E2.6', app: 'Teams', title: 'Recap the meeting', minutes: '10 min', block: 'Block 4 · Outlook + Teams',
+      id: 'E2.6', app: 'Teams', title: 'Recap the meeting', minutes: '10 min', block: 'Block 4 · Outlook + Teams', writeOwn: true,
       scenario: 'Sunday\'s leadership meeting ran almost two hours. The Teams transcript is below. Turn it into <b>who does what, by when</b> — then write the follow-up for your area.',
       files: [ { label: 'tamra-leadership-meeting-transcript.docx', href: 'tamra-leadership-meeting-transcript.docx', note: 'A Teams transcript (downloaded as a Word file). Same meeting as the Day 3 Executive capstone.' } ],
       fallback: 'At work, open the meeting in Teams → <b>Recap</b> → Copilot, and ask the same questions. It needs transcription or recording switched on. Here, everyone uploads the transcript to Copilot Chat.',
       steps: [
         'Download the transcript. In Copilot Chat, select <b>+</b> → <b>Upload</b> and attach it.',
-        '<b>Recap:</b> run prompt 1. Check one decision against the transcript.',
-        '<b>Follow up:</b> run prompt 2 — the follow-up for your area.',
-        '<b>Check:</b> run prompt 3. Every action should point to a time in the transcript. Vague dates like “next week”? Turn them into real dates.'
+        '<b>Recap:</b> write your prompt for goal 1. Check one decision against the transcript.',
+        '<b>Follow up:</b> write your prompt for goal 2 — the follow-up for your area.',
+        '<b>Check:</b> write your prompt for goal 3. Every action should point to a time in the transcript. Vague dates like “next week”? Turn them into real dates.'
       ],
       roles: {
         executive: { prompts: [
-          { label: '1 · Recap', text: 'Recap this meeting transcript: the decisions made, the action items with owner and due date, and the questions still open. Use three short tables.' },
-          { label: '2 · Follow up', text: 'Draft a follow-up email from Dana to the leadership team: the three decisions, every action with owner and date, and the open questions for next Sunday. Under 200 words. Clear and direct.' },
-          { label: '3 · Check', text: 'For each action item, give the time in the transcript where it was agreed.' } ] },
+          { label: '1 · Recap', goal: 'Pull out the decisions, the actions (owner and due date) and the open questions — in a form you can scan in seconds.', text: 'Recap this meeting transcript: the decisions made, the action items with owner and due date, and the questions still open. Use three short tables.' },
+          { label: '2 · Follow up', goal: 'Draft Dana’s follow-up email to the leadership team: the decisions, every action with owner and date, and the open questions for next Sunday.', text: 'Draft a follow-up email from Dana to the leadership team: the three decisions, every action with owner and date, and the open questions for next Sunday. Under 200 words. Clear and direct.' },
+          { label: '3 · Check', goal: 'Make Copilot prove it: where in the transcript was each action agreed?', text: 'For each action item, give the time in the transcript where it was agreed.' } ] },
         sales: { prompts: [
-          { label: '1 · Recap', text: 'Recap this meeting transcript: the decisions made, the action items with owner and due date, and the questions still open. Use three short tables.' },
-          { label: '2 · Follow up', text: 'I work in Noura\'s sales team. Draft a short note to the team: what the meeting decided about Darwaza Hotels, Noura\'s action and deadline, and what we must prepare this week. Under 100 words.' },
-          { label: '3 · Check', text: 'Quote the exact lines from the transcript about Darwaza Hotels and about discount rules. Give the times.' } ] },
+          { label: '1 · Recap', goal: 'Pull out the decisions, the actions (owner and due date) and the open questions — in a form you can scan in seconds.', text: 'Recap this meeting transcript: the decisions made, the action items with owner and due date, and the questions still open. Use three short tables.' },
+          { label: '2 · Follow up', goal: 'Write a short note to Noura’s sales team: what the meeting decided on Darwaza Hotels, Noura’s action and deadline, and what the team must prepare this week.', text: 'I work in Noura\'s sales team. Draft a short note to the team: what the meeting decided about Darwaza Hotels, Noura\'s action and deadline, and what we must prepare this week. Under 100 words.' },
+          { label: '3 · Check', goal: 'Check your note against the source: find the exact lines on Darwaza Hotels and on discount rules, with the times.', text: 'Quote the exact lines from the transcript about Darwaza Hotels and about discount rules. Give the times.' } ] },
         marketing: { prompts: [
-          { label: '1 · Recap', text: 'Recap this meeting transcript: the decisions made, the action items with owner and due date, and the questions still open. Use three short tables.' },
-          { label: '2 · Follow up', text: 'Draft a note to Sara about the cold-brew budget: both positions (18,000 vs 12,000) and the reasons given, what she must bring to the board, and when. Neutral — show both sides fairly. Under 120 words.' },
-          { label: '3 · Check', text: 'Quote what Faisal and Sara each said about the budget, with the times. Did your note describe both fairly?' } ] },
+          { label: '1 · Recap', goal: 'Pull out the decisions, the actions (owner and due date) and the open questions — in a form you can scan in seconds.', text: 'Recap this meeting transcript: the decisions made, the action items with owner and due date, and the questions still open. Use three short tables.' },
+          { label: '2 · Follow up', goal: 'Write Sara a neutral note on the cold-brew budget: both positions and the reasons given, and what she must bring to the board, by when.', text: 'Draft a note to Sara about the cold-brew budget: both positions (18,000 vs 12,000) and the reasons given, what she must bring to the board, and when. Neutral — show both sides fairly. Under 120 words.' },
+          { label: '3 · Check', goal: 'Check that it is fair: find what Faisal and Sara each said about the budget, with the times, and compare it with your note.', text: 'Quote what Faisal and Sara each said about the budget, with the times. Did your note describe both fairly?' } ] },
         technical: { prompts: [
-          { label: '1 · Recap', text: 'Recap this meeting transcript: the decisions made, the action items with owner and due date, and the questions still open. Use three short tables.' },
-          { label: '2 · Follow up', text: 'Draft a note to the IT team: the POS pilot decision and dates, the new rule on firmware updates, the budget, and what IT must deliver next week. Under 120 words. Plain English.' },
-          { label: '3 · Check', text: 'Quote the lines about the POS budget and the firmware rule, with the times.' } ] }
+          { label: '1 · Recap', goal: 'Pull out the decisions, the actions (owner and due date) and the open questions — in a form you can scan in seconds.', text: 'Recap this meeting transcript: the decisions made, the action items with owner and due date, and the questions still open. Use three short tables.' },
+          { label: '2 · Follow up', goal: 'Write a plain-English note to the IT team: the POS pilot decision and dates, the new firmware rule, the budget, and what IT must deliver next week.', text: 'Draft a note to the IT team: the POS pilot decision and dates, the new rule on firmware updates, the budget, and what IT must deliver next week. Under 120 words. Plain English.' },
+          { label: '3 · Check', goal: 'Check your note against the source: find the exact lines on the POS budget and the firmware rule, with the times.', text: 'Quote the lines about the POS budget and the firmware rule, with the times.' } ] }
       },
       reveal: '<ul><li><b>3 decisions:</b> POS pilot at Salmiya from Sunday 25 Oct · new delivery promo codes paused until the fee model is agreed · Noura leads Darwaza with the three price tiers.</li><li><b>5 actions:</b> Faisal (fee options, Thu 1 Oct) · Omar (pilot plan + contract, “next week”) · Noura (Darwaza draft, 15 Oct) · Sara (two budget options, before the board) · Yousef (July dip + calls, end of month).</li><li><b>Open:</b> who leads the partner negotiation · cold-brew budget · Jahra late hours · is the July dip a one-off.</li><li>The POS budget is <b>KWD 120,000</b> in the transcript. Keep that number — you will need it on Day 3.</li></ul>',
       expect: 'A recap in three tables — decisions, actions with owners and dates, open questions — and a follow-up for your area that you would send.',
