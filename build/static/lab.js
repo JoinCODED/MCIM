@@ -42,13 +42,12 @@
     var done = core.filter(function(t){ return state[t.id] && state[t.id].done; }).length;
     $('progFill').style.width = (done / Math.max(1, core.length) * 100) + '%';
     $('progLabel').textContent = done + ' of ' + core.length + ' core tasks done';
-    var n = PB.all().length, pc = $('pbCount'); if (pc) pc.textContent = n;
   }
 
   /* ---- blocks ---- */
   function promptBox(text, label, tag){
     return '<div class="prompt-wrap"><div class="prompt" data-copy="' + attr(text) + '"><span class="copy-tag">tap to copy</span>' + (label ? '<span class="p-lab">' + esc(label) + '</span>' : '') + esc(text) + '</div>' +
-      '<button class="pb-save" type="button" data-save="' + attr(text) + '" data-title="' + attr(tag || label || '') + '">＋ Save to Prompt Bank</button></div>';
+      '<span class="pb-hint">Worth keeping? Paste it into your Prompt Bank in Word.</span></div>';
   }
   function datasetBlock(d){
     return '<div class="dataset"><div class="ds-k">Attached data</div><div class="ds-note">' + d.note + '</div>' +
@@ -107,7 +106,7 @@
     var s = st(cur).builder || {};
     return '<div class="step-card"><div class="sc-k">Prompt builder</div><div class="lw-fields">' +
       F.map(function(f){ return '<input class="bf" data-k="' + f[0] + '" placeholder="' + attr(f[1]) + '" value="' + attr(s[f[0]] || '') + '">'; }).join('') +
-      '<div class="lw-row"><button type="button" class="lw-btn" id="bLoad">Load the example for my track</button><button type="button" class="lw-btn ghost" id="bCopy">Copy</button><button type="button" class="lw-btn ghost" id="bSave">＋ Save to Prompt Bank</button><span class="lw-hint" id="bHint"></span></div>' +
+      '<div class="lw-row"><button type="button" class="lw-btn" id="bLoad">Load the example for my track</button><button type="button" class="lw-btn ghost" id="bCopy">Copy</button><span class="lw-hint" id="bHint"></span></div>' +
       '<div class="bprev" id="bPrev"><em>Your assembled prompt appears here as you type…</em></div>' +
       '<div class="blegend"><span><i style="background:var(--amber)"></i>Role</span><span><i style="background:var(--rose-lt)"></i>Context</span><span><i style="background:#fff"></i>Task</span><span><i style="background:var(--ac-cyan)"></i>Format</span><span><i style="background:var(--green-lt)"></i>Tone</span><span><i style="background:var(--blue)"></i>Source</span></div>' +
       '<a class="lw-test" href="https://copilot.cloud.microsoft/" target="_blank" rel="noopener">Test in Copilot Chat ↗</a></div></div>';
@@ -180,7 +179,6 @@
 
   function wire(v, t){
     v.querySelectorAll('.prompt[data-copy]').forEach(function(p){ p.onclick = function(){ copyText(p.getAttribute('data-copy')).then(function(){ flash(p, 'copied', '.copy-tag', 'copied ✓'); }).catch(function(){}); }; });
-    v.querySelectorAll('.pb-save').forEach(function(b){ b.onclick = function(){ var r = pbAdd(b.getAttribute('data-save'), { title: b.getAttribute('data-title'), app: t.app, day: L.day, role: role() }); if (r === 'ok' || r === 'dup') { b.textContent = '✓ In your Prompt Bank'; b.classList.add('saved'); } updateProg(); }; });
     v.querySelectorAll('.role-tab').forEach(function(b){ b.onclick = function(){ ROLE.set(b.getAttribute('data-role')); drawRoleChip(); render(); }; });
     // brief tabs + copy
     v.querySelectorAll('.lw-tab[data-bt]').forEach(function(tb){ tb.onclick = function(){ var i = tb.getAttribute('data-bt');
@@ -210,7 +208,6 @@
       v.querySelectorAll('.bf').forEach(function(f){ f.oninput = draw; });
       $('bLoad').onclick = function(){ var ex = (t.examples || {})[role() || 'sales'] || (t.examples || {}).sales; if (!ex) return; v.querySelectorAll('.bf').forEach(function(f){ f.value = ex[f.getAttribute('data-k')] || ''; }); draw(); };
       $('bCopy').onclick = function(){ var a = assembled(); if (!a) return; copyText(a).then(function(){ $('bHint').textContent = 'copied ✓'; setTimeout(function(){ $('bHint').textContent = ''; }, 1500); }); };
-      $('bSave').onclick = function(){ pbAdd(assembled(), { title: t.id + ' · My own prompt', app: 'Copilot Chat', day: L.day, role: role() }); updateProg(); };
       draw();
     }
     // zero to hero ratings
@@ -231,7 +228,7 @@
   $('mPrev').onclick = function(){ go(cur - 1); };
   $('mNext').onclick = function(){ go(cur + 1); };
   $('ham').onclick = function(){ $('rail').classList.toggle('open'); };
-  $('resetBtn').onclick = function(){ if (confirm('Clear your notes and progress for this day? (Your Prompt Bank is kept.)')) { state = {}; save(); cur = 0; render(); } };
+  $('resetBtn').onclick = function(){ if (confirm('Clear your notes and progress for this day? (Your Prompt Bank in Word is not affected.)')) { state = {}; save(); cur = 0; render(); } };
   var rs = $('roleSel'); if (rs) rs.onchange = function(){ if (rs.value) ROLE.set(rs.value); render(); };
   window.addEventListener('hashchange', function(){ var i = T.findIndex(function(t){ return '#' + t.id === location.hash; }); if (i >= 0 && i !== cur) go(i); });
   var start = T.findIndex(function(t){ return '#' + t.id === location.hash; });

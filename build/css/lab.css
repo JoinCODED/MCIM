@@ -193,6 +193,7 @@
   .prompt-wrap{margin:12px 0}
   .prompt-wrap .prompt{margin:0}
   .prompt .p-lab{display:block;font-family:var(--f);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--rose-lt);margin-bottom:6px}
+  .pb-hint{display:block;margin-top:6px;font-size:12px;color:var(--ink-faint)}
   .pb-save{margin-top:6px;font-family:var(--f);font-size:12px;font-weight:700;color:var(--ink-dim);background:none;border:1px dashed var(--w2);border-radius:8px;padding:5px 10px;cursor:pointer}
   .pb-save:hover{color:var(--rose-lt);border-color:rgba(47,116,214,.5)}
   .pb-save.saved{color:var(--green-lt);border-color:var(--green-bd);border-style:solid}

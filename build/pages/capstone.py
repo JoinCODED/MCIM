@@ -155,12 +155,10 @@ JS = r'''
       '<div class="chain">' + t.steps.map(function(s, i){
         return '<div class="cstep"><div class="cstep-h"><span class="cstep-n">Step ' + (i + 1) + '</span><span class="cstep-s">' + esc(s[0]) + '</span><span class="cstep-t">' + esc(s[1]) + '</span></div>' +
           '<p>' + esc(s[2]) + '</p><div class="prompt" data-copy="' + attr(s[3]) + '"><span class="ct">tap to copy</span>' + esc(s[3]) + '</div>' +
-          '<button class="pbs" data-save="' + attr(s[3]) + '" data-title="Capstone · ' + attr(s[0] + ' · ' + s[1]) + '" data-app="' + attr(s[0]) + '">＋ Save to Prompt Bank</button>' +
           '<div class="chk">✔ ' + esc(s[4]) + '</div></div>';
       }).join('') + '</div>' +
       '<div class="yours"><b>Make it yours:</b> ' + esc(t.yours) + ' Keep the same chain — change the input.</div>';
     document.querySelectorAll('#track .prompt').forEach(function(el){ el.onclick = function(){ copyText(el.getAttribute('data-copy')).then(function(){ el.classList.add('copied'); el.querySelector('.ct').textContent = 'copied ✓'; setTimeout(function(){ el.classList.remove('copied'); el.querySelector('.ct').textContent = 'tap to copy'; }, 1400); }); }; });
-    document.querySelectorAll('#track .pbs').forEach(function(b){ b.onclick = function(){ var r = pbAdd(b.getAttribute('data-save'), { title: b.getAttribute('data-title'), app: b.getAttribute('data-app'), day: 'Day 3', role: cur }); if (r === 'ok' || r === 'dup') b.textContent = '✓ In your Prompt Bank'; }; });
   }
   document.querySelectorAll('.tab2').forEach(function(b){ b.onclick = function(){ cur = b.getAttribute('data-t'); st.track = cur; save(); var sel = document.getElementById('pTrack'); if (sel) sel.value = cur; drawTrack(); }; });
   drawTrack();
@@ -187,7 +185,7 @@ JS = r'''
   }
   f('pCopy').onclick = function(){ copyText(planText()).then(function(){ toast('Plan copied ✓'); }); };
   f('pDl').onclick = function(){ var blob = new Blob([planText()], { type: 'text/plain' }); var a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'my-copilot-workflow.txt'; document.body.appendChild(a); a.click(); a.remove(); };
-  f('pSave').onclick = function(){ pbAdd(f('pPrompt').value, { title: 'Capstone · first prompt', app: P.pS1s || 'Copilot', day: 'Day 3', role: st.track }); };
+  f('pSave').onclick = function(){ var t = f('pPrompt').value.trim(); if (!t) return toast('Write your first prompt first'); copyText(t).then(function(){ toast('Copied ✓ Paste it into your Prompt Bank in Word'); }); };
 
   // rubric + times
   var R = st.rubric || {};
@@ -235,7 +233,7 @@ def build():
       <div class="row3" style="margin-top:8px"><select class="in" id="pS3s">{surf_opts}</select><input class="in" id="pS3" placeholder="Step 3 (optional) — e.g. email it from Outlook"></div>
     </div>
     <div><label for="pPrompt">My first prompt (CTFT)</label><textarea class="in" id="pPrompt" rows="4" placeholder="Context · Task · Format · Tone — and a Source if you have one"></textarea></div>
-    <div class="bar2"><button class="btn" id="pSave">＋ Save prompt to Prompt Bank</button><button class="btn" id="pCopy">Copy my plan</button><button class="btn primary" id="pDl">Download my plan (.txt)</button></div>
+    <div class="bar2"><button class="btn" id="pSave">Copy prompt (for your Word Prompt Bank)</button><button class="btn" id="pCopy">Copy my plan</button><button class="btn primary" id="pDl">Download my plan (.txt)</button></div>
   </div>
 
   <div class="sec-label anchor" id="build">Build + self-check · E3.6</div>
@@ -249,7 +247,7 @@ def build():
     <label style="display:block;font-size:12.5px;font-weight:700;color:var(--ink-dim)">How long does this task take?</label>
     <div class="times"><input class="in" id="tHand" placeholder="By hand — e.g. 3 hours"><input class="in" id="tAi" placeholder="With your chain — e.g. 40 minutes"></div>
   </div>
-  <p class="note"><b>Take it home:</b> download your plan, and download your <a href="prompt-bank.html" style="color:var(--amber);text-decoration:underline">Prompt Bank</a> as a Word file. On Sunday, run the chain on the real task.</p>
+  <p class="note"><b>Take it home:</b> download your plan, and paste your capstone prompts into your <a href="prompt-bank.html" style="color:var(--amber);text-decoration:underline">Prompt Bank in Word</a>. On Sunday, run the chain on the real task.</p>
 </div>
 <script>window.TRACKS = {_json.dumps(TRACKS)};</script>
 ''' + footer_row()

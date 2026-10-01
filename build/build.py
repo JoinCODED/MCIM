@@ -230,7 +230,7 @@ def build_lab(n):
     <button class="ham" id="ham" aria-label="Menu" type="button"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
     <a class="back" href="{fn_day(n)}">‹ Back</a>
     <span class="crumb" id="crumb">Task 1</span>
-    <a class="pbpill" href="prompt-bank.html" target="_blank" rel="noopener">{ic('bank', 14)}<span class="t">My Prompt Bank</span> <b id="pbCount">0</b></a>
+    <a class="pbpill" href="prompt-bank.html" target="_blank" rel="noopener">{ic('bank', 14)}<span class="t">Prompt Bank · in Word</span></a>
     <div class="mnav"><button id="mPrev" type="button" aria-label="Previous task">‹</button><button id="mNext" type="button" aria-label="Next task">›</button></div>
   </div>
   <main id="view"></main>
@@ -382,7 +382,7 @@ def build_landing():
       <div class="rb-left">
         <span class="rb-pill">Toolkit · For Participants</span>
         <h3>Resources</h3>
-        <p>Setup guide, your Prompt Bank, the capstone, sample files, the cheat sheet, every deck and lab — and the official Microsoft references. One place, long after the room clears.</p>
+        <p>Setup guide, how to keep your Prompt Bank in Word, the capstone, sample files, the cheat sheet, every deck and lab — and the official Microsoft references. One place, long after the room clears.</p>
       </div>
       <div class="rb-btns">
         <a class="rb-open ghost" href="before-you-start.html">Before you start</a>
@@ -410,7 +410,7 @@ def build_landing():
       <div class="foot-col">
         <h4>Toolkit</h4>
         <a href="before-you-start.html">Before you start</a>
-        <a href="prompt-bank.html">My Prompt Bank</a>
+        <a href="prompt-bank.html">Prompt Bank in Word</a>
         <a href="cheat-sheet.html">Cheat sheet</a>
         <a href="resources.html">Resources</a>
         <span class="fc-static">enterprise@joincoded.com</span>

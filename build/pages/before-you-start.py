@@ -59,16 +59,16 @@ def build():
 
   <div class="sec-label">4 · How this site saves your work</div>
   <ol class="stp">
-    <li><span>Your lab notes, your track and your <b>Prompt Bank</b> save <b>in this browser</b> — nowhere else.<small>Nobody else can see them. CODED can't see them either.</small></span></li>
+    <li><span>Your lab notes and your track save <b>in this browser</b> — nowhere else.<small>Nobody else can see them. CODED can't see them either.</small></span></li>
     <li><span>Use the <b>same laptop and browser</b> for all three days.<small>A private or incognito window forgets everything when you close it.</small></span></li>
-    <li><span>On a shared laptop? Save your Prompt Bank as a <b>Word file</b> at the end of each day.<small>Open <a class="lk" href="prompt-bank.html">My Prompt Bank</a> → Download as Word → save to OneDrive.</small></span></li>
+    <li><span>Your <b>Prompt Bank</b> is a Word document you create and keep in your OneDrive.<small><a class="lk" href="prompt-bank.html">How to set it up</a> — it goes home with you.</small></span></li>
   </ol>
 
   <div class="sec-label">Next</div>
   <div class="res-list">
     {res_row('sample-files.html', 'All sample files', 'doc')}
     {res_row(fn_lab(1), 'Day 1 lab', 'flag')}
-    {res_row('prompt-bank.html', 'My Prompt Bank', 'bank')}
+    {res_row('prompt-bank.html', 'Your Prompt Bank in Word', 'bank')}
   </div>
 </div>
 ''' + footer_row()

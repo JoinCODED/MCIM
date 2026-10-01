@@ -12,7 +12,7 @@ def row(href, name, desc, tag, icon, link=None, dl=False):
 def build():
     start = ''.join([
         row('before-you-start.html', 'Before you start', 'Sign in, check which Copilot you have, and fallbacks when a feature is missing.', 'Setup', 'setup'),
-        row('prompt-bank.html', 'My Prompt Bank', 'Every prompt you saved in the labs. Download it as a Word document and keep it in OneDrive.', 'Yours', 'bank'),
+        row('prompt-bank.html', 'Your Prompt Bank in Word', 'How to build your own Prompt Bank in Word, keep it in OneDrive, and use it in Copilot.', 'Yours', 'bank'),
         row('cheat-sheet.html', 'Copilot cheat sheet', 'The moves that matter from all three days, on one page.', 'Reference', 'sheet'),
         row('capstone.html', 'Capstone', 'Four tracks, starter scenarios, sample inputs, the planner and the self-check.', 'Day 3', 'cap'),
         row('sample-files.html', 'All sample files', 'Every Tamra Foods file used in the labs, by day and role.', 'Files', 'doc'),
@@ -49,7 +49,7 @@ def build():
 <div class="wrap narrow">
   <span class="eyebrow">Everything In One Place</span>
   <h1>Workshop resources.</h1>
-  <p class="intro">Setup, your Prompt Bank, every deck and lab, the sample files and the official Microsoft references — for the room, and for long after it clears.</p>
+  <p class="intro">Setup, your Prompt Bank in Word, every deck and lab, the sample files and the official Microsoft references — for the room, and for long after it clears.</p>
   <div class="sec-label">Start here</div><div class="res-list">{start}</div>
   <div class="sec-label">Day 1 · <span data-cfg="dates.d1Short">Tue 29 Sep</span> · Foundations</div><div class="res-list">{d1}</div>
   <div class="sec-label">Day 2 · <span data-cfg="dates.d2Short">Wed 30 Sep</span> · Copilot across the apps</div><div class="res-list">{d2}</div>

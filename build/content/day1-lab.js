@@ -138,7 +138,7 @@ window.LAB = {
         'Pick a real, repeating task — maybe one from your E1.2 time audit. Leave out confidential details.',
         'Fill the builder. Stuck? Tap <b>Load the example for my track</b>.',
         'Copy the prompt and run it in Copilot Chat. Did the role and context show up in the answer?',
-        'Improve it once. Then tap <b>＋ Save to Prompt Bank</b>.'
+        'Improve it once. Then paste it into your <a href="prompt-bank.html" target="_blank" rel="noopener">Prompt Bank in Word</a>.'
       ],
       widget: 'builder',
       examples: {
@@ -147,7 +147,7 @@ window.LAB = {
         marketing: { role: 'You are a social media specialist at a café chain in Kuwait.', ctx: 'We launch a new cold brew coffee next month. Our audience is young professionals aged 22–35.', task: 'Write three Instagram captions for the launch.', fmt: 'Each under 40 words, with one call to action and two hashtags.', tone: 'Playful and modern. No health claims.' },
         technical: { role: 'You are the IT support lead at a company with 400 staff.', ctx: 'The office Wi-Fi password changes every quarter, and staff keep calling the helpdesk to reconnect.', task: 'Write a short how-to message that explains how to reconnect on a laptop and on a phone.', fmt: 'Numbered steps, under 120 words, with a one-line “Still stuck?” contact at the end.', tone: 'Clear and friendly. No jargon.' }
       },
-      expect: 'One prompt you will reuse — tested in Copilot and saved to your Prompt Bank.',
+      expect: 'One prompt you will reuse — tested in Copilot and saved in your Prompt Bank in Word.',
       stretch: 'Fill the Example field — paste a short sample you like — and run it again. One example changes the structure and voice. (This is called few-shot prompting.)',
       boss: 'One prompt, two readers: ask for two versions in one go — one for your manager, one for a client. Same facts, different tone.'
     }

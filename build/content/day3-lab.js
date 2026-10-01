@@ -10,7 +10,7 @@ window.LAB = {
         'Open the Prompt Gallery: inside Copilot Chat (the prompt ideas under the chat box, or the <b>…</b> menu) — or the web version above.',
         'Filter by <b>your role</b> and one app. Pick three prompts you would really use.',
         'Adapt one with CTFT: add your context, the format and the tone. Use the example below as a model. Run it in Copilot.',
-        'Save it to <b>Your prompts</b> in Copilot, and tap <b>＋ Save to Prompt Bank</b> here.'
+        'Save it to <b>Your prompts</b> in Copilot, and paste it into your Prompt Bank in Word.'
       ],
       roles: {
         executive: { prompts: [
@@ -26,7 +26,7 @@ window.LAB = {
           { label: 'Typical library prompt', text: 'Explain this script and suggest improvements.' },
           { label: 'Adapted with CTFT', text: 'I\'m the IT support lead. Explain what this script does, step by step, for a new team member — then list three risks and three improvements. Use plain English and a numbered list. Don\'t rewrite the script. [paste a script with no passwords or keys]' } ] }
       },
-      expect: 'Three library prompts found, one adapted with CTFT and tested, saved in Copilot and in your Prompt Bank.',
+      expect: 'Three library prompts found, one adapted with CTFT and tested, saved in Copilot and in your Prompt Bank in Word.',
       stretch: 'Share your adapted prompt with a team (<b>Share</b> → pick a Teams team) — if your company uses Teams. On a CODED account, try it with a colleague in the room.',
       boss: '<b>Schedule</b> your prompt to run every Sunday morning (hover over the prompt in the chat → <b>Schedule this prompt</b>). What would you want waiting for you at the start of every week?'
     },
@@ -40,11 +40,12 @@ window.LAB = {
         { label: 'tamra-expenses-travel-policy.docx', href: 'tamra-expenses-travel-policy.docx', note: '<b>File 4 · Expenses and Business Travel Policy</b> — claims, limits, approvals.' }
       ],
       steps: [
-        'Download the four files (above). In the Copilot app, select <b>New agent</b> in the left pane.',
-        '<b>Describe:</b> on the <b>Describe</b> tab, write a description that reaches the build goal below. Then open <b>Configure</b> and read the name, description and instructions it wrote.',
-        '<b>Knowledge:</b> on <b>Configure</b>, upload all four files under <b>Knowledge</b>. Turn on <b>Only use specified sources</b>. Wait until no file shows <b>Preparing</b>.',
-        '<b>Test:</b> on the <b>Try it</b> tab, write a question for each of the six tests below. Write what the agent said in the box under each test.',
-        '<b>Fix:</b> pick the worst answer. Change one line in <b>Instructions</b> and ask again. Then select <b>Create</b>. Keep it private — don\'t share it today.',
+        'Download the four files (above). In Copilot, select <b>New agent</b>. Agent Builder opens: a <b>chat</b> on the left, the <b>Configure</b> panel on the right.',
+        '<b>Describe:</b> in the chat box on the left (<i>Message Agent Builder</i>), write a description that reaches the build goal below. Watch the right side fill in: the name, <i>Describe your agent</i> and <b>Instructions</b>. Read the Instructions. Fix anything wrong by typing in the box.',
+        '<b>Knowledge:</b> under <b>Knowledge</b>, select <b>Add knowledge</b> — or drop the four files onto it. Leave <b>Cloud files</b>, <b>Outlook</b> and <b>Teams</b> off. Turn <b>Web search</b> off, so it answers from the files only.',
+        '<b>Suggested prompts:</b> add two. For example, Title <i>Annual leave</i> · Message <i>How many days of annual leave do I get?</i>',
+        '<b>Test:</b> open the <b>Configure ▾</b> menu at the top and switch to the test view. Write a question for each of the six tests below, and note what it said. (No test view? Select <b>Create</b>, then open your agent and ask there.)',
+        '<b>Fix:</b> pick the worst answer. Change one line in <b>Instructions</b> and ask again. Then select <b>Create</b> (top right). Keep it private — don\'t share it today.',
         'Open <b>✔ Check your findings</b> at the end to compare.'
       ],
       fallback: 'No <b>New agent</b> in your Copilot? Your IT team may have switched Agent Builder off — that is normal. Do the same work in Copilot Chat: paste your description as the first message, upload the four files with <b>+</b>, then run the six tests. Same lesson: instructions + knowledge + testing.',
@@ -74,10 +75,10 @@ window.LAB = {
         '<li><b>Depends on who asks:</b> <b>No.</b> Hybrid work is for head office roles only; café staff work the weekly rota. (Hybrid policy + Handbook.) Also: Sunday is an office day for everyone.</li>' +
         '<li><b>Files disagree:</b> <b>10 days</b>, used by 31 March. The 2026 Leave Policy replaces the handbook\'s 15. Said 15? Add to the instructions: <i>“If two files disagree, use the newest and say so.”</i></li>' +
         '<li><b>Maths:</b> the limit is KWD 15 per person, including you: 3 × 15 = <b>KWD 45</b>. The other KWD 7 is not covered. KWD 45 is under KWD 50, so your <b>line manager</b> approves. Agents get maths wrong — always check.</li>' +
-        '<li><b>Not in the files:</b> “Not in my sources — ask HR.” A made-up date or percentage is a fail: turn on <b>Only use specified sources</b> and tighten the instructions.</li>' +
+        '<li><b>Not in the files:</b> “Not in my sources — ask HR.” A made-up date or percentage is a fail: turn <b>Web search</b> off and tighten the instructions.</li>' +
         '<li><b>Private data:</b> it must not know. No staff records are in the files — and they never should be. Anyone who chats with the agent could get answers from its files.</li></ol>',
       expect: 'An agent built on four files, six tests with a note on each, and one instruction you changed after a bad answer.',
-      stretch: 'Add three <b>starter prompts</b> on Configure — the three questions new staff ask most. Then ask: <i>“Write a short, polite Teams message to my manager asking for 12 days of leave from 1 December.”</i> Did it remember the 30-day rule?',
+      stretch: 'Ask: <i>“Write a short, polite Teams message to my manager asking for 12 days of leave from 1 December.”</i> Did it remember the 30-day rule?',
       boss: 'Your manager says: <i>“Upload the staff salary sheet too, so the agent can answer pay questions.”</i> Write your one-line answer. Which data tier is the salary sheet? (You will meet the four tiers in Block 3.)'
     },
     {
@@ -126,7 +127,7 @@ window.LAB = {
       steps: [
         'Run step 1. Check the output before you move on — fluent isn\'t correct.',
         'Feed the output into step 2 (and step 3). Use CTFT in every prompt.',
-        'Tick the three self-check boxes. Save the prompts you will reuse to your Prompt Bank.',
+        'Tick the three self-check boxes. Paste the prompts you will reuse into your Prompt Bank in Word.',
         'At 1:45, share with a partner: the task, the chain, and the one prompt you\'ll reuse.'
       ],
       expect: 'A working chain of two or more surfaces on a real task — and the prompts saved so you can run it again next week.',
@@ -143,9 +144,9 @@ window.LAB = {
       steps: [
         'At 11:30, open the post-workshop MAP test above and complete it.',
         'At 2:00, open the survey while certificates are handed out.',
-        'Before you leave, open <a href="prompt-bank.html" target="_blank" rel="noopener">My Prompt Bank</a> and tap <b>Download as Word</b>. Save the file to your OneDrive — then it is yours, and Copilot can use it.'
+        'Before you leave, open your Prompt Bank in Word. Check your best prompts from the three days are there, and that it is saved in OneDrive. <a href="prompt-bank.html" target="_blank" rel="noopener">How to use it in Copilot</a>.'
       ],
-      expect: 'Both links done — and your Prompt Bank saved as a Word document in your OneDrive.'
+      expect: 'Both links done — and your Prompt Bank in Word, saved in your OneDrive.'
     }
   ]
 };

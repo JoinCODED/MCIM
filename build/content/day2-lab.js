@@ -344,10 +344,10 @@ window.LAB = {
       scenario: 'Two minutes of thinking now pays back on Thursday, when you build your capstone. Name the app that saves you the most time, the task it takes off your desk, and your best prompt from today.',
       steps: [
         'In the box below, write one line: <b>your role · the app · the task · hours saved per week</b> (your honest guess).',
-        'Open <a href="prompt-bank.html" target="_blank" rel="noopener">My Prompt Bank</a>. Check that today\'s best prompt is there. If not, save it now.',
+        'Open your <a href="prompt-bank.html" target="_blank" rel="noopener">Prompt Bank in Word</a>. Paste in today\'s best prompt, under a heading with the app name.',
         'Your capstone chains <b>two or more</b> Copilot surfaces. Which second app would help with the same task? Add it to your line.'
       ],
-      expect: 'One line — role, app, task, hours, second app — and today\'s best prompt saved in your Prompt Bank.'
+      expect: 'One line — role, app, task, hours, second app — and today\'s best prompt in your Prompt Bank in Word.'
     }
   ]
 };
