@@ -333,7 +333,7 @@ def build_landing():
         checks = {
             1: ['How AI and large language models work — and where not to trust them', 'What Copilot is, how it compares, and what it can do', 'The CTFT prompt recipe, practised in Copilot Chat'],
             2: ['Word — draft, rewrite, ground in a file', 'PowerPoint — document to deck', 'Excel — analysis you can check', 'Outlook & Teams — tame the thread, recap the meeting'],
-            3: ['Security, compliance and Microsoft’s Responsible AI principles', 'The Prompt Gallery — find, adapt, save', 'Capstone: a Copilot workflow for your real job'],
+            3: ['The Prompt Library — find, adapt, save', 'Agent Builder — build, test and fix your own agent', 'Safety with AI — security, compliance and Responsible AI', 'Capstone: a Copilot workflow for your real job'],
         }[n]
         lis = ''.join(f'<li>{ic("check", 15)}<span>{esc(c)}</span></li>' for c in checks)
         cards.append(f'''<div class="dcard">
@@ -375,7 +375,7 @@ def build_landing():
   <div class="wrap">
     <span class="eyebrow">The Programme</span>
     <h2 class="sec-title">Three days, one <span class="hl">working habit</span>.</h2>
-    <p class="sec-lede">Day 1 opens the engine and teaches the prompt recipe. Day 2 puts Copilot to work in Word, PowerPoint, Excel and Outlook — with scenarios for executive, sales, marketing and technical roles. Day 3 makes it safe, then you build a workflow for your own job. Hands-on from start to finish, on sample data.</p>
+    <p class="sec-lede">Day 1 opens the engine and teaches the prompt recipe. Day 2 puts Copilot to work in Word, PowerPoint, Excel and Outlook — with scenarios for executive, sales, marketing and technical roles. Day 3 adds the Prompt Library and your own agent, makes it all safe, then you build a workflow for your own job. Hands-on from start to finish, on sample data.</p>
     <div class="dcards">{''.join(cards)}</div>
 
     <div class="res-bar">

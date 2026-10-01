@@ -22,7 +22,7 @@ window.SITE = {
 
   links: {
     mapPre:    "https://portal.joincoded.com/sv/mastering-microsoft-copilot-map-test-pre-day-1",   // Pre-workshop MAP test  (Day 1, 9:00 AM)
-    mapPost:   "https://portal.joincoded.com/sv/mastering-microsoft-copilot-map-test-post-day-3",   // Post-workshop MAP test (Day 3, 11:10 AM)
+    mapPost:   "https://portal.joincoded.com/sv/mastering-microsoft-copilot-map-test-post-day-3",   // Post-workshop MAP test (Day 3, 11:30 AM)
     survey:    "https://portal.joincoded.com/sv/mastering-microsoft-copilot-final-survey",   // Satisfaction survey    (Day 3, 2:00 PM)
   }
 };

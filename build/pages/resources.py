@@ -12,7 +12,7 @@ def row(href, name, desc, tag, icon, link=None, dl=False):
 def build():
     start = ''.join([
         row('before-you-start.html', 'Before you start', 'Sign in, check which Copilot you have, and fallbacks when a feature is missing.', 'Setup', 'setup'),
-        row('prompt-bank.html', 'My Prompt Bank', 'Every prompt you saved in the labs. Export it before you leave.', 'Yours', 'bank'),
+        row('prompt-bank.html', 'My Prompt Bank', 'Every prompt you saved in the labs. Download it as a Word document and keep it in OneDrive.', 'Yours', 'bank'),
         row('cheat-sheet.html', 'Copilot cheat sheet', 'The moves that matter from all three days, on one page.', 'Reference', 'sheet'),
         row('capstone.html', 'Capstone', 'Four tracks, starter scenarios, sample inputs, the planner and the self-check.', 'Day 3', 'cap'),
         row('sample-files.html', 'All sample files', 'Every Tamra Foods file used in the labs, by day and role.', 'Files', 'doc'),
@@ -30,11 +30,11 @@ def build():
     ])
     d3 = ''.join([
         row(fn_day(3), 'Day 3 overview', 'Brief, run of show, outcomes and links.', 'Page', 'all'),
-        row(fn_deck(3), 'Day 3 slides', 'Responsible AI, the Prompt Gallery and the capstone.', 'Deck', 'screen'),
-        row(fn_lab(3), 'Day 3 lab', 'Classify + Redact, Judgment Calls, Gallery hunt, capstone.', 'Lab', 'flag'),
-        row('day-3-classify-redact.html', 'Classify + Redact', 'Six items, four tiers — the E3.1 exercise.', 'Exercise', 'shield'),
-        row('day-3-judgment-calls.html', 'Judgment calls', 'Six grey-zone requests — the E3.2 exercise.', 'Exercise', 'shield'),
-        row('', 'MAP test — post-workshop', '11:10 AM. The same map as Tuesday.', 'Form', 'map', link='mapPost'),
+        row(fn_deck(3), 'Day 3 slides', 'Prompt Library, Agent Builder, safety with AI and the capstone.', 'Deck', 'screen'),
+        row(fn_lab(3), 'Day 3 lab', 'Library hunt, your first agent, Classify + Redact, Judgment Calls, capstone.', 'Lab', 'flag'),
+        row('day-3-classify-redact.html', 'Classify + Redact', 'Six items, four tiers — the E3.3 exercise.', 'Exercise', 'shield'),
+        row('day-3-judgment-calls.html', 'Judgment calls', 'Six grey-zone requests — the E3.4 exercise.', 'Exercise', 'shield'),
+        row('', 'MAP test — post-workshop', '11:30 AM. The same map as Tuesday.', 'Form', 'map', link='mapPost'),
         row('', 'Satisfaction survey', '2:00 PM, while certificates are handed out.', 'Form', 'survey', link='survey'),
     ])
     ms = ''.join([
@@ -42,6 +42,7 @@ def build():
         row('https://support.microsoft.com/en-us/microsoft-365-copilot/', 'Microsoft Copilot — help & learning', 'Official how-tos for Copilot in Word, Excel, PowerPoint, Outlook and Teams.', 'Microsoft', 'all'),
         row('https://support.microsoft.com/en-us/topic/learn-about-copilot-prompts-f6c3b467-f07c-4db1-ae54-ffac96184dd5', 'Learn about Copilot prompts', 'Microsoft\'s prompt guide: Goal · Context · Source · Expectations.', 'Microsoft', 'doc'),
         row('https://adoption.microsoft.com/en-us/copilot/prompt-gallery/', 'Copilot Prompt Gallery', 'Ready-made prompts to adapt and save, by role, app and task.', 'Microsoft', 'spark'),
+        row('https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/agent-builder-build-agents', 'Build agents in Agent Builder', 'Microsoft\'s step-by-step guide: describe, configure, add knowledge, test, share.', 'Microsoft', 'spark'),
         row('https://www.microsoft.com/en-us/ai/principles-and-approach', 'Microsoft Responsible AI principles', 'The six principles behind Copilot.', 'Microsoft', 'shield'),
     ])
     body = topbar('Workshop <b>Resources</b>') + f'''
@@ -52,7 +53,7 @@ def build():
   <div class="sec-label">Start here</div><div class="res-list">{start}</div>
   <div class="sec-label">Day 1 · <span data-cfg="dates.d1Short">Tue 29 Sep</span> · Foundations</div><div class="res-list">{d1}</div>
   <div class="sec-label">Day 2 · <span data-cfg="dates.d2Short">Wed 30 Sep</span> · Copilot across the apps</div><div class="res-list">{d2}</div>
-  <div class="sec-label">Day 3 · <span data-cfg="dates.d3Short">Thu 1 Oct</span> · Responsible AI + capstone</div><div class="res-list">{d3}</div>
+  <div class="sec-label">Day 3 · <span data-cfg="dates.d3Short">Thu 1 Oct</span> · Prompts, agents, safe use + capstone</div><div class="res-list">{d3}</div>
   <div class="sec-label">Microsoft references</div><div class="res-list">{ms}</div>
   <p class="note"><b>Heads-up:</b> in September 2026 Microsoft renamed “Microsoft 365 Copilot” to <b>Microsoft Copilot</b>, and the chat address moved to copilot.cloud.microsoft. Older guides and screens may still use the old names.</p>
 </div>

@@ -1,5 +1,5 @@
-# Day 3 · Exercise E3.1 — Classify + Redact (six items, four tiers). Written for a cross-industry room.
-# State: localStorage key coded_copilot_classify_redact  → {i:{tier,text}}
+# Day 3 · Exercise E3.3 — Classify + Redact (six items, four tiers, three actions). Written for a cross-industry room.
+# State: localStorage key coded_copilot_classify_redact  → {i:{tier,action,text}}
 CSS = SUB_CSS + '''
   .top-in,.wrap{max-width:960px}
 
@@ -72,6 +72,35 @@ CSS = SUB_CSS + '''
     border-radius:9px;padding:12px 14px;margin-top:10px;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.55}
   .warn{margin-top:18px;display:inline-flex;align-items:center;gap:10px;padding:11px 18px;border-radius:12px;
     background:rgba(240,165,68,.08);border:1px solid rgba(240,165,68,.32);color:var(--amber);font-size:13.5px;font-weight:600}
+  .tier[data-t="public"] .d{background:var(--green)}
+  .acts{display:flex;flex-wrap:wrap;gap:9px}
+  .act{padding:9px 15px;border-radius:10px;border:1px solid var(--w1);background:var(--w06);color:var(--ink);font-family:var(--f);font-weight:700;font-size:13.5px;cursor:pointer;transition:.14s}
+  .act:hover{border-color:var(--w4)}
+  .act.sel{border:2px solid var(--rose-lt);padding:8px 14px;background:rgba(47,116,214,.16)}
+  .act.sel[data-a="never"]{border-color:var(--red-deep);background:rgba(194,48,48,.28)}
+  .asisbox{margin-top:10px;background:rgba(90,208,160,.07);border:1px solid rgba(90,208,160,.3);border-radius:10px;padding:14px 16px;font-size:13.5px;color:var(--ink);line-height:1.6;display:none}
+  .asisbox.on{display:block}
+  .leak{margin-top:8px;font-size:13px;line-height:1.5;display:none}
+  .leak.on{display:block}
+  .leak.bad{color:var(--amber)}.leak.good{color:var(--green-lt)}
+  .ref{margin-top:18px;background:var(--card);border:1px solid var(--line-2);border-radius:16px;padding:6px 20px 18px}
+  .ref summary{cursor:pointer;font-weight:800;font-size:15px;padding:12px 0;color:var(--ink)}
+  .ref-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  @media(max-width:820px){.ref-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:520px){.ref-grid{grid-template-columns:1fr}}
+  .rt{border:1px solid var(--w1);border-top:4px solid var(--c);border-radius:12px;padding:12px 14px;background:var(--surf)}
+  .rt b{color:var(--c);font-size:15px}
+  .rt .w{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin:3px 0 6px}
+  .rt p{font-size:12.8px;color:var(--ink-dim);line-height:1.5}
+  .rt .ai{margin-top:8px;font-size:12.8px;font-weight:700;color:var(--ink)}
+  .ref-acts{margin-top:14px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  @media(max-width:620px){.ref-acts{grid-template-columns:1fr}}
+  .ra{border:1px dashed var(--w2);border-radius:10px;padding:10px 12px;font-size:12.8px;color:var(--ink-dim);line-height:1.5}
+  .ra b{color:var(--ink)}
+  .debrief{display:none;margin-top:26px;background:rgba(240,165,68,.07);border:1px solid rgba(240,165,68,.3);border-radius:14px;padding:18px 20px}
+  .debrief.on{display:block}
+  .debrief h3{font-size:16px;font-weight:800;margin-bottom:8px}
+  .debrief ol{margin:0;padding-left:20px;font-size:14px;line-height:1.7;color:var(--ink)}
   @media(max-width:620px){.it-head,.it-body{padding-left:16px;padding-right:16px}.raw{padding:14px}}
 '''
 
@@ -80,10 +109,13 @@ JS = r'''
   const PALETTE = ["[CUSTOMER]","[NAME]","[CIVIL ID]","[PHONE]","[ACCOUNT]","[AMOUNT]","[DATE]","[LOCATION]","[SECRET]"];
   const TIERS = [
     {id:"public",label:"Public"},{id:"internal",label:"Internal"},
-    {id:"confidential",label:"Confidential"},{id:"restricted",label:"Restricted"},
-    {id:"never",label:"NEVER send"}
+    {id:"confidential",label:"Confidential"},{id:"restricted",label:"Restricted"}
   ];
-  const TLABEL = {public:"Public",internal:"Internal",confidential:"Confidential",restricted:"Restricted",never:"NEVER send"};
+  const TLABEL = {public:"Public",internal:"Internal",confidential:"Confidential",restricted:"Restricted"};
+  const ACTIONS = [
+    {id:"asis",label:"✓ Paste as it is"},{id:"redact",label:"✎ Redact, then paste"},{id:"never",label:"🛑 NEVER send"}
+  ];
+  const ALABEL = {asis:"Paste as it is",redact:"Redact, then paste",never:"NEVER send"};
 
   const ITEMS = [
     {
@@ -95,8 +127,9 @@ Hello, my name is Dalal Al-Kandari (Civil ID 2870xxxxxxxx, mobile +965 6xxx 2419
 I ordered from the Tamra app on 14 September. My card ending 4821 was charged KWD 18.750 two times.
 The order came to my home in Salwa, Block 10. Only one payment should go through.
 Please refund the second charge this week, or I will delete the app.`,
-      answer:"restricted",
-      why:"This is a customer's personal data: name, email, Civil ID, phone, card digits, home area and order number. Together they point to one real person. Restricted: you may put it into an AI tool only after you remove every identifier. The problem itself (a double charge of KWD 18.750) can stay. It does not identify anyone.",
+      answer:"restricted", action:["redact"],
+      leaks:["Dalal","Kandari","2870","2419","4821","58213","Salwa"],
+      why:"This is a customer's personal data: name, email, Civil ID, phone, card digits, home area and order number. Together they point to one real person. Restricted. Action: redact, then paste — on your work account only, after you remove every identifier. The problem itself (a double charge of KWD 18.750) can stay. It does not identify anyone.",
       model:`From: [CUSTOMER]
 Subject: Charged twice for order [ACCOUNT] — KWD 18.750
 
@@ -112,8 +145,9 @@ Went well: the new breakfast menu launched on time in all 6 branches. Average wa
 Did not go well: the Salmiya branch ran out of oat milk twice. The stock app and the shelf count did not match.
 Actions: Mariam owns the weekly stock check. Khaled updates the reorder levels in the stock app.
 Each branch sends a photo of the shelf every Sunday.`,
-      answer:"internal",
-      why:"These are internal working notes about how the team works. There is no customer data, no secret and no sensitive figure. Internal: you can summarise them with Copilot on your work account. Good habit: replace colleague names with [NAME] before you paste.",
+      answer:"internal", action:["asis","redact"],
+      leaks:["Mariam","Khaled"],
+      why:"These are internal working notes about how the team works. There is no customer data, no secret and no sensitive figure. Internal. Action: paste as it is into Copilot on your work account — never a personal or public AI tool. Replacing colleague names with [NAME] is a good habit, so “Redact, then paste” is also correct.",
       model:`Café Operations — Sprint 18 retro (6 branches)
 Went well: the new breakfast menu launched on time in all 6 branches. Average wait time fell from 9 to 6 minutes.
 Did not go well: the Salmiya branch ran out of oat milk twice. The stock app and the shelf count did not match.
@@ -127,8 +161,8 @@ Arabic coffee (pot for 2): KWD 1.500   |  Spanish latte: KWD 1.750
 Date cake (slice): KWD 1.250           |  Halloumi sandwich: KWD 2.250
 Delivery in Kuwait City: KWD 0.500. Free delivery on orders over KWD 10.000.
 Prices may change. See the app for current prices.`,
-      answer:"public",
-      why:"The company already publishes this on its website and in its app. Anyone can see it. Public: you can paste it as it is. There is nothing to redact.",
+      answer:"public", action:["asis"], leaks:[],
+      why:"The company already publishes this on its website and in its app. Anyone can see it. Public. Action: paste it as it is. There is nothing to redact.",
       model:`No redaction needed. This is already public. Paste it as it is.`
     },
     {
@@ -138,8 +172,8 @@ Emp 1042 | Noura Al-Mutairi  | Branch manager   | Salary KWD 1,450 | Score 2/5 |
 Emp 1057 | Ahmad Hussain     | Barista lead     | Salary KWD 620   | Score 4/5 | Bonus proposed
 Emp 1063 | Reem Al-Shammari  | Shift supervisor | Salary KWD 780   | Score 3/5 | Medical leave 12 days (surgery)
 Manager note: send to the Operations Director before the bonus meeting.`,
-      answer:"never",
-      why:"Salary, performance and medical data about named staff. This is some of the most sensitive data a company holds. Removing the names is not enough: a job title, a branch and a salary together can point to one person. NEVER send it to a general AI tool, even with redaction. Use only the approved HR system, and share it only with people who are allowed to see it.",
+      answer:"restricted", action:["never"], leaks:["Noura","Ahmad","Reem","1042","1057","1063","1,450"],
+      why:"Restricted. Salary, performance and medical data about named staff. This is some of the most sensitive data a company holds. Removing the names is not enough: a job title, a branch and a salary together can point to one person. Action: NEVER send it to an AI tool, even with redaction. Use only the approved HR system, and share it only with people who are allowed to see it.",
       model:`NEVER send. Do not paste staff salary, performance or medical data into any AI prompt. Redaction does not make it safe.
 Keep it in the approved HR system.
 If you need help with the wording of a letter or a policy, write your request with no real staff data in it.`
@@ -151,8 +185,8 @@ PAYMENT_GATEWAY_API_KEY=gw_live_4c9e71b2d0a84f6e_tamra
 DB_HOST=orders-db.tamrafoods.example
 DB_PASSWORD=Tamra#Orders_2026!
 # "Can someone ask AI why checkout keeps failing?"`,
-      answer:"never",
-      why:"These are live production secrets. Pasting them anywhere outside the approved password vault is a security incident on its own. NEVER send. A leaked key must be rotated (replaced with a new one). Redaction does not fix a leak.",
+      answer:"restricted", action:["never"], leaks:["gw_live","Tamra#Orders"],
+      why:"Restricted. These are live production secrets. Pasting them anywhere outside the approved password vault is a security incident on its own. Action: NEVER send. A leaked key must be rotated (replaced with a new one). Redaction does not fix a leak.",
       model:`NEVER send. Live keys and passwords never go into an AI prompt.
 These are now exposed in a chat, so:
 1. Ask the owner to rotate (replace) the key and the password today.
@@ -167,8 +201,9 @@ Revenue: KWD 4.82M (+11% vs Q3 2025)  |  Gross margin: 38.4%  |  Delivery app or
 Plan: raise café prices by 8% from 1 January 2027.
 Risk: dispute with our dairy supplier, Al-Waha Dairy Co., over KWD 146,000 in late-delivery penalties.
 Please improve the wording of the summary before Sunday.`,
-      answer:"confidential",
-      why:"Unreleased results, a planned price rise and a named supplier dispute. If this leaks before the announcement, it can harm the company, its staff and its partners. Confidential: keep it in approved tools (for example Copilot on your work account), and share it only with the people who need it. If you need help with the wording, remove the figures and names first.",
+      answer:"confidential", action:["redact"],
+      leaks:["4.82","11%","38.4","212,000","8%","Al-Waha","146,000","20 October"],
+      why:"Unreleased results, a planned price rise and a named supplier dispute. If this leaks before the announcement, it can harm the company, its staff and its partners. Confidential. Action: redact, then paste — Copilot on your work account only, never a public tool. You only want help with the wording, so remove the figures and names first: Copilot does not need them to improve the sentences.",
       model:`DRAFT — Q3 Board Pack (not for circulation before the results announcement on [DATE])
 Revenue: [AMOUNT] ([AMOUNT] vs last year)  |  Gross margin: [AMOUNT]  |  Delivery app orders: [AMOUNT]
 Plan: raise café prices by [AMOUNT] from [DATE].
@@ -178,18 +213,18 @@ Please improve the wording of the summary before Sunday.`
   ];
 
   const KEY='coded_copilot_classify_redact';
-  let state=store.get(KEY,{}); // {i:{tier,text}}
+  let state=store.get(KEY,{}); // {i:{tier,action,text}}
   if(!state||typeof state!=='object'||Array.isArray(state)) state={};
+  // older saves used tier "never": move it to the action
+  Object.keys(state).forEach(k=>{const s=state[k]; if(s&&s.tier==='never'){s.tier='restricted'; s.action='never';}});
   let revealed=false;
   const wrap=document.getElementById('items');
 
   function h(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
   function handled(i){
-    const s=state[i]; if(!s||!s.tier) return false;
-    if(s.tier==='never') return true;
-    const ta=document.getElementById('ta'+i);
-    const v = ta ? ta.value : (s.text || '');
-    return v.trim().length>0; // a redaction (or NEVER) is needed to count as handled
+    const s=state[i]; if(!s||!s.tier||!s.action) return false;
+    if(s.action!=='redact') return true;
+    return (s.text||'').trim().length>0; // a redaction is needed to count as handled
   }
   function doneCount(){return ITEMS.map((_,i)=>i).filter(handled).length}
   function save(){store.set(KEY,state)}
@@ -207,6 +242,25 @@ Please improve the wording of the summary before Sunday.`
     ta.focus();
   }
 
+  // live check: which identifiers from the original are still in the redacted text?
+  function leakCheck(i){
+    const el=document.getElementById('lk'+i), s=state[i]||{}, it=ITEMS[i];
+    const txt=(s.text||'');
+    if(s.action!=='redact' || !txt.trim() || !it.leaks.length){ el.className='leak'; el.textContent=''; return; }
+    const left=it.leaks.filter(w=>txt.toLowerCase().indexOf(w.toLowerCase())>=0);
+    if(left.length){ el.className='leak on bad'; el.textContent='⚠ Still in your version: '+left.join(' · ')+'. Remove or replace it.'; }
+    else { el.className='leak on good'; el.textContent='✓ None of the names or numbers we planted are left. Read it once more: would it still point to one person or one deal?'; }
+  }
+
+  function applyAction(i){
+    const s=state[i]||{}, ta=document.getElementById('ta'+i);
+    ta.disabled = s.action!=='redact';
+    document.getElementById('rw'+i).style.display = s.action==='redact' ? '' : 'none';
+    document.getElementById('nb'+i).classList.toggle('on', s.action==='never');
+    document.getElementById('ab'+i).classList.toggle('on', s.action==='asis');
+    leakCheck(i);
+  }
+
   function build(){
     wrap.innerHTML='';
     ITEMS.forEach((it,i)=>{
@@ -219,52 +273,59 @@ Please improve the wording of the summary before Sunday.`
         <div class="it-body">
           <pre class="raw">${h(it.raw)}</pre>
 
-          <div class="lbl">1 — Pick the tier</div>
+          <div class="lbl">1 — Which tier is it?</div>
           <div class="tiers" id="tiers${i}">
             ${TIERS.map(t=>`<button type="button" class="tier${s.tier===t.id?' sel':''}" data-t="${t.id}"><span class="d"></span>${t.label}</button>`).join('')}
           </div>
 
-          <div class="lbl">2 — Write your own redacted version</div>
-          <div class="palette">
-            <span class="pl-lbl">Insert placeholder:</span>
-            ${PALETTE.map(p=>`<button type="button" class="chipbtn" data-ph="${p}">${p}</button>`).join('')}
+          <div class="lbl">2 — What will you do with it?</div>
+          <div class="acts" id="acts${i}">
+            ${ACTIONS.map(a=>`<button type="button" class="act${s.action===a.id?' sel':''}" data-a="${a.id}">${a.label}</button>`).join('')}
           </div>
-          <textarea class="redact" id="ta${i}" ${s.tier==='never'?'disabled':''} placeholder="Write a version that is safe to paste. Read the original above and remove every identifier yourself, or click a placeholder to insert it. Or mark it NEVER send.">${s.text!==undefined?h(s.text):''}</textarea>
-          <div class="neverbox${s.tier==='never'?' on':''}" id="nb${i}">Marked <b>NEVER send</b>. Do not paste any part of this item into a general AI tool, even with redaction.</div>
-          <div class="foot-row">
-            <button type="button" class="reset" data-reset="${i}">↺ Clear</button>
-            <span class="hint">Tip: type your redacted version, or place the cursor and click a placeholder.</span>
+          <div class="asisbox" id="ab${i}">You would paste it <b>as it is</b> — into Copilot on your <b>work account</b>. Nothing to write here.</div>
+          <div class="neverbox" id="nb${i}">Marked <b>NEVER send</b>. No part of this item goes into an AI tool, even with redaction. Say what you would do instead in the discussion.</div>
+
+          <div id="rw${i}">
+            <div class="lbl">3 — Write your redacted version</div>
+            <div class="palette">
+              <span class="pl-lbl">Insert placeholder:</span>
+              ${PALETTE.map(p=>`<button type="button" class="chipbtn" data-ph="${p}">${p}</button>`).join('')}
+            </div>
+            <textarea class="redact" id="ta${i}" placeholder="Copy the original here and replace every name, number and detail Copilot does not need. Click a placeholder to insert it.">${s.text!==undefined?h(s.text):''}</textarea>
+            <div class="leak" id="lk${i}"></div>
+            <div class="foot-row">
+              <button type="button" class="reset" data-reset="${i}">↺ Clear</button>
+              <button type="button" class="reset" data-copy="${i}">⧉ Start from the original</button>
+            </div>
           </div>
 
           <div class="akey" id="ak${i}">
             <div class="ak-k">Answer key</div>
-            <div class="verdict" id="vd${i}"></div>
-            <p><span class="ak-tier">Correct tier: ${TLABEL[it.answer]}.</span> ${h(it.why)}</p>
+            <div class="verdict" id="vd${i}"></div><br>
+            <div class="verdict" id="va${i}"></div>
+            <p><span class="ak-tier">${TLABEL[it.answer]} · ${it.action.map(a=>ALABEL[a]).join(' or ')}.</span> ${h(it.why)}</p>
             <div class="model">${h(it.model)}</div>
           </div>
         </div>`;
       wrap.appendChild(card);
 
-      // tiers
       card.querySelectorAll(`#tiers${i} .tier`).forEach(btn=>btn.onclick=()=>{
         state[i]=state[i]||{}; state[i].tier=btn.dataset.t;
         card.querySelectorAll(`#tiers${i} .tier`).forEach(b=>b.classList.toggle('sel',b===btn));
-        const ta=document.getElementById('ta'+i), nb=document.getElementById('nb'+i);
-        const isNever=btn.dataset.t==='never';
-        ta.disabled=isNever; nb.classList.toggle('on',isNever);
         save(); refreshStatus(i); updateBar();
       });
-      // palette
-      const ta=card.querySelector('#ta'+i);
-      card.querySelectorAll('.chipbtn').forEach(b=>b.onclick=()=>{
-        if(ta.disabled) return;
-        insertPlaceholder(ta,b.dataset.ph);
-        state[i]=state[i]||{}; state[i].text=ta.value; save(); refreshStatus(i); updateBar();
+      card.querySelectorAll(`#acts${i} .act`).forEach(btn=>btn.onclick=()=>{
+        state[i]=state[i]||{}; state[i].action=btn.dataset.a;
+        card.querySelectorAll(`#acts${i} .act`).forEach(b=>b.classList.toggle('sel',b===btn));
+        save(); applyAction(i); refreshStatus(i); updateBar();
       });
-      ta.oninput=()=>{state[i]=state[i]||{}; state[i].text=ta.value; save(); refreshStatus(i); updateBar();};
-      card.querySelector(`[data-reset="${i}"]`).onclick=()=>{
-        ta.value=''; state[i]=state[i]||{}; state[i].text=''; save(); refreshStatus(i); updateBar();
-      };
+      const ta=card.querySelector('#ta'+i);
+      const changed=()=>{state[i]=state[i]||{}; state[i].text=ta.value; save(); leakCheck(i); refreshStatus(i); updateBar();};
+      card.querySelectorAll('.chipbtn').forEach(b=>b.onclick=()=>{ if(ta.disabled) return; insertPlaceholder(ta,b.dataset.ph); changed(); });
+      ta.oninput=changed;
+      card.querySelector(`[data-reset="${i}"]`).onclick=()=>{ ta.value=''; changed(); };
+      card.querySelector(`[data-copy="${i}"]`).onclick=()=>{ if(ta.value.trim() && !confirm('Replace your text with the original?')) return; ta.value=it.raw; changed(); ta.focus(); };
+      applyAction(i);
     });
   }
 
@@ -276,15 +337,20 @@ Please improve the wording of the summary before Sunday.`
 
   function reveal(){
     revealed=true;
+    let tOk=0, aOk=0;
     ITEMS.forEach((it,i)=>{
-      const ak=document.getElementById('ak'+i); ak.classList.add('on');
-      const vd=document.getElementById('vd'+i);
-      const picked=(state[i]||{}).tier;
-      const ok=picked===it.answer;
-      vd.className='verdict '+(ok?'ok':'no');
-      vd.textContent=ok?('✓ You chose '+TLABEL[it.answer]+'. Correct.')
-                       :('✕ You chose '+(picked?TLABEL[picked]:'nothing')+'. The answer is '+TLABEL[it.answer]+'.');
+      document.getElementById('ak'+i).classList.add('on');
+      const s=state[i]||{};
+      const ok1=s.tier===it.answer, ok2=it.action.indexOf(s.action)>=0;
+      if(ok1) tOk++; if(ok2) aOk++;
+      const vd=document.getElementById('vd'+i), va=document.getElementById('va'+i);
+      vd.className='verdict '+(ok1?'ok':'no');
+      vd.textContent=ok1?('✓ Tier: '+TLABEL[it.answer]+'. Correct.'):('✕ Tier: you chose '+(s.tier?TLABEL[s.tier]:'nothing')+'. The answer is '+TLABEL[it.answer]+'.');
+      va.className='verdict '+(ok2?'ok':'no');
+      va.textContent=ok2?('✓ Action: '+ALABEL[s.action]+'. Correct.'):('✕ Action: you chose '+(s.action?ALABEL[s.action]:'nothing')+'. The answer is '+it.action.map(a=>ALABEL[a]).join(' or ')+'.');
     });
+    document.getElementById('score').textContent='Tiers right: '+tOk+' / 6 · Actions right: '+aOk+' / 6';
+    document.getElementById('debrief').classList.add('on');
     document.getElementById('revealBtn').disabled=true;
     const first=document.getElementById('ak0');
     if(first && first.scrollIntoView) first.scrollIntoView({behavior:'smooth',block:'center'});
@@ -292,8 +358,9 @@ Please improve the wording of the summary before Sunday.`
 
   document.getElementById('revealBtn').onclick=reveal;
   document.getElementById('clearBtn').onclick=()=>{
-    if(!confirm('Clear all your tiers and redactions?')) return;
+    if(!confirm('Clear all your tiers, actions and redactions?')) return;
     state={}; revealed=false; save(); build(); updateBar();
+    document.getElementById('debrief').classList.remove('on');
   };
 
   build(); updateBar();
@@ -302,27 +369,52 @@ Please improve the wording of the summary before Sunday.`
 
 
 def build():
-    body = topbar('Classify <b>+ Redact</b>', back='coded-copilot-day-3-lab.html#E3.1', back_label='← Day 3 lab') + '''
+    body = topbar('Classify <b>+ Redact</b>', back='coded-copilot-day-3-lab.html#E3.3', back_label='← Day 3 lab') + '''
 <div class="wrap">
-  <span class="eyebrow">Exercise E3.1 · Responsible AI</span>
+  <span class="eyebrow">Exercise E3.3 · Safety with AI</span>
   <h1>Classify + Redact — six items, four tiers.</h1>
-  <p class="intro">Here are six sample items from Tamra Foods Co. Together they cover every data tier. Pick a tier for each item.
-  Then write a version that is safe to paste into an AI tool — or mark it <b>NEVER send</b>. The placeholder buttons make
-  redaction faster. When you finish all six, reveal the answer key and discuss any differences with your table.</p>
+  <p class="intro">Six sample items from a normal week at Tamra Foods Co. For each one you make <b>two decisions</b>:
+  which <b>tier</b> the data is, and what you will <b>do</b> with it before you ask Copilot for help. If you choose to redact,
+  you write the safe version yourself. When all six are handled, reveal the answer key and discuss the differences with your table.</p>
   <div class="warn">⚠ All fictional sample data — no real customers, staff, keys or figures.</div>
 
+  <details class="ref" open>
+    <summary>📘 The four tiers and the three actions — read this first</summary>
+    <div class="ref-grid">
+      <div class="rt" style="--c:var(--green-lt)"><b>Public</b><div class="w">Anyone can see it</div><p>Already published, or approved for anyone. e.g. the menu on the website, a press release, a posted job advert.</p><div class="ai">Copilot: yes, as it is.</div></div>
+      <div class="rt" style="--c:#6f9ce8"><b>Internal</b><div class="w">All staff</div><p>Everyday work. Small harm if it leaked. e.g. team notes, HR policies, the café rota.</p><div class="ai">Copilot: yes, work account only.</div></div>
+      <div class="rt" style="--c:var(--amber)"><b>Confidential</b><div class="w">Only people who need it</div><p>Real harm to the company or partners if it leaked. e.g. results before the announcement, client prices, a supplier dispute.</p><div class="ai">Copilot: work account only. Remove what Copilot doesn't need.</div></div>
+      <div class="rt" style="--c:var(--danger)"><b>Restricted</b><div class="w">A named few · protected by law</div><p>Serious harm to a person or the company. e.g. Civil IDs, card numbers, salaries, medical data, passwords and keys.</p><div class="ai">Copilot: remove every identifier — or never.</div></div>
+    </div>
+    <div class="ref-acts">
+      <div class="ra"><b>✓ Paste as it is</b> — nothing in it needs protecting. Still: work account only.</div>
+      <div class="ra"><b>✎ Redact, then paste</b> — replace names, numbers and details with placeholders like [CUSTOMER]. The task still works without them.</div>
+      <div class="ra"><b>🛑 NEVER send</b> — redaction can't make it safe (salaries, medical data, secrets). Use the approved system instead.</div>
+    </div>
+  </details>
+
   <div class="bar">
-    <span class="count"><b id="cDone">0</b> / 6 items classified + handled</span>
+    <span class="count"><b id="cDone">0</b> / 6 items handled</span>
+    <span class="count" id="score" style="font-weight:600;color:var(--ink-dim)"></span>
     <span class="spacer"></span>
     <button type="button" class="btn key" id="revealBtn" disabled>Reveal answer key</button>
     <button type="button" class="btn clear" id="clearBtn">Clear</button>
   </div>
-  <div class="how"><b>How to do this exercise:</b> For each of the 6 items, (1) pick its tier. (2) Write a redacted version
-  that is safe to paste into an AI tool — or mark it <i>NEVER send</i>. Place the cursor in the box and click a placeholder
-  to insert it. When all 6 are handled, click <b>Reveal answer key</b>. Then compare your choices with your table.</div>
+  <div class="how"><b>For each item:</b> (1) pick the tier. (2) Pick the action. (3) If you chose <i>Redact, then paste</i>, write
+  the safe version — tap <i>Start from the original</i>, then replace each detail with a placeholder. A check under the box
+  tells you if a name or number is still there. The answer key unlocks when all 6 items are handled.</div>
 
   <div id="items"><!-- built by JS --></div>
+
+  <div class="debrief" id="debrief">
+    <h3>Talk it through with your table · 3 minutes</h3>
+    <ol>
+      <li>Which item did your table disagree on? What made it hard?</li>
+      <li>Items 4 and 5 are both Restricted and both <b>NEVER send</b>. Item 1 is Restricted but can be redacted. What is the difference?</li>
+      <li>Think of one file you used at work this month. Which tier is it — and would you paste it into Copilot?</li>
+    </ol>
+  </div>
 </div>
 ''' + footer_row()
     return page('Classify + Redact — Day 3 · ' + TITLE + ' · CODED', body, css=CSS, js=JS,
-                desc='Exercise E3.1: tier six sample items from Tamra Foods Co. and write safe, redacted versions for AI tools.')
+                desc='Exercise E3.3: tier six sample items from Tamra Foods Co., choose the safe action, and write redacted versions for AI tools.')

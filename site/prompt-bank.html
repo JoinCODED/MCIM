@@ -235,15 +235,17 @@ html:has(.deck-nav),html:has(.deck-nav) body{background:#00081c}
 <div class="wrap narrow">
   <span class="eyebrow">Your Prompts · Kept</span>
   <h1>My Prompt Bank.</h1>
-  <p class="intro">Every prompt you save in the labs lands here. Reuse them at work, improve them, and build your Day 3 capstone from them. They are saved <b>in this browser only</b> — export them before you leave.</p>
+  <p class="intro">Every prompt you save in the labs lands here. Reuse them at work, improve them, and build your Day 3 capstone from them. They are saved <b>in this browser only</b> — so keep them in a <b>Word document</b>: tap <b>Download as Word</b>, then save the file to your OneDrive.</p>
+  <div class="card" style="margin-top:18px;border-left:3px solid var(--rose)"><b>Your Prompt Bank lives in Word.</b> The Word file groups your prompts by day, with a heading for each one and a blank CTFT template at the end. In OneDrive it is yours after the workshop, on any device — and Copilot can use it: type <b>/</b> and pick the file, then say which prompt to run. Download it again whenever you save new prompts here.</div>
 
   <div class="pb-bar">
     <div class="filters"><button class="flt on" data-f="all">All</button><button class="flt" data-f="Day 1">Day 1</button><button class="flt" data-f="Day 2">Day 2</button><button class="flt" data-f="Day 3">Day 3</button><button class="flt" data-f="executive">Executive</button><button class="flt" data-f="sales">Sales</button><button class="flt" data-f="marketing">Marketing</button><button class="flt" data-f="technical">Technical</button></div>
     <span class="grow"></span><span class="count" id="cnt">0 prompts</span>
   </div>
   <div class="pb-bar" style="margin-top:0">
+    <button class="btn primary" id="dlWord">Download as Word (.docx)</button>
     <button class="btn" id="copyAll">Copy all</button>
-    <button class="btn primary" id="dl">Export (.txt)</button>
+    <button class="btn" id="dl">Plain text (.txt)</button>
     <span class="grow"></span>
     <button class="btn danger" id="clearAll">Delete all</button>
   </div>
@@ -259,7 +261,7 @@ html:has(.deck-nav),html:has(.deck-nav) body{background:#00081c}
     </div>
   </div>
 
-  <p class="note"><b>Keep it after the workshop:</b> tap <b>Export</b> and save the file — or <b>Copy all</b> and paste into OneNote or Word. In Copilot itself, you can also save prompts to <b>Your prompts</b> in the Prompt Gallery (Day 3).</p>
+  <p class="note"><b>Keep it after the workshop:</b> tap <b>Download as Word</b> and save the file to your OneDrive. Add new prompts straight into the Word file from now on. In Copilot itself, you can also save prompts to <b>Your prompts</b> in the Prompt Gallery (Day 3).</p>
 </div>
 <footer class="site-foot"><div class="wrap"><div class="foot-row">
   <div class="f-lockup"><img class="coded-logo" alt="CODED" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDQwMCAxNDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGNsaXAtcGF0aD0idXJsKCNjbGlwMF8xMDhfNTAxMCkiPgo8cGF0aCBkPSJNMzI5Ljc2NiAxMDMuMTIxSDMwNC40NzRWMzYuODc5MUgzMjkuNzY2QzM0OC4yMTggMzYuODc5MSAzNjMuMjI5IDUxLjczMjMgMzYzLjIyOSA3MC4wMDc1QzM2My4yMjkgODguMjgyNiAzNDguMjE4IDEwMy4xMjEgMzI5Ljc2NiAxMDMuMTIxWk0zMjkuNzY2IDUxLjEwNDdIMzE4Ljg1NlY4OC44OTUzSDMyOS43NjZDMzQwLjI4NiA4OC44OTUzIDM0OC44NjIgODAuNDIyNyAzNDguODYyIDcwLjAwNzVDMzQ4Ljg2MiA1OS41OTIzIDM0MC4yODYgNTEuMTA0NyAzMjkuNzY2IDUxLjEwNDdaTTI0Mi42MDYgMzYuODc5MUgyOTMuMDRWNTEuMTA0N0gyNTYuOTczVjYzLjcwMTZIMjgzLjgwNlY3Ni4zMTM0SDI1Ni45NzNWODguOTEwMkgyOTMuMDRWMTAzLjEzNkgyNDIuNjA2VjM2Ljg3OTFaTTE5OS42NTUgMTAzLjEzNkgxNzUuMTI2VjM2Ljg2NDFIMTk5LjY1NUMyMTguMTIyIDM2Ljg2NDEgMjMzLjEzMyA1MS43MzIzIDIzMy4xMzMgNjkuOTkyNUMyMzMuMTMzIDg4LjI1MjcgMjE4LjEwNyAxMDMuMTIxIDE5OS42NTUgMTAzLjEyMVYxMDMuMTM2Wk0xOTkuNjU1IDQ2LjE4ODVIMTg0LjU3VjkzLjc2NjdIMTk5LjY1NUMyMTIuOTE0IDkzLjc2NjcgMjIzLjcwNSA4My4wOTc0IDIyMy43MDUgNjkuOTc3NkMyMjMuNzA1IDU2Ljg1NzcgMjEyLjkxNCA0Ni4xODg1IDE5OS42NTUgNDYuMTg4NVpNMTMyLjE3NSAxMDMuMDkxQzEyMy42IDEwMy4wOTEgMTE1LjAyNCA5OS44NjM0IDEwOC40OTkgOTMuNDA4QzEwMi4xNjkgODcuMTQ3IDk4LjY5NyA3OC44MjM4IDk4LjY5NyA2OS45Nzc2Qzk4LjY5NyA2MS4xMzE0IDEwMi4xNjkgNTIuODA4MiAxMDguNDk5IDQ2LjU0NzFDMTE0LjgzIDQwLjI4NiAxMjMuMjQxIDM2Ljg0OTIgMTMyLjE3NSAzNi44NDkyQzE0MS4xMDkgMzYuODQ5MiAxNDkuNTM1IDQwLjMwMSAxNTUuODY2IDQ2LjU0NzFDMTYyLjE4MSA1Mi44MDgyIDE2NS42NjggNjEuMTMxNCAxNjUuNjY4IDY5Ljk3NzZDMTY1LjY2OCA3OC44MjM4IDE2Mi4xODEgODcuMTQ3IDE1NS44NjYgOTMuNDA4QzE0OS4zNDEgOTkuODYzNCAxNDAuNzY1IDEwMy4wOTEgMTMyLjE3NSAxMDMuMDkxWk0xNDkuMTc2IDUzLjE1MTlDMTQ0LjYyNiA0OC42NTQxIDEzOC41OTUgNDYuMTczNSAxMzIuMTc1IDQ2LjE3MzVDMTI1Ljc1NSA0Ni4xNzM1IDExOS43MjQgNDguNjU0MSAxMTUuMTc0IDUzLjE1MTlDMTEwLjY0IDU3LjY0OTcgMTA4LjE0IDYzLjYyNjggMTA4LjE0IDY5Ljk3NzZDMTA4LjE0IDc2LjMyODMgMTEwLjY0IDgyLjMwNTUgMTE1LjE3NCA4Ni43ODgzQzEyNC41NDMgOTYuMDUyOSAxMzkuODA3IDk2LjA2NzkgMTQ5LjE3NiA4Ni43ODgzQzE1My43MjUgODIuMjkwNSAxNTYuMjI1IDc2LjMxMzQgMTU2LjIyNSA2OS45Nzc2QzE1Ni4yMjUgNjMuNjQxOCAxNTMuNzI1IDU3LjY0OTcgMTQ5LjE3NiA1My4xNTE5Wk04Ni41NiA1My4xNTE5QzgyLjAxMDQgNDguNjU0MSA3NS45NzkzIDQ2LjE3MzUgNjkuNTQ0MSA0Ni4xNzM1QzYzLjEwODkgNDYuMTczNSA1Ny4wOTI3IDQ4LjY1NDEgNTIuNTQzMiA1My4xNTE5QzQ4LjAwODYgNTcuNjQ5NyA0NS40OTQ0IDYzLjYyNjggNDUuNDk0NCA2OS45Nzc2QzQ1LjQ5NDQgNzYuMzI4MyA0OC4wMDg2IDgyLjMwNTUgNTIuNTQzMiA4Ni43ODgzQzYxLjkxMTYgOTYuMDUyOSA3Ny4xNjE2IDk2LjA2NzkgODYuNTQ1IDg2Ljc4ODNDODcuNDI4IDg1LjkwNjcgODguMjY2IDg0LjkyMDUgODkuMDU5MiA4My43OTk4TDkzLjMyNDQgOTMuMjczNUM5My4zMjQ0IDkzLjI3MzUgOTMuMjQ5NiA5My4zNjMyIDkzLjIwNDcgOTMuMzkzMUM4Ni42Nzk3IDk5Ljg0ODQgNzguMTA0NCAxMDMuMDc2IDY5LjU0NDEgMTAzLjA3NkM2MC45ODM4IDEwMy4wNzYgNTIuMzkzNSA5OS44NDg0IDQ1Ljg2ODUgOTMuMzkzMUMzMi44MTg2IDgwLjQ2NzUgMzIuODE4NiA1OS40NTc4IDQ1Ljg2ODUgNDYuNTMyMkM1Mi4xOTkgNDAuMjcxMSA2MC41OTQ3IDM2LjgzNDIgNjkuNTQ0MSAzNi44MzQyQzc4LjQ5MzUgMzYuODM0MiA4Ni45MDQyIDQwLjI4NiA5My4yMTk2IDQ2LjUzMjJDOTMuMjY0NSA0Ni41NzcgOTMuMjk0NSA0Ni42MjE4IDkzLjMzOTQgNDYuNjUxN0w4OS4wNzQyIDU2LjEyNTVDODguMjY2IDU1LjAwNDggODcuNDQyOSA1NC4wMTg2IDg2LjU2IDUzLjEzNjkiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0zOTAuNjYxIDEzMC42NzZIOS4zMzg1MlY5LjMyNDM3SDM5MC42NDdWMTMwLjY3NkgzOTAuNjYxWk00MDAgMEgwVjE0MEg0MDBWMFoiIGZpbGw9IndoaXRlIi8+CjwvZz4KPGRlZnM+CjxjbGlwUGF0aCBpZD0iY2xpcDBfMTA4XzUwMTAiPgo8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjE0MCIgZmlsbD0id2hpdGUiLz4KPC9jbGlwUGF0aD4KPC9kZWZzPgo8L3N2Zz4K"></div>
@@ -383,6 +385,97 @@ html:has(.deck-nav),html:has(.deck-nav) body{background:#00081c}
 
 </script>
 <script>
+/* ===== Prompt Bank → Word (.docx), built in the browser — no library, no upload =====
+   window.bankDocx(prompts, opts) returns a Blob.  prompts: [{title,text,day,app,role}]  opts: {roles:{key:label}, course, dateText} */
+(function(){
+  /* ---- tiny zip writer (stored, no compression) ---- */
+  var CRC = (function(){ var t = [], c; for (var n = 0; n < 256; n++) { c = n; for (var k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1; t[n] = c >>> 0; } return t; })();
+  function crc32(b){ var c = 0xFFFFFFFF; for (var i = 0; i < b.length; i++) c = CRC[(c ^ b[i]) & 0xFF] ^ (c >>> 8); return (c ^ 0xFFFFFFFF) >>> 0; }
+  function u16(v){ return [v & 255, (v >>> 8) & 255]; }
+  function u32(v){ return [v & 255, (v >>> 8) & 255, (v >>> 16) & 255, (v >>> 24) & 255]; }
+  function zip(files){
+    var enc = new TextEncoder(), parts = [], central = [], off = 0;
+    var now = new Date(), dt = (now.getHours() << 11) | (now.getMinutes() << 5) | (now.getSeconds() >> 1),
+        dd = ((now.getFullYear() - 1980) << 9) | ((now.getMonth() + 1) << 5) | now.getDate();
+    files.forEach(function(f){
+      var name = enc.encode(f.name), data = enc.encode(f.data), crc = crc32(data);
+      var head = [].concat([0x50,0x4B,0x03,0x04], u16(20), u16(0x0800), u16(0), u16(dt), u16(dd), u32(crc), u32(data.length), u32(data.length), u16(name.length), u16(0));
+      parts.push(new Uint8Array(head), name, data);
+      central.push(new Uint8Array([].concat([0x50,0x4B,0x01,0x02], u16(20), u16(20), u16(0x0800), u16(0), u16(dt), u16(dd), u32(crc), u32(data.length), u32(data.length), u16(name.length), u16(0), u16(0), u16(0), u16(0), u32(0), u32(off))), name);
+      off += head.length + name.length + data.length;
+    });
+    var csize = central.reduce(function(a, p){ return a + p.length; }, 0);
+    var end = new Uint8Array([].concat([0x50,0x4B,0x05,0x06], u16(0), u16(0), u16(files.length), u16(files.length), u32(csize), u32(off), u16(0)));
+    return new Blob(parts.concat(central, [end]), { type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' });
+  }
+
+  /* ---- WordprocessingML ---- */
+  function x(s){ return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+  function runs(text, rpr){
+    return String(text).split('\n').map(function(line, i){ return (i ? '<w:r><w:br/></w:r>' : '') + '<w:r>' + (rpr || '') + '<w:t xml:space="preserve">' + x(line) + '</w:t></w:r>'; }).join('');
+  }
+  function p(text, style, rpr){ return '<w:p>' + (style ? '<w:pPr><w:pStyle w:val="' + style + '"/></w:pPr>' : '') + runs(text, rpr) + '</w:p>'; }
+  function lead(b, rest){ return '<w:p><w:r><w:rPr><w:b/></w:rPr><w:t xml:space="preserve">' + x(b) + '</w:t></w:r>' + runs(rest) + '</w:p>'; }
+
+  var STYLES = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>' +
+  '<w:styles xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">' +
+  '<w:docDefaults><w:rPrDefault><w:rPr><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri" w:cs="Calibri" w:eastAsia="Calibri"/><w:sz w:val="22"/><w:szCs w:val="22"/><w:lang w:val="en-GB"/></w:rPr></w:rPrDefault>' +
+  '<w:pPrDefault><w:pPr><w:spacing w:after="120" w:line="276" w:lineRule="auto"/></w:pPr></w:pPrDefault></w:docDefaults>' +
+  '<w:style w:type="paragraph" w:default="1" w:styleId="Normal"><w:name w:val="Normal"/><w:qFormat/></w:style>' +
+  '<w:style w:type="paragraph" w:styleId="Title"><w:name w:val="Title"/><w:basedOn w:val="Normal"/><w:next w:val="Normal"/><w:qFormat/><w:pPr><w:spacing w:after="60"/></w:pPr><w:rPr><w:b/><w:color w:val="0B1F3A"/><w:sz w:val="48"/><w:szCs w:val="48"/></w:rPr></w:style>' +
+  '<w:style w:type="paragraph" w:styleId="Subtitle"><w:name w:val="Subtitle"/><w:basedOn w:val="Normal"/><w:next w:val="Normal"/><w:qFormat/><w:pPr><w:spacing w:after="240"/></w:pPr><w:rPr><w:color w:val="595959"/><w:sz w:val="20"/></w:rPr></w:style>' +
+  '<w:style w:type="paragraph" w:styleId="Heading1"><w:name w:val="heading 1"/><w:basedOn w:val="Normal"/><w:next w:val="Normal"/><w:qFormat/><w:pPr><w:keepNext/><w:spacing w:before="360" w:after="120"/><w:outlineLvl w:val="0"/></w:pPr><w:rPr><w:b/><w:color w:val="004AA3"/><w:sz w:val="32"/><w:szCs w:val="32"/></w:rPr></w:style>' +
+  '<w:style w:type="paragraph" w:styleId="Heading2"><w:name w:val="heading 2"/><w:basedOn w:val="Normal"/><w:next w:val="Normal"/><w:qFormat/><w:pPr><w:keepNext/><w:spacing w:before="240" w:after="40"/><w:outlineLvl w:val="1"/></w:pPr><w:rPr><w:b/><w:color w:val="0B1F3A"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr></w:style>' +
+  '<w:style w:type="paragraph" w:customStyle="1" w:styleId="PromptMeta"><w:name w:val="Prompt meta"/><w:basedOn w:val="Normal"/><w:pPr><w:keepNext/><w:spacing w:after="60"/></w:pPr><w:rPr><w:color w:val="6B7280"/><w:sz w:val="18"/></w:rPr></w:style>' +
+  '<w:style w:type="paragraph" w:customStyle="1" w:styleId="PromptText"><w:name w:val="Prompt text"/><w:basedOn w:val="Normal"/><w:pPr><w:pBdr><w:left w:val="single" w:sz="18" w:space="8" w:color="2F74D6"/></w:pBdr><w:shd w:val="clear" w:color="auto" w:fill="EEF3FB"/><w:spacing w:before="60" w:after="200"/><w:ind w:left="200" w:right="120"/></w:pPr></w:style>' +
+  '</w:styles>';
+
+  window.bankDocx = function(prompts, opts){
+    opts = opts || {};
+    var roles = opts.roles || {}, b = '';
+    b += p('My Copilot Prompt Bank', 'Title');
+    b += p((opts.course || 'Mastering Copilot in Microsoft 365 · CODED') + ' · saved ' + (opts.dateText || new Date().toDateString()), 'Subtitle');
+    b += p('How to use this document', 'Heading1');
+    b += lead('1. Save it to your OneDrive. ', 'Then it is yours after the workshop — on any device.');
+    b += lead('2. Use it in Copilot. ', 'Type / in Copilot and pick this file. For example: “Use the prompt called Weekly sales update from /my-copilot-prompt-bank, on the file I attached.”');
+    b += lead('3. Keep adding. ', 'When a prompt works, paste it under the right heading. Note what you changed and why.');
+    b += lead('4. Keep it safe. ', 'Prompts only — no customer names, Civil IDs, salaries, passwords or keys.');
+
+    var groups = [], seen = {};
+    (prompts || []).forEach(function(q){ var g = q.day || 'Added by hand'; if (!seen[g]) { seen[g] = []; groups.push(g); } seen[g].push(q); });
+    groups.sort(function(a, c){ var o = function(s){ var m = /Day (\d)/.exec(s); return m ? +m[1] : 9; }; return o(a) - o(c); });
+    if (!groups.length) {
+      b += p('My prompts', 'Heading1');
+      b += p('Example · Weekly update for my manager', 'Heading2');
+      b += p('Example · Copilot Chat', 'PromptMeta');
+      b += p('I lead the wholesale team at a food company in Kuwait. Summarise my emails since Sunday and list the actions I must take. A table: action, who asked, deadline — urgent first. Short and plain.', 'PromptText');
+    }
+    groups.forEach(function(g){
+      b += p(g, 'Heading1');
+      seen[g].forEach(function(q){
+        b += p(q.title || 'My prompt', 'Heading2');
+        var meta = [q.app, q.role ? (roles[q.role] || q.role) : ''].filter(Boolean).join(' · ');
+        if (meta) b += p(meta, 'PromptMeta');
+        b += p(q.text || '', 'PromptText');
+      });
+    });
+    b += p('New prompt — copy this block', 'Heading1');
+    b += p('Title:', 'Heading2');
+    b += p('Context: who I am, the situation, the audience\nTask: exactly what Copilot should produce\nFormat: length, structure, layout\nTone: the voice, plus any limits\nSource (optional): which file — type / in Copilot', 'PromptText');
+
+    var doc = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>' +
+      '<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><w:body>' + b +
+      '<w:sectPr><w:pgSz w:w="11906" w:h="16838"/><w:pgMar w:top="1134" w:right="1134" w:bottom="1134" w:left="1134" w:header="567" w:footer="567" w:gutter="0"/></w:sectPr></w:body></w:document>';
+    return zip([
+      { name: '[Content_Types].xml', data: '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/><Override PartName="/word/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml"/></Types>' },
+      { name: '_rels/.rels', data: '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>' },
+      { name: 'word/_rels/document.xml.rels', data: '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>' },
+      { name: 'word/document.xml', data: doc },
+      { name: 'word/styles.xml', data: STYLES }
+    ]);
+  };
+})();
+
 
 (function(){
   var list = document.getElementById('list'), flt = 'all';
@@ -391,7 +484,7 @@ html:has(.deck-nav),html:has(.deck-nav) body{background:#00081c}
     var a = PB.all();
     document.getElementById('cnt').textContent = a.length + (a.length === 1 ? ' prompt' : ' prompts');
     var shown = a.filter(function(p){ return flt === 'all' || p.day === flt || p.role === flt; });
-    if (!a.length) { list.innerHTML = '<div class="empty"><b>Your Prompt Bank is empty.</b><br>In any lab, tap <b>＋ Save to Prompt Bank</b> under a prompt — or add one below.<br>Good prompts to keep: the ones you will reuse every week.</div>'; return; }
+    if (!a.length) { list.innerHTML = '<div class="empty"><b>Your Prompt Bank is empty in this browser.</b><br>In any lab, tap <b>＋ Save to Prompt Bank</b> under a prompt — or add one below.<br>New laptop? <b>Download as Word</b> still gives you the template to fill in.</div>'; return; }
     if (!shown.length) { list.innerHTML = '<div class="empty">No prompts match this filter.</div>'; return; }
     list.innerHTML = shown.map(function(p){
       var tags = [p.day, p.app, p.role ? (window.ROLES[p.role] || p.role) : ''].filter(Boolean).map(function(t){ return '<span class="pill-tag">' + esc(t) + '</span>'; }).join('');
@@ -414,6 +507,11 @@ html:has(.deck-nav),html:has(.deck-nav) body{background:#00081c}
   document.querySelectorAll('.flt').forEach(function(b){ b.onclick = function(){ flt = b.getAttribute('data-f'); document.querySelectorAll('.flt').forEach(function(x){ x.classList.toggle('on', x === b); }); draw(); }; });
   function asText(){ return PB.all().map(function(p, i){ return (i + 1) + '. ' + (p.title || 'My prompt') + (p.day ? ' (' + p.day + (p.app ? ' · ' + p.app : '') + ')' : '') + '\n' + p.text; }).join('\n\n'); }
   document.getElementById('copyAll').onclick = function(){ var t = asText(); if (!t) return toast('Nothing to copy yet'); copyText(t).then(function(){ toast('All prompts copied ✓'); }); };
+  document.getElementById('dlWord').onclick = function(){
+    var a = document.createElement('a'); a.href = URL.createObjectURL(window.bankDocx(PB.all(), { roles: window.ROLES, dateText: new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) }));
+    a.download = 'my-copilot-prompt-bank.docx'; document.body.appendChild(a); a.click(); a.remove();
+    toast(PB.all().length ? 'Word file downloaded ✓ Save it to your OneDrive' : 'Empty template downloaded ✓');
+  };
   document.getElementById('dl').onclick = function(){
     var t = asText(); if (!t) return toast('Nothing to export yet');
     var blob = new Blob(['My Copilot Prompt Bank — Mastering Copilot in Microsoft 365 (CODED)\n\n' + t + '\n'], { type: 'text/plain' });
@@ -423,7 +521,7 @@ html:has(.deck-nav),html:has(.deck-nav) body{background:#00081c}
     var t = document.getElementById('newText').value, ti = document.getElementById('newTitle').value;
     var r = pbAdd(t, { title: ti.trim() || 'My prompt', app: 'Added by hand' }); if (r === 'ok') { document.getElementById('newText').value = ''; document.getElementById('newTitle').value = ''; draw(); }
   };
-  document.getElementById('clearAll').onclick = function(){ if (PB.all().length && confirm('Delete ALL prompts in your Prompt Bank? Export first if you want to keep them.')) { PB.save([]); draw(); } };
+  document.getElementById('clearAll').onclick = function(){ if (PB.all().length && confirm('Delete ALL prompts in your Prompt Bank? Download as Word first if you want to keep them.')) { PB.save([]); draw(); } };
   window.addEventListener('storage', draw);
   draw();
 })();

@@ -1,21 +1,24 @@
-<!-- ===================== DAY 3 · RESPONSIBLE AI + CAPSTONE ===================== -->
+<!-- ===================== DAY 3 · PROMPT LIBRARY + AGENTS + SAFETY + CAPSTONE ===================== -->
 
+<!-- ========== COVER ========== -->
 <!-- ========== COVER ========== -->
 <div class="slide active" id="s-cover">
   <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
   <div class="slide-pad" style="text-align:center;display:flex;flex-direction:column;align-items:center">
     <span class="eyebrow b" style="padding-left:0">Day 3 · <span data-cfg="dates.d3">Thursday 1 October 2026</span> · 09:00 – 14:30</span>
-    <h1 class="cover-h b">Use it safely —<br><span class="hl">then make it yours.</span></h1>
-    <p class="cover-sub b">Responsible AI this morning. Your own Copilot workflow this afternoon.</p>
+    <h1 class="cover-h b">Reuse. Automate.<br><span class="hl">Use it safely.</span></h1>
+    <p class="cover-sub b">Prompts, agents and safe use this morning. Your own Copilot workflow this afternoon.</p>
     <div class="apps-orbit b">
+      <div class="app-tile"><span class="al" style="color:var(--amber)">✨</span><span class="an2">prompt library</span></div>
+      <div class="app-tile"><span class="al" style="color:var(--ac-cyan)">🤖</span><span class="an2">agents</span></div>
       <div class="app-tile"><span class="al" style="color:var(--rose-lt)">🛡️</span><span class="an2">safe use</span></div>
-      <div class="app-tile"><span class="al" style="color:var(--amber)">✨</span><span class="an2">prompt gallery</span></div>
       <div class="app-tile"><span class="al" style="color:var(--green-lt)">🔗</span><span class="an2">your workflow</span></div>
     </div>
     <div class="keyhint b">Press → to begin</div>
   </div>
 </div>
 
+<!-- ========== CALLBACK ========== -->
 <!-- ========== CALLBACK ========== -->
 <div class="slide" id="s-recap">
   <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
@@ -33,27 +36,200 @@
 </div>
 
 <!-- ========== ROAD ========== -->
+<!-- ========== ROAD ========== -->
 <div class="slide" id="s-road">
   <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
   <div class="slide-pad">
     <span class="eyebrow b">The Road Today</span>
-    <h2 class="term-h b">Safe, then yours. <span class="hl">Tap to jump.</span></h2>
+    <h2 class="term-h b">Reuse, automate, stay safe. <span class="hl">Tap to jump.</span></h2>
     <div class="road">
-      <div class="road-row go b" data-goto="s-r-hook"><span class="rn">01</span><div><div class="rt">Responsible AI — security, compliance &amp; the RAI framework</div><div class="rd">09:00</div></div></div>
-      <div class="road-row go b" data-goto="s-g-hook"><span class="rn">02</span><div><div class="rt">Prompt Gallery + capstone briefing</div><div class="rd">10:05</div></div></div>
-      <div class="road-row go b" data-goto="s-map-post"><span class="rn">··</span><div><div class="rt">Post-workshop MAP test</div><div class="rd">11:10</div></div></div>
-      <div class="road-row go b" data-goto="s-c-go"><span class="rn">03</span><div><div class="rt">Capstone build</div><div class="rd">13:00</div></div></div>
+      <div class="road-row go b" data-goto="s-g-hook"><span class="rn">01</span><div><div class="rt">Prompt Library</div><div class="rd">09:00</div></div></div>
+      <div class="road-row go b" data-goto="s-a-hook"><span class="rn">02</span><div><div class="rt">Build an agent with Agent Builder</div><div class="rd">09:35</div></div></div>
+      <div class="road-row go b" data-goto="s-r-hook"><span class="rn">03</span><div><div class="rt">Safety with AI — security, compliance &amp; Responsible AI</div><div class="rd">10:40</div></div></div>
+      <div class="road-row go b" data-goto="s-map-post"><span class="rn">··</span><div><div class="rt">Post-workshop MAP test</div><div class="rd">11:30</div></div></div>
+      <div class="road-row go b" data-goto="s-c-brief"><span class="rn">04</span><div><div class="rt">Capstone briefing + build</div><div class="rd">13:00</div></div></div>
       <div class="road-row go b" data-goto="s-survey"><span class="rn">··</span><div><div class="rt">Certificates + survey</div><div class="rd">14:00</div></div></div>
     </div>
   </div>
 </div>
 
-<!-- ===================== BLOCK 1 · RESPONSIBLE AI ===================== -->
+<!-- ===================== BLOCK 1 · PROMPT LIBRARY ===================== -->
+
+<div class="slide" id="s-g-hook">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Block 1 · Prompt Library</span>
+    <h2 class="demo-h b">You've written about ten prompts in three days. Microsoft has published thousands. <span class="hl">Why start from zero?</span></h2>
+  </div>
+</div>
+
+<div class="slide" id="s-g-what">
+  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Your Prompt Library · In Copilot: “Prompt Gallery”</span>
+    <h2 class="term-h b">Ready-made prompts — <span class="hl">find, save, share.</span></h2>
+    <div class="sys3">
+      <div class="sys s1 b"><div class="sn">Where</div><h3>In Copilot</h3><p>The … menu under the chat box. Also in Word, Excel, PowerPoint.</p></div>
+      <div class="sys s2 b"><div class="sn">Where</div><h3>On the web</h3><p>Filter by role, app and task.</p></div>
+      <div class="sys s3 b"><div class="sn">Three tabs</div><h3>Suggested · Yours · Team</h3><p>Save, share with a team, or schedule.</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" id="s-g-adapt">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Don't Copy — Adapt</span>
+    <h2 class="demo-h b">A library prompt is a <span class="hl">starting point.</span> Add your CTFT.</h2>
+    <div class="bgcompare b">
+      <div class="bgcard bad"><div class="bgk">Library prompt</div><div class="bgp">Summarise my recent emails and list the actions I need to take.</div><div class="bgn">Useful — but generic.</div></div>
+      <div class="bgcard good"><div class="bgk">Adapted with CTFT</div><div class="bgp"><span class="sg-ctx">I'm back after three days off and I manage the wholesale team.</span> <span class="sg-task">Summarise my emails since Sunday and list the actions I must take.</span> <span class="sg-fmt">A table: action, who asked, deadline — urgent first.</span> <span class="sg-tone">Short and plain.</span></div><div class="bgn">Now it fits your job.</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" id="s-g-lab">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Hands-On · E3.1 Library Hunt · 12 min</span>
+    <h2 class="demo-h b">Find three. Adapt one. <span class="hl">Save it twice.</span></h2>
+    <ol class="steps-n">
+      <li class="b"><span>Open the Prompt Gallery. Filter by <b>your role</b> and one app.</span></li>
+      <li class="b"><span>Pick three prompts you'd use. Adapt one with CTFT and run it.</span></li>
+      <li class="b"><span>Save it to <b>Your prompts</b> in Copilot — and to your Prompt Bank.</span></li>
+    </ol>
+    <a class="labcta b" href="coded-copilot-day-3-lab.html#E3.1" target="_blank" rel="noopener">Open E3.1 →</a>
+  </div>
+</div>
+
+<!-- ===================== BLOCK 2 · AGENT BUILDER ===================== -->
+
+<div class="slide" id="s-a-hook">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Block 2 · Agent Builder</span>
+    <h2 class="demo-h b">Every time, you paste the same context: who you are, which file, what format. <span class="hl">An agent remembers it for you.</span></h2>
+  </div>
+</div>
+
+<div class="slide" id="s-a-what">
+  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">What Is An Agent?</span>
+    <h2 class="term-h b">Copilot <span class="hl">with a job description.</span></h2>
+    <div class="sys3">
+      <div class="sys s1 b"><div class="sn">Instructions</div><h3>How it behaves</h3><p>A CTFT prompt that never goes away.</p></div>
+      <div class="sys s2 b"><div class="sn">Knowledge</div><h3>What it reads</h3><p>Your files, SharePoint, up to four websites.</p></div>
+      <div class="sys s3 b"><div class="sn">Starter prompts</div><h3>How people start</h3><p>Two or three ready buttons.</p></div>
+    </div>
+    <p class="body-l b">Same context three times a week? <b>Build an agent.</b></p>
+  </div>
+</div>
+
+<div class="slide" id="s-a-how">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Agent Builder · In The Copilot App</span>
+    <h2 class="term-h b">Five steps to <span class="hl">your first agent.</span></h2>
+    <ol class="steps-n">
+      <li class="b"><span><b>New agent</b> — in the left pane.<small>Also in Teams. Not on mobile.</small></span></li>
+      <li class="b"><span><b>Describe</b> it in plain words.<small>Or <b>Skip to configure</b> and fill the boxes.</small></span></li>
+      <li class="b"><span><b>Add knowledge</b> — upload a file.<small>Up to 20 files.</small></span></li>
+      <li class="b"><span><b>Try it</b> — ask a question you know the answer to.</span></li>
+      <li class="b"><span><b>Create.</b><small>Private to you — until you tap <b>Share</b>.</small></span></li>
+    </ol>
+  </div>
+</div>
+
+<div class="slide" id="s-a-instr">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Instructions = CTFT</span>
+    <h2 class="demo-h b">Instructions are a prompt <span class="hl">that never goes away.</span></h2>
+    <div class="bgcompare b">
+      <div class="bgcard bad"><div class="bgk">Weak</div><div class="bgp">Answer HR questions.</div><div class="bgn">It guesses everything.</div></div>
+      <div class="bgcard good"><div class="bgk">Strong — CTFT</div><div class="bgp"><span class="sg-ctx">You answer Tamra staff questions about HR policy.</span> <span class="sg-task">Use only the four policy files. If files disagree, use the newest.</span> <span class="sg-fmt">Short answer, then the rule and the file. Not in the files? Say “Ask HR.”</span> <span class="sg-tone">Plain and friendly.</span></div><div class="bgn">Now it knows its job.</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" id="s-a-know">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Knowledge</span>
+    <h2 class="term-h b">Give it files — <span class="hl">and know who else sees them.</span></h2>
+    <div class="keys">
+      <div class="key b"><div class="k-ic">📎</div><div><div class="k-t">Upload, or point to SharePoint</div><div class="k-d">It can only use files you can open.</div></div></div>
+      <div class="key b"><div class="k-ic">🎯</div><div><div class="k-t">Only use specified sources</div><div class="k-d">Turn it on. Fewer made-up answers.</div></div></div>
+      <div class="key b"><div class="k-ic">👥</div><div><div class="k-t">Share the agent = share the files</div><div class="k-d">Anyone who chats with it gets answers from your uploads.</div></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" id="s-a-lab">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Hands-On · E3.2 · 25 min</span>
+    <h2 class="demo-h b">Build Tamra HR Helper. <span class="hl">Then try to break it.</span></h2>
+    <div class="tasks">
+      <div class="task b"><span class="tk-id">1</span><span class="tk-t">Build<small>Describe it. Add the four HR policy files.</small></span><span class="tk-m">8 min</span></div>
+      <div class="task b"><span class="tk-id">2</span><span class="tk-t">Test six ways<small>A fact · who asks · files disagree · maths · not in the files · private data</small></span><span class="tk-m">12 min</span></div>
+      <div class="task b"><span class="tk-id">3</span><span class="tk-t">Fix<small>Change one instruction. Test again.</small></span><span class="tk-m">5 min</span></div>
+    </div>
+    <p class="done-line b"><b>Done:</b> six tests noted — and one instruction fixed.</p>
+    <a class="labcta b" href="coded-copilot-day-3-lab.html#E3.2" target="_blank" rel="noopener">Open E3.2 →</a>
+  </div>
+</div>
+
+<div class="slide" id="s-a-check">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Quick Check</span>
+    <h2 class="demo-h b">Your agent answers a question that isn't in its files — confidently. <span class="hl">What do you fix?</span></h2>
+    <div class="qc-card b"><div class="qc-k">Ask the room</div><p>The <b>instructions</b>: “If it isn't in the files, say so.” Turn on <b>Only use specified sources</b>. Then test again.</p></div>
+  </div>
+</div>
+
+<div class="slide" id="s-q-agent">
+  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
+  <div class="slide-pad qslide-pad">
+    <span class="eyebrow b" style="padding-left:0">Pause</span>
+    <div class="qmark b">?</div>
+    <p class="qsub b">Questions on agents?</p>
+    <div class="parknote b">🅿️ Quick ones now — then the break</div>
+  </div>
+</div>
+
+<!-- ========== BREAK ========== -->
+<!-- ========== BREAK ========== -->
+<div class="slide" id="s-brk-1">
+  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
+  <div class="slide-pad brk-slide">
+    <span class="eyebrow b" style="padding-left:0">Break · 15 min</span>
+    <h2 class="term-h b">Break.</h2>
+    <div class="mini-timer b" data-min="15">
+      <div class="mt-time">15:00</div>
+      <div class="mt-bar"><div class="mt-fill"></div></div>
+      <div class="mt-back">Scheduled: back at 10:40 AM</div>
+      <div class="mt-actions">
+        <button class="btn" data-d="-5" title="5 minutes less">−5</button>
+        <button class="btn" data-d="-1" title="1 minute less">−1</button>
+        <button class="btn primary mt-start">Start</button>
+        <button class="btn" data-d="1" title="1 minute more">+1</button>
+        <button class="btn" data-d="5" title="5 minutes more">+5</button>
+        <button class="btn mt-reset">Reset</button>
+      </div>
+    </div>
+    <p class="brk-next b">Next: <b>Safety with AI</b></p>
+  </div>
+</div>
+
+<!-- ===================== BLOCK 3 · SAFETY WITH AI ===================== -->
 
 <div class="slide" id="s-r-hook">
   <div class="bg-grid"></div><div class="blob b1"></div>
   <div class="slide-pad">
-    <span class="eyebrow b">Block 1 · Responsible AI</span>
+    <span class="eyebrow b">Block 3 · Safety with AI</span>
     <h2 class="demo-h b">The fastest way to lose the tool is to misuse it once. One client's data in the wrong box. One answer sent unchecked. <span class="hl">Then everything is under review.</span></h2>
     <p class="body-l b">Right data. Inside the walls. A person accountable.</p>
   </div>
@@ -148,11 +324,43 @@
     <span class="eyebrow b">Compliance</span>
     <h2 class="term-h b">Whose rules apply? <span class="hl">Three layers.</span></h2>
     <ol class="steps-n">
-      <li class="b"><span><b>Your company's policy — first.</b><small>Public · Internal · Confidential · Restricted</small></span></li>
+      <li class="b"><span><b>Your company's policy — first.</b><small>It sorts data into four tiers. Next slide.</small></span></li>
       <li class="b"><span><b>Your sector's regulator.</b><small>e.g. Central Bank of Kuwait · CITRA's Data Privacy Protection Regulation (2024)</small></span></li>
       <li class="b"><span><b>Microsoft's controls in your tenant.</b><small>Labels, audit, retention — set by IT.</small></span></li>
     </ol>
     <p class="body-l b">Not sure? <b>Don't paste. Ask.</b></p>
+  </div>
+</div>
+
+<div class="slide" id="s-r-tiers">
+  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Compliance · The Four Tiers</span>
+    <h2 class="term-h b">Same company, four kinds of data. <span class="hl">Know the difference.</span></h2>
+    <div class="tier4">
+      <div class="tc t1 b"><div class="tn">Public</div><div class="tw">Anyone can see it</div><ul><li>Menu and prices on the website</li><li>A press release</li><li>A job advert, once posted</li></ul><div class="tai"><span>In Copilot</span>Yes — as it is</div></div>
+      <div class="tc t2 b"><div class="tn">Internal</div><div class="tw">All staff</div><ul><li>Team meeting notes</li><li>HR policies, the staff handbook</li><li>The café rota</li></ul><div class="tai"><span>In Copilot</span>Yes — work account only</div></div>
+      <div class="tc t3 b"><div class="tn">Confidential</div><div class="tw">Only people who need it</div><ul><li>Results before they are announced</li><li>A client proposal with prices</li><li>A supplier contract or dispute</li></ul><div class="tai"><span>In Copilot</span>Work account only — remove what you don't need</div></div>
+      <div class="tc t4 b"><div class="tn">Restricted</div><div class="tw">A named few · protected by law</div><ul><li>Civil IDs, phone and card numbers</li><li>Salaries, reviews, medical records</li><li>Passwords and API keys</li></ul><div class="tai"><span>In Copilot</span>Remove every identifier — or never</div></div>
+    </div>
+    <p class="body-l b">The test: <b>if this leaked, who gets hurt — and how badly?</b></p>
+  </div>
+</div>
+
+<div class="slide" id="s-r-tierquiz">
+  <div class="bg-grid"></div><div class="blob b1"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Which Tier?</span>
+    <h2 class="term-h b">Six items. <span class="hl">Tap to check.</span></h2>
+    <div class="fliprow three b">
+      <div class="flip"><div class="fin"><div class="fface"><span class="fl">📢</span><span class="fm">The Cold Brew launch post, once it's live</span></div><div class="fface back"><span class="fm" style="color:var(--green-lt)">Public</span><span class="ft">Already published</span></div></div></div>
+      <div class="flip"><div class="fin"><div class="fface"><span class="fl">📋</span><span class="fm">The leave policy on the HR portal</span></div><div class="fface back"><span class="fm" style="color:#6f9ce8">Internal</span><span class="ft">Every employee can read it</span></div></div></div>
+      <div class="flip"><div class="fin"><div class="fface"><span class="fl">💼</span><span class="fm">The Darwaza Hotels proposal and prices</span></div><div class="fface back"><span class="fm" style="color:var(--amber)">Confidential</span><span class="ft">Sales team and the client only</span></div></div></div>
+      <div class="flip"><div class="fin"><div class="fface"><span class="fl">🪪</span><span class="fm">A customer's Civil ID and card number</span></div><div class="fface back"><span class="fm" style="color:var(--danger)">Restricted</span><span class="ft">Personal data</span></div></div></div>
+      <div class="flip"><div class="fin"><div class="fface"><span class="fl">📊</span><span class="fm">Q3 results, before the announcement</span></div><div class="fface back"><span class="fm" style="color:var(--amber)">Confidential</span><span class="ft">Public after 20 October</span></div></div></div>
+      <div class="flip"><div class="fin"><div class="fface"><span class="fl">🔑</span><span class="fm">The delivery app's database password</span></div><div class="fface back"><span class="fm" style="color:var(--danger)">Restricted</span><span class="ft">Never in a prompt</span></div></div></div>
+    </div>
+    <p class="body-l b">Tiers can change: results are Confidential today, Public after the announcement.</p>
   </div>
 </div>
 
@@ -177,7 +385,7 @@
     <h2 class="term-h b">Three checks, every time<span class="hl">.</span></h2>
     <div class="checks">
       <div class="check-row b"><div class="cbox"></div><div><div class="c-t">Identity check</div><div class="c-d">Names, IDs, numbers removed?</div></div></div>
-      <div class="check-row b"><div class="cbox"></div><div><div class="c-t">Sensitivity check</div><div class="c-d">Confidential or Restricted? Do it by hand.</div></div></div>
+      <div class="check-row b"><div class="cbox"></div><div><div class="c-t">Tier check</div><div class="c-d">Confidential? Work account only. Restricted? Redact — or don't paste.</div></div></div>
       <div class="check-row b"><div class="cbox"></div><div><div class="c-t">Logic check</div><div class="c-d">Maths and facts checked?</div></div></div>
     </div>
   </div>
@@ -186,14 +394,14 @@
 <div class="slide" id="s-r-lab">
   <div class="bg-grid"></div><div class="blob b1"></div>
   <div class="slide-pad">
-    <span class="eyebrow b">Hands-On · 22 min</span>
+    <span class="eyebrow b">Hands-On · 25 min</span>
     <h2 class="demo-h b">Classify it. Redact it. <span class="hl">Argue the close ones.</span></h2>
     <div class="tasks">
-      <div class="task b"><span class="tk-id">E3.1</span><span class="tk-t">Classify + Redact<small>Six items, four tiers</small></span><span class="tk-m">12 min</span></div>
-      <div class="task b"><span class="tk-id">E3.2</span><span class="tk-t">Judgment calls<small>Six grey-zone requests, in pairs</small></span><span class="tk-m">10 min</span></div>
+      <div class="task b"><span class="tk-id">E3.3</span><span class="tk-t">Classify + Redact<small>Six items: pick the tier, pick the action, redact</small></span><span class="tk-m">13 min</span></div>
+      <div class="task b"><span class="tk-id">E3.4</span><span class="tk-t">Judgment calls<small>Six requests from colleagues, in pairs — then compare</small></span><span class="tk-m">12 min</span></div>
     </div>
-    <p class="done-line b"><b>Done:</b> six items handled. One disagreement settled.</p>
-    <a class="labcta b" href="coded-copilot-day-3-lab.html#E3.1" target="_blank" rel="noopener">Open the Day 3 lab →</a>
+    <p class="done-line b"><b>Done:</b> 6 items tiered and handled · 6 calls made · answer keys compared.</p>
+    <a class="labcta b" href="coded-copilot-day-3-lab.html#E3.3" target="_blank" rel="noopener">Open the Day 3 lab →</a>
   </div>
 </div>
 
@@ -212,20 +420,53 @@
     <span class="eyebrow b" style="padding-left:0">Pause</span>
     <div class="qmark b">?</div>
     <p class="qsub b">Questions on safe use?</p>
-    <div class="parknote b">🅿️ Quick ones now — then the break</div>
+    <div class="parknote b">🅿️ Quick ones now — then the MAP test</div>
   </div>
 </div>
 
-<!-- ========== BREAK ========== -->
-<div class="slide" id="s-brk-1">
+<!-- ========== POST MAP TEST ========== -->
+<div class="slide" id="s-map-post">
+  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
+  <div class="slide-pad">
+    <span class="eyebrow b">Post-Workshop · 11:30</span>
+    <h2 class="term-h b">The MAP test — <span class="hl">again.</span></h2>
+    <p class="body-l b">Same map as Tuesday. 30 minutes.</p>
+    <div class="maptest-row b">
+      <div class="mini-timer" data-min="30" style="margin-top:0;flex:1;min-width:280px">
+        <div class="mt-time">30:00</div>
+        <div class="mt-bar"><div class="mt-fill"></div></div>
+        <div class="mt-actions">
+          <button class="btn primary mt-start">Start 30:00</button>
+          <button class="btn mt-plus">+2 min</button>
+          <button class="btn mt-reset">Reset</button>
+          <a class="btn" data-link="mapPost"><span data-pending="Link coming soon">Open the MAP test ↗</span></a>
+        </div>
+      </div>
+      <div class="qr-wrap"><div class="qr qr-lg" data-qr="mapPost"></div><div class="qr-scan">Scan to open</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" id="s-q-lunch">
+  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
+  <div class="slide-pad qslide-pad">
+    <span class="eyebrow b" style="padding-left:0">Pause</span>
+    <div class="qmark b">?</div>
+    <p class="qsub b">Done? Think of one task from your job for this afternoon.</p>
+    <div class="parknote b">🅿️ Then lunch</div>
+  </div>
+</div>
+
+<!-- ========== LUNCH ========== -->
+<div class="slide" id="s-brk-2">
   <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
   <div class="slide-pad brk-slide">
-    <span class="eyebrow b" style="padding-left:0">Break · 15 min</span>
-    <h2 class="term-h b">Break.</h2>
-    <div class="mini-timer b" data-min="15">
-      <div class="mt-time">15:00</div>
+    <span class="eyebrow b" style="padding-left:0">Lunch · 60 min</span>
+    <h2 class="term-h b">Lunch.</h2>
+    <div class="mini-timer b" data-min="60">
+      <div class="mt-time">60:00</div>
       <div class="mt-bar"><div class="mt-fill"></div></div>
-      <div class="mt-back">Scheduled: back at 10:05 AM</div>
+      <div class="mt-back">Scheduled: back at 1:00 PM</div>
       <div class="mt-actions">
         <button class="btn" data-d="-5" title="5 minutes less">−5</button>
         <button class="btn" data-d="-1" title="1 minute less">−1</button>
@@ -235,64 +476,16 @@
         <button class="btn mt-reset">Reset</button>
       </div>
     </div>
-    <p class="brk-next b">Next: <b>The Prompt Gallery + capstone briefing</b></p>
+    <p class="brk-next b">Next: <b>Capstone briefing + build</b></p>
   </div>
 </div>
 
-
-<!-- ===================== BLOCK 2 · PROMPT GALLERY + CAPSTONE BRIEFING ===================== -->
-
-<div class="slide" id="s-g-hook">
-  <div class="bg-grid"></div><div class="blob b1"></div>
-  <div class="slide-pad">
-    <span class="eyebrow b">Block 2 · Prompt Gallery</span>
-    <h2 class="demo-h b">You've written about ten prompts in three days. Microsoft has published thousands. <span class="hl">Why start from zero?</span></h2>
-  </div>
-</div>
-
-<div class="slide" id="s-g-what">
-  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
-  <div class="slide-pad">
-    <span class="eyebrow b">The Prompt Gallery</span>
-    <h2 class="term-h b">Ready-made prompts — <span class="hl">find, save, share.</span></h2>
-    <div class="sys3">
-      <div class="sys s1 b"><div class="sn">Where</div><h3>In Copilot</h3><p>The … menu under the chat box. Also in Word, Excel, PowerPoint.</p></div>
-      <div class="sys s2 b"><div class="sn">Where</div><h3>On the web</h3><p>Filter by role, app and task.</p></div>
-      <div class="sys s3 b"><div class="sn">Three tabs</div><h3>Suggested · Yours · Team</h3><p>Save, share with a team, or schedule.</p></div>
-    </div>
-  </div>
-</div>
-
-<div class="slide" id="s-g-adapt">
-  <div class="bg-grid"></div><div class="blob b1"></div>
-  <div class="slide-pad">
-    <span class="eyebrow b">Don't Copy — Adapt</span>
-    <h2 class="demo-h b">A gallery prompt is a <span class="hl">starting point.</span> Add your CTFT.</h2>
-    <div class="bgcompare b">
-      <div class="bgcard bad"><div class="bgk">Gallery prompt</div><div class="bgp">Summarise my recent emails and list the actions I need to take.</div><div class="bgn">Useful — but generic.</div></div>
-      <div class="bgcard good"><div class="bgk">Adapted with CTFT</div><div class="bgp"><span class="sg-ctx">I'm back after three days off and I manage the wholesale team.</span> <span class="sg-task">Summarise my emails since Sunday and list the actions I must take.</span> <span class="sg-fmt">A table: action, who asked, deadline — urgent first.</span> <span class="sg-tone">Short and plain.</span></div><div class="bgn">Now it fits your job.</div></div>
-    </div>
-  </div>
-</div>
-
-<div class="slide" id="s-g-lab">
-  <div class="bg-grid"></div><div class="blob b1"></div>
-  <div class="slide-pad">
-    <span class="eyebrow b">Hands-On · E3.3 Gallery Hunt · 12 min</span>
-    <h2 class="demo-h b">Find three. Adapt one. <span class="hl">Save it twice.</span></h2>
-    <ol class="steps-n">
-      <li class="b"><span>Open the Prompt Gallery. Filter by <b>your role</b> and one app.</span></li>
-      <li class="b"><span>Pick three prompts you'd use. Adapt one with CTFT and run it.</span></li>
-      <li class="b"><span>Save it to <b>Your prompts</b> in Copilot — and to your Prompt Bank.</span></li>
-    </ol>
-    <a class="labcta b" href="coded-copilot-day-3-lab.html#E3.3" target="_blank" rel="noopener">Open E3.3 →</a>
-  </div>
-</div>
+<!-- ===================== BLOCK 4 · CAPSTONE BRIEFING + BUILD ===================== -->
 
 <div class="slide" id="s-c-brief">
   <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
   <div class="slide-pad">
-    <span class="eyebrow b">Capstone Briefing</span>
+    <span class="eyebrow b">Block 4 · Capstone Briefing</span>
     <h2 class="term-h b">One real task. <span class="hl">Two or more Copilot surfaces.</span></h2>
     <div class="viz-flow">
       <div class="vf-step b"><span class="vf-ic"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h13"/></svg></span><span class="vf-t">Raw input</span><span class="vf-d">notes, a brief, a table</span></div>
@@ -303,7 +496,7 @@
       <span class="vf-arrow b">→</span>
       <div class="vf-step b"><span class="vf-ic"><svg viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4z"/></svg></span><span class="vf-t">Surface 3</span><span class="vf-d">e.g. Outlook sends</span></div>
     </div>
-    <p class="body-l b">That chain is a <b>workflow</b>.</p>
+    <p class="body-l b">That chain is a <b>workflow</b>. Your agent from this morning can be one step.</p>
   </div>
 </div>
 
@@ -339,59 +532,23 @@
 <div class="slide" id="s-c-plan">
   <div class="bg-grid"></div><div class="blob b1"></div>
   <div class="slide-pad">
-    <span class="eyebrow b">Plan It Now · E3.4 · 10 min</span>
+    <span class="eyebrow b">Plan It · E3.5 · 5 min</span>
     <h2 class="demo-h b">Track · task · chain · <span class="hl">first prompt.</span></h2>
     <ol class="steps-n">
       <li class="b"><span>Pick your track. Open the capstone page.</span></li>
       <li class="b"><span>Name your real task — or use the starter scenario.</span></li>
       <li class="b"><span>Sketch the chain: which surface does what, in which order.</span></li>
-      <li class="b"><span>Write the first prompt. Build it after lunch.</span></li>
+      <li class="b"><span>Write the first prompt. Then build.</span></li>
     </ol>
     <a class="labcta b" href="capstone.html#plan" target="_blank" rel="noopener">Open the capstone page →</a>
   </div>
 </div>
 
-<div class="slide" id="s-q-cap">
-  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
-  <div class="slide-pad qslide-pad">
-    <span class="eyebrow b" style="padding-left:0">Pause</span>
-    <div class="qmark b">?</div>
-    <p class="qsub b">Questions on the capstone?</p>
-    <div class="parknote b">🅿️ Quick ones now — then the break</div>
-  </div>
-</div>
-
-<!-- ========== BREAK ========== -->
-<div class="slide" id="s-brk-2">
-  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
-  <div class="slide-pad brk-slide">
-    <span class="eyebrow b" style="padding-left:0">Break · 15 min</span>
-    <h2 class="term-h b">Break.</h2>
-    <div class="mini-timer b" data-min="15">
-      <div class="mt-time">15:00</div>
-      <div class="mt-bar"><div class="mt-fill"></div></div>
-      <div class="mt-back">Scheduled: back at 11:10 AM</div>
-      <div class="mt-actions">
-        <button class="btn" data-d="-5" title="5 minutes less">−5</button>
-        <button class="btn" data-d="-1" title="1 minute less">−1</button>
-        <button class="btn primary mt-start">Start</button>
-        <button class="btn" data-d="1" title="1 minute more">+1</button>
-        <button class="btn" data-d="5" title="5 minutes more">+5</button>
-        <button class="btn mt-reset">Reset</button>
-      </div>
-    </div>
-    <p class="brk-next b">Next: <b>The post-workshop MAP test</b></p>
-  </div>
-</div>
-
-
-<!-- ========== POST MAP TEST ========== -->
-<div class="slide" id="s-map-post">
+<div class="slide" id="s-c-go">
   <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
   <div class="slide-pad">
-    <span class="eyebrow b">Post-Workshop · 11:10</span>
-    <h2 class="term-h b">The MAP test — <span class="hl">again.</span></h2>
-    <p class="body-l b">Same map as Tuesday. 30 minutes.</p>
+    <span class="eyebrow b">Capstone Build · E3.6</span>
+    <h2 class="term-h b">Build it<span class="hl">.</span></h2>
     <div class="maptest-row b">
       <div class="mini-timer" data-min="30" style="margin-top:0;flex:1;min-width:280px">
         <div class="mt-time">30:00</div>
@@ -400,67 +557,10 @@
           <button class="btn primary mt-start">Start 30:00</button>
           <button class="btn mt-plus">+2 min</button>
           <button class="btn mt-reset">Reset</button>
-          <a class="btn" data-link="mapPost"><span data-pending="Link coming soon">Open the MAP test ↗</span></a>
-        </div>
-      </div>
-      <div class="qr-wrap"><div class="qr qr-lg" data-qr="mapPost"></div><div class="qr-scan">Scan to open</div></div>
-    </div>
-  </div>
-</div>
-
-<div class="slide" id="s-q-lunch">
-  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
-  <div class="slide-pad qslide-pad">
-    <span class="eyebrow b" style="padding-left:0">Pause</span>
-    <div class="qmark b">?</div>
-    <p class="qsub b">Done? Look over your capstone plan.</p>
-    <div class="parknote b">🅿️ Then buffer and lunch</div>
-  </div>
-</div>
-
-<!-- ========== BREAK ========== -->
-<div class="slide" id="s-brk-3">
-  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
-  <div class="slide-pad brk-slide">
-    <span class="eyebrow b" style="padding-left:0">Buffer + lunch · 80 min</span>
-    <h2 class="term-h b">Lunch.</h2>
-    <div class="mini-timer b" data-min="80">
-      <div class="mt-time">80:00</div>
-      <div class="mt-bar"><div class="mt-fill"></div></div>
-      <div class="mt-back">Scheduled: back at 1:00 PM</div>
-      <div class="mt-actions">
-        <button class="btn" data-d="-5" title="5 minutes less">−5</button>
-        <button class="btn" data-d="-1" title="1 minute less">−1</button>
-        <button class="btn primary mt-start">Start</button>
-        <button class="btn" data-d="1" title="1 minute more">+1</button>
-        <button class="btn" data-d="5" title="5 minutes more">+5</button>
-        <button class="btn mt-reset">Reset</button>
-      </div>
-    </div>
-    <p class="brk-next b">Next: <b>Build your capstone</b></p>
-  </div>
-</div>
-
-
-<!-- ===================== BLOCK 3 · CAPSTONE BUILD ===================== -->
-
-<div class="slide" id="s-c-go">
-  <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
-  <div class="slide-pad">
-    <span class="eyebrow b">Block 3 · Capstone Build</span>
-    <h2 class="term-h b">Build it<span class="hl">.</span></h2>
-    <div class="maptest-row b">
-      <div class="mini-timer" data-min="40" style="margin-top:0;flex:1;min-width:280px">
-        <div class="mt-time">40:00</div>
-        <div class="mt-bar"><div class="mt-fill"></div></div>
-        <div class="mt-actions">
-          <button class="btn primary mt-start">Start 40:00</button>
-          <button class="btn mt-plus">+2 min</button>
-          <button class="btn mt-reset">Reset</button>
         </div>
       </div>
     </div>
-    <p class="done-line b"><b>Stuck?</b> Ask your neighbour, then the trainer. Check the three boxes on the capstone page as you go. At 1:40 — pair share.</p>
+    <p class="done-line b"><b>Stuck?</b> Ask your neighbour, then the trainer. Check the three boxes on the capstone page as you go. At 1:45 — pair share.</p>
     <a class="labcta b" href="capstone.html#build" target="_blank" rel="noopener">Open the capstone page →</a>
   </div>
 </div>
@@ -489,7 +589,7 @@
 </div>
 
 <!-- ========== BREAK ========== -->
-<div class="slide" id="s-brk-4">
+<div class="slide" id="s-brk-3">
   <div class="bg-grid"></div><div class="blob b1"></div><div class="blob b2"></div>
   <div class="slide-pad brk-slide">
     <span class="eyebrow b" style="padding-left:0">Break · 10 min</span>
@@ -510,7 +610,6 @@
     <p class="brk-next b">Next: <b>Certificates + survey</b></p>
   </div>
 </div>
-
 
 <!-- ===================== CLOSE ===================== -->
 
@@ -536,9 +635,9 @@
     <div class="road">
       <div class="road-row b"><span class="rn">TUE</span><div><div class="rt">You audited your week</div><div class="rd">Three tasks that drain your time.</div></div></div>
       <div class="road-row b"><span class="rn">WED</span><div><div class="rt">Copilot worked inside four apps</div><div class="rd">A prompt from each, in your Prompt Bank.</div></div></div>
-      <div class="road-row b"><span class="rn">THU</span><div><div class="rt">You chained them — safely</div><div class="rd">One real task, a workflow you can run next week.</div></div></div>
+      <div class="road-row b"><span class="rn">THU</span><div><div class="rt">You built an agent and chained it all — safely</div><div class="rd">One real task, a workflow you can run next week.</div></div></div>
     </div>
-    <p class="body-l b">Before you go: <b>export your Prompt Bank</b>.</p>
+    <p class="body-l b">Before you go: <b>download your Prompt Bank as Word</b> — save it to OneDrive.</p>
   </div>
 </div>
 

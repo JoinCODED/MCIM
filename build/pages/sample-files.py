@@ -29,6 +29,12 @@ FILES = [
  ('Day 2 · Teams (E2.6)', [
   ('tamra-leadership-meeting-transcript.docx', 'Leadership meeting transcript', 'A Teams transcript to recap into decisions, actions and owners.', 'Everyone'),
  ]),
+ ('Day 3 · Agent Builder (E3.2) — Tamra HR Helper knowledge files', [
+  ('tamra-employee-handbook.docx', 'Employee Handbook (2024)', 'Working hours, probation, benefits, discipline. Older than the leave policy.', 'Everyone'),
+  ('tamra-leave-policy-2026.docx', 'Leave Policy 2026', 'Annual, sick and other leave. Replaces the handbook\'s leave section.', 'Everyone'),
+  ('tamra-hybrid-work-policy.docx', 'Hybrid and Remote Work Policy', 'Who can work from home, and how.', 'Everyone'),
+  ('tamra-expenses-travel-policy.docx', 'Expenses and Business Travel Policy', 'Claims, limits, approvals, travel allowances.', 'Everyone'),
+ ]),
  ('Day 3 · Capstone inputs', [
   ('tamra-leadership-meeting-transcript.docx', 'Leadership meeting transcript', 'Step 1 input: recap it.', 'Executive'),
   ('tamra-leadership-meeting-notes.docx', 'Leadership meeting notes', 'Typed notes to cross-check against the transcript.', 'Executive'),

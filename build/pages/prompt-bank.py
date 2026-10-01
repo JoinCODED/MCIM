@@ -26,7 +26,7 @@ JS = r'''
     var a = PB.all();
     document.getElementById('cnt').textContent = a.length + (a.length === 1 ? ' prompt' : ' prompts');
     var shown = a.filter(function(p){ return flt === 'all' || p.day === flt || p.role === flt; });
-    if (!a.length) { list.innerHTML = '<div class="empty"><b>Your Prompt Bank is empty.</b><br>In any lab, tap <b>＋ Save to Prompt Bank</b> under a prompt — or add one below.<br>Good prompts to keep: the ones you will reuse every week.</div>'; return; }
+    if (!a.length) { list.innerHTML = '<div class="empty"><b>Your Prompt Bank is empty in this browser.</b><br>In any lab, tap <b>＋ Save to Prompt Bank</b> under a prompt — or add one below.<br>New laptop? <b>Download as Word</b> still gives you the template to fill in.</div>'; return; }
     if (!shown.length) { list.innerHTML = '<div class="empty">No prompts match this filter.</div>'; return; }
     list.innerHTML = shown.map(function(p){
       var tags = [p.day, p.app, p.role ? (window.ROLES[p.role] || p.role) : ''].filter(Boolean).map(function(t){ return '<span class="pill-tag">' + esc(t) + '</span>'; }).join('');
@@ -49,6 +49,11 @@ JS = r'''
   document.querySelectorAll('.flt').forEach(function(b){ b.onclick = function(){ flt = b.getAttribute('data-f'); document.querySelectorAll('.flt').forEach(function(x){ x.classList.toggle('on', x === b); }); draw(); }; });
   function asText(){ return PB.all().map(function(p, i){ return (i + 1) + '. ' + (p.title || 'My prompt') + (p.day ? ' (' + p.day + (p.app ? ' · ' + p.app : '') + ')' : '') + '\n' + p.text; }).join('\n\n'); }
   document.getElementById('copyAll').onclick = function(){ var t = asText(); if (!t) return toast('Nothing to copy yet'); copyText(t).then(function(){ toast('All prompts copied ✓'); }); };
+  document.getElementById('dlWord').onclick = function(){
+    var a = document.createElement('a'); a.href = URL.createObjectURL(window.bankDocx(PB.all(), { roles: window.ROLES, dateText: new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) }));
+    a.download = 'my-copilot-prompt-bank.docx'; document.body.appendChild(a); a.click(); a.remove();
+    toast(PB.all().length ? 'Word file downloaded ✓ Save it to your OneDrive' : 'Empty template downloaded ✓');
+  };
   document.getElementById('dl').onclick = function(){
     var t = asText(); if (!t) return toast('Nothing to export yet');
     var blob = new Blob(['My Copilot Prompt Bank — Mastering Copilot in Microsoft 365 (CODED)\n\n' + t + '\n'], { type: 'text/plain' });
@@ -58,7 +63,7 @@ JS = r'''
     var t = document.getElementById('newText').value, ti = document.getElementById('newTitle').value;
     var r = pbAdd(t, { title: ti.trim() || 'My prompt', app: 'Added by hand' }); if (r === 'ok') { document.getElementById('newText').value = ''; document.getElementById('newTitle').value = ''; draw(); }
   };
-  document.getElementById('clearAll').onclick = function(){ if (PB.all().length && confirm('Delete ALL prompts in your Prompt Bank? Export first if you want to keep them.')) { PB.save([]); draw(); } };
+  document.getElementById('clearAll').onclick = function(){ if (PB.all().length && confirm('Delete ALL prompts in your Prompt Bank? Download as Word first if you want to keep them.')) { PB.save([]); draw(); } };
   window.addEventListener('storage', draw);
   draw();
 })();
@@ -71,15 +76,17 @@ def build():
 <div class="wrap narrow">
   <span class="eyebrow">Your Prompts · Kept</span>
   <h1>My Prompt Bank.</h1>
-  <p class="intro">Every prompt you save in the labs lands here. Reuse them at work, improve them, and build your Day 3 capstone from them. They are saved <b>in this browser only</b> — export them before you leave.</p>
+  <p class="intro">Every prompt you save in the labs lands here. Reuse them at work, improve them, and build your Day 3 capstone from them. They are saved <b>in this browser only</b> — so keep them in a <b>Word document</b>: tap <b>Download as Word</b>, then save the file to your OneDrive.</p>
+  <div class="card" style="margin-top:18px;border-left:3px solid var(--rose)"><b>Your Prompt Bank lives in Word.</b> The Word file groups your prompts by day, with a heading for each one and a blank CTFT template at the end. In OneDrive it is yours after the workshop, on any device — and Copilot can use it: type <b>/</b> and pick the file, then say which prompt to run. Download it again whenever you save new prompts here.</div>
 
   <div class="pb-bar">
     <div class="filters"><button class="flt on" data-f="all">All</button><button class="flt" data-f="Day 1">Day 1</button><button class="flt" data-f="Day 2">Day 2</button><button class="flt" data-f="Day 3">Day 3</button>{roles}</div>
     <span class="grow"></span><span class="count" id="cnt">0 prompts</span>
   </div>
   <div class="pb-bar" style="margin-top:0">
+    <button class="btn primary" id="dlWord">Download as Word (.docx)</button>
     <button class="btn" id="copyAll">Copy all</button>
-    <button class="btn primary" id="dl">Export (.txt)</button>
+    <button class="btn" id="dl">Plain text (.txt)</button>
     <span class="grow"></span>
     <button class="btn danger" id="clearAll">Delete all</button>
   </div>
@@ -95,7 +102,7 @@ def build():
     </div>
   </div>
 
-  <p class="note"><b>Keep it after the workshop:</b> tap <b>Export</b> and save the file — or <b>Copy all</b> and paste into OneNote or Word. In Copilot itself, you can also save prompts to <b>Your prompts</b> in the Prompt Gallery (Day 3).</p>
+  <p class="note"><b>Keep it after the workshop:</b> tap <b>Download as Word</b> and save the file to your OneDrive. Add new prompts straight into the Word file from now on. In Copilot itself, you can also save prompts to <b>Your prompts</b> in the Prompt Gallery (Day 3).</p>
 </div>
 ''' + footer_row()
-    return page('My Prompt Bank — ' + TITLE + ' · CODED', body, css=CSS, js=JS, desc='Your saved Copilot prompts from the workshop labs.')
+    return page('My Prompt Bank — ' + TITLE + ' · CODED', body, css=CSS, js=rd('static/docx-bank.js') + '\n' + JS, desc='Your saved Copilot prompts from the workshop labs.')

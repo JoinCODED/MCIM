@@ -202,15 +202,15 @@ def build():
     import json as _json
     tabs = ''.join(f'<button class="tab2" data-t="{k}">{v}</button>' for k, v in M['roles'].items())
     track_opts = ''.join(f'<option value="{k}">{v}</option>' for k, v in M['roles'].items())
-    surf_opts = ''.join(f'<option>{s}</option>' for s in ['Copilot Chat', 'Word', 'PowerPoint', 'Excel', 'Outlook', 'Teams'])
-    surfs = ''.join(f'<label><input type="checkbox" value="{s}"> {s}</label>' for s in ['Copilot Chat', 'Word', 'PowerPoint', 'Excel', 'Outlook', 'Teams'])
+    surf_opts = ''.join(f'<option>{s}</option>' for s in ['Copilot Chat', 'Word', 'PowerPoint', 'Excel', 'Outlook', 'Teams', 'My agent'])
+    surfs = ''.join(f'<label><input type="checkbox" value="{s}"> {s}</label>' for s in ['Copilot Chat', 'Word', 'PowerPoint', 'Excel', 'Outlook', 'Teams', 'My agent'])
     tabs_nav = '<nav class="tabs"><a href="#tracks">Tracks</a><a href="#plan">Plan</a><a href="#build">Build + check</a></nav>'
     body = topbar('Capstone · <b>Your Workflow</b>').replace('</div></div>', tabs_nav + '</div></div>', 1) + f'''
 <div class="wrap narrow">
   <div class="hero-c">
     <span class="eyebrow">Day 3 · Capstone</span>
     <h1>Create a workflow.</h1>
-    <p class="intro">Chain <b>two or more</b> Copilot surfaces to solve <b>one real, repeating task</b> from your job. Pick a track, adapt the starter scenario, and build it. No submission, no showcase — it goes home with you.</p>
+    <p class="intro">Chain <b>two or more</b> Copilot surfaces to solve <b>one real, repeating task</b> from your job. Pick a track, adapt the starter scenario, and build it. The agent you built this morning can be one of the surfaces. No submission, no showcase — it goes home with you.</p>
     <div class="how">
       <div><b>1 · Track</b>Pick the track closest to your job.</div>
       <div><b>2 · Task</b>Your real task — or the starter.</div>
@@ -224,7 +224,7 @@ def build():
   <div class="tabs2">{tabs}</div>
   <div class="track" id="track"></div>
 
-  <div class="sec-label anchor" id="plan">Plan your workflow · E3.4</div>
+  <div class="sec-label anchor" id="plan">Plan your workflow · E3.5</div>
   <div class="card planner">
     <div><label for="pTask">My real task (repeating, from my job)</label><input class="in" id="pTask" placeholder="e.g. Every Sunday I turn the weekly sales export into a summary email for my manager"></div>
     <div><label for="pTrack">Closest track</label><select class="in" id="pTrack">{track_opts}</select></div>
@@ -238,7 +238,7 @@ def build():
     <div class="bar2"><button class="btn" id="pSave">＋ Save prompt to Prompt Bank</button><button class="btn" id="pCopy">Copy my plan</button><button class="btn primary" id="pDl">Download my plan (.txt)</button></div>
   </div>
 
-  <div class="sec-label anchor" id="build">Build + self-check · E3.5</div>
+  <div class="sec-label anchor" id="build">Build + self-check · E3.6</div>
   <p class="p">Build the chain step by step. Check every output before it feeds the next step. Tick each box when it's true.</p>
   <div class="rub">
     <label><input type="checkbox" value="chain"><span><b>Chains 2 or more Copilot surfaces</b><small>The output of one step is the input of the next.</small></span></label>
@@ -249,7 +249,7 @@ def build():
     <label style="display:block;font-size:12.5px;font-weight:700;color:var(--ink-dim)">How long does this task take?</label>
     <div class="times"><input class="in" id="tHand" placeholder="By hand — e.g. 3 hours"><input class="in" id="tAi" placeholder="With your chain — e.g. 40 minutes"></div>
   </div>
-  <p class="note"><b>Take it home:</b> download your plan, and export your <a href="prompt-bank.html" style="color:var(--amber);text-decoration:underline">Prompt Bank</a>. On Sunday, run the chain on the real task.</p>
+  <p class="note"><b>Take it home:</b> download your plan, and download your <a href="prompt-bank.html" style="color:var(--amber);text-decoration:underline">Prompt Bank</a> as a Word file. On Sunday, run the chain on the real task.</p>
 </div>
 <script>window.TRACKS = {_json.dumps(TRACKS)};</script>
 ''' + footer_row()
